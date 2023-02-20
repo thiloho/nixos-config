@@ -20,6 +20,12 @@
           }
         ];
       };
+      mainserver = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = [
+          ./nixos-configurations/mainserver
+        ];
+      };
     };
   };
 }
