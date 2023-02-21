@@ -8,28 +8,11 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      ../shared.nix
     ];
-
-  # Use the systemd-boot EFI boot loader.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
-
-  # Enable experimental features nix-command and flakes
-  nix = {
-    package = pkgs.nixFlakes;
-    extraOptions = ''
-      experimental-features = nix-command flakes
-    '';
-  };
-
-  # Allow proprietary software
-  nixpkgs.config.allowUnfree = true;
 
   # Machine name for networking
   networking.hostName = "mainpc";
-
-  # Set your time zone.
-  time.timeZone = "Europe/Amsterdam";
 
   # Enable xorg
   services.xserver = {
@@ -57,12 +40,6 @@
     jack.enable = true; 
   };
  
-  # Setting a user account
-  users.users.thiloho = {
-    isNormalUser = true;
-    extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
-  };
-
   # Use home manager as a module
   home-manager.users.thiloho = { pkgs, ... }: {
     programs = {
@@ -79,6 +56,7 @@
     home = {
       packages = with pkgs; [
         tldr
+        flameshot
       ];
       stateVersion = "22.11";
     };
