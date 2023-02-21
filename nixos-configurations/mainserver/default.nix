@@ -11,6 +11,10 @@
       ../shared.nix
     ];
 
+  environment.systemPackages = with pkgs; [
+    neofetch
+  ];
+
   # Machine name for networking
   networking.hostName = "mainserver";
 

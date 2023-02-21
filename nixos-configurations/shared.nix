@@ -11,6 +11,9 @@
     extraOptions = ''
       experimental-features = nix-command flakes
     '';
+    settings.trusted-users = [
+      "thiloho"
+    ];
   };
 
   # Allow proprietary software
