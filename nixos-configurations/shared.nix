@@ -24,4 +24,7 @@
     isNormalUser = true;
     extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
   };
+
+  # Enable OpenSSH for remote logins
+  services.openssh.enable = true;
 }
