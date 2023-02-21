@@ -11,9 +11,6 @@
     extraOptions = ''
       experimental-features = nix-command flakes
     '';
-    settings.trusted-users = [
-      "thiloho"
-    ];
   };
 
   # Allow proprietary software
@@ -29,5 +26,8 @@
   };
 
   # Enable OpenSSH for remote logins
-  services.openssh.enable = true;
+  services.openssh = {
+    enable = true;
+    permitRootLogin = "yes";
+  };
 }
