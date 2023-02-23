@@ -17,6 +17,11 @@
 
   # Machine name for networking
   networking.hostName = "mainserver";
+  
+  services.postgresql = {
+    enable = true;
+    package = pkgs.postgresql_15;
+  };
 
   # Stateful version
   system.stateVersion = "22.11";
