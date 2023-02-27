@@ -11,12 +11,12 @@
       ../shared.nix
     ];
 
-  # Machine name for networking
   networking = {
     hostName = "mainserver";
-    firewall.allowedTCPPorts = [ 5432 ];
+    # firewall.allowedTCPPorts = [ 5432 ];
   };  
 
+  /*
   services.postgresql = {
     enable = true;
     package = pkgs.postgresql_15;
@@ -25,6 +25,7 @@
       host all all 0.0.0.0/0 scram-sha-256
     '';
   };
+  */
 
   # Stateful version
   system.stateVersion = "22.11";

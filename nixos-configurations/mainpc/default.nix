@@ -57,7 +57,7 @@
       packages = with pkgs; [
         tldr
         flameshot
-        postgresql_15
+        # postgresql_15
       ];
       stateVersion = "22.11";
     };
