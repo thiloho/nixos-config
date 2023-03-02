@@ -38,12 +38,15 @@
 
     };
 
-    nginx.virtualHosts."192.168.178.37" = {
-      locations."/" = {
-        proxyPass = "127.0.0.1:8080";
-        proxyWebsockets = true;
-      };
-    };   
+    nginx = {
+      enable = true;
+      virtualHosts."*" = {
+        locations."/" = {
+          proxyPass = "127.0.0.1:8080";
+          proxyWebsockets = true;
+        };
+      };   
+    };
   };
  
   
