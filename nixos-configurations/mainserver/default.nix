@@ -27,6 +27,26 @@
   };
   */
 
+  # Configure Headscale as a controller service for the tailscale VPN
+  services = {
+    headscale = {
+      enable = true;
+      settings = {
+        listen_addr = "127.0.0.1:8080";
+        dns_config.base_domain = "tailscale.thiloho.com";
+      };
+
+    };
+
+    nginx.virtualHosts."192.168.178.37" = {
+      locations."/" = {
+        proxyPass = "127.0.0.1:8080";
+        proxyWebsockets = true;
+      };
+    };   
+  };
+ 
+  
   # Stateful version
   system.stateVersion = "22.11";
 }

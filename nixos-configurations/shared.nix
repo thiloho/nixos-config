@@ -30,4 +30,7 @@
     enable = true;
     settings.PermitRootLogin = "yes";
   };
+
+  # Enable tailscale for remote access (VPN)
+  services.tailscale.enable = true;
 }
