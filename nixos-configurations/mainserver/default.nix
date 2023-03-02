@@ -13,7 +13,7 @@
 
   networking = {
     hostName = "mainserver";
-    # firewall.allowedTCPPorts = [ 5432 ];
+    firewall.allowedTCPPorts = [ 80 ];
   };  
 
   /*
@@ -40,9 +40,9 @@
 
     nginx = {
       enable = true;
-      virtualHosts."*" = {
+      virtualHosts."mainserver.fritz.box" = {
         locations."/" = {
-          proxyPass = "127.0.0.1:8080";
+          proxyPass = "http://127.0.0.1:8080";
           proxyWebsockets = true;
         };
       };   
