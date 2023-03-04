@@ -13,7 +13,7 @@
 
   networking = {
     hostName = "mainserver";
-    firewall.allowedTCPPorts = [ 80 ];
+    firewall.allowedTCPPorts = [ 80 443 ];
   };  
 
   /*
@@ -66,7 +66,6 @@
       };
     };
   };
- 
   
   # Stateful version
   system.stateVersion = "22.11";

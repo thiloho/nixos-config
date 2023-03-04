@@ -13,6 +13,10 @@
     '';
   };
 
+  environment.systemPackages = with pkgs; [
+    headscale
+  ];
+
   # Allow proprietary software
   nixpkgs.config.allowUnfree = true;
 
