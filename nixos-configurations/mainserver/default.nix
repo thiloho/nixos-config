@@ -40,12 +40,20 @@
 
     nginx = {
       enable = true;
-      virtualHosts."mainserver.fritz.box" = {
-        locations."/" = {
-          proxyPass = "http://127.0.0.1:8080";
-          proxyWebsockets = true;
+      virtualHosts = {
+        "tailscale.thiloho.com" = {
+          locations."/" = {
+            proxyPass = "http://127.0.0.1:8080";
+            proxyWebsockets = true;
+          };
+        };   
+        "thiloho.com" = {
+          locations."/" = {
+            proxyPass = http://127.0.0.1:8000;
+            proxyWebsockets = true;
+          };
         };
-      };   
+      };
     };
   };
  
