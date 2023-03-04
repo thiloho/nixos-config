@@ -16,11 +16,6 @@
     firewall.allowedTCPPorts = [ 80 443 ];
   };  
 
-  services.postgresql = {
-    enable = true;
-    package = pkgs.postgresql_15;
-  };
-
   # Use ACME for SSL certificates
   security.acme = {
     defaults.email = "thilo.hohlt@tutanota.com";
@@ -35,10 +30,6 @@
         listen_addr = "127.0.0.1:8080";
         server_url = "https://tailscale.thiloho.com";
         dns_config.base_domain = "tailscale.thiloho.com";
-        db_type = "postgres";
-        db_host = "/run/postgresql";
-        db_name = "headscale";
-        db_user = "headscale";
       };
     };
 
@@ -64,16 +55,6 @@
           };
         };
       };
-    };
-
-    postgresql = {
-      ensureDatabases = ["headscale"];
-      ensureUsers = [
-        {
-          name = "headscale";
-          ensurePermissions."DATABASE headscale" = "ALL PRIVILEGES";
-        }
-      ];
     };
   };
   
