@@ -16,16 +16,10 @@
     firewall.allowedTCPPorts = [ 80 443 ];
   };  
 
-  /*
   services.postgresql = {
     enable = true;
     package = pkgs.postgresql_15;
-    enableTCPIP = true;
-    authentication = ''
-      host all all 0.0.0.0/0 scram-sha-256
-    '';
   };
-  */
 
   # Use ACME for SSL certificates
   security.acme = {
@@ -41,6 +35,10 @@
         listen_addr = "127.0.0.1:8080";
         server_url = "https://tailscale.thiloho.com";
         dns_config.base_domain = "tailscale.thiloho.com";
+        db_type = "postgres";
+        db_host = "/run/postgresql";
+        db_name = "headscale";
+        db_user = "headscale";
       };
     };
 
@@ -50,6 +48,7 @@
         "tailscale.thiloho.com" = {
           enableACME = true;
           forceSSL = true;
+          kTLS = true;
           locations."/" = {
             proxyPass = "http://127.0.0.1:8080";
             proxyWebsockets = true;
@@ -58,12 +57,23 @@
         "thiloho.com" = {
           enableACME = true;
           forceSSL = true;
+          kTLS = true;
           locations."/" = {
             proxyPass = http://127.0.0.1:8000;
             proxyWebsockets = true;
           };
         };
       };
+    };
+
+    postgresql = {
+      ensureDatabases = ["headscale"];
+      ensureUsers = [
+        {
+          name = "headscale";
+          ensurePermissions."DATABASE headscale" = "ALL PRIVILEGES";
+        }
+      ];
     };
   };
   
