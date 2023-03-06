@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, ... }:
+{ config, pkgs, inputs, ... }:
 
 {
   imports =
@@ -40,6 +40,7 @@
           enableACME = true;
           forceSSL = true;
           kTLS = true;
+          root = inputs.website.packages.${pkgs.stdenv.hostPlatform.system}.default;
           locations."/" = {
             proxyPass = "http://127.0.0.1:8000";
             proxyWebsockets = true;
