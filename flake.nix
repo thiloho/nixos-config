@@ -26,12 +26,6 @@
         modules = [
           ./nixos-configurations/mainserver
         ];
-      };
-      virtualserver = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        modules = [
-          ./nixos-configurations/virtualserver
-        ];
         specialArgs = {
           inherit (self) inputs;
         };
