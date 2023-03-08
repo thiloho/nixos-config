@@ -41,10 +41,6 @@
           forceSSL = true;
           kTLS = true;
           root = inputs.website.packages.${pkgs.stdenv.hostPlatform.system}.default;
-          locations."/" = {
-            proxyPass = "http://127.0.0.1:8000";
-            proxyWebsockets = true;
-          };
         };
         "tailscale.thiloho.com" = {
           enableACME = true;
