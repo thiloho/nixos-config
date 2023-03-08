@@ -6,12 +6,9 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   # Enable experimental features nix-command and flakes
-  nix = {
-    package = pkgs.nixFlakes;
-    extraOptions = ''
-      experimental-features = nix-command flakes
-    '';
-    settings.trusted-users = [
+  nix.settings = {
+    experimental-features = [ "nix-command" "flakes" ];
+    trusted-users = [
       "root"
       "@wheel"
     ];
