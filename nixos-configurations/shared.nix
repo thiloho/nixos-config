@@ -33,8 +33,10 @@
   # Enable OpenSSH for remote logins
   services.openssh = {
     enable = true;
-    passwordAuthentication = false;
-    kbdInteractiveAuthentication = false;
+    settings = {
+      PasswordAuthentication = false;
+      KbdInteractiveAuthentication = false;
+    };
   };
 
   # Enable tailscale for remote access (VPN)
