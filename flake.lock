@@ -80,11 +80,11 @@
         "nixpkgs": "nixpkgs_2"
       },
       "locked": {
-        "lastModified": 1678302777,
-        "narHash": "sha256-zIUXxPL3l/o7t7zViwOs12T0wourI/AZ0YNq+SaOnr0=",
+        "lastModified": 1678314966,
+        "narHash": "sha256-8of6eYDQhAKh9zkEG/2dpPmZ1t+sGDOnm3u47Z0KjI8=",
         "owner": "thiloho",
         "repo": "website",
-        "rev": "b7dbf529178ae055463f04d369af5da0abd491ca",
+        "rev": "93ea5dd9cac0b08103ff1801047021d75aae266b",
         "type": "github"
       },
       "original": {
