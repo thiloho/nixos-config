@@ -8,13 +8,7 @@
   # Enable experimental features nix-command and flakes
   nix.settings = {
     experimental-features = [ "nix-command" "flakes" ];
-    trusted-users = [
-      "root"
-      "@wheel"
-    ];
   };
-
-  security.sudo.wheelNeedsPassword = false;
 
   environment.systemPackages = with pkgs; [
     headscale
@@ -36,10 +30,6 @@
   # Enable OpenSSH for remote logins
   services.openssh = {
     enable = true;
-    settings = {
-      PasswordAuthentication = false;
-      KbdInteractiveAuthentication = false;
-    };
   };
 
   # Enable tailscale for remote access (VPN)
