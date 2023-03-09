@@ -39,7 +39,15 @@
     pulse.enable = true;
     jack.enable = true; 
   };
- 
+
+  age.secrets = {
+    mainpc-root-password.file = ../../secrets/mainpc-root-password.age;
+    mainpc-thiloho-password.file = ../../secrets/mainpc-thiloho-password.age;
+  };
+
+  users.users.root.passwordFile = config.age.secrets.mainpc-root-password.path;    
+  users.users.thiloho.passwordFile = config.age.secrets.mainpc-thiloho-password.path;
+
   # Use home manager as a module
   home-manager.users.thiloho = { pkgs, ... }: {
     programs = {

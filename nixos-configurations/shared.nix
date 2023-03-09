@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, inputs, ... }:
 
 {
   # Use the systemd-boot EFI boot loader.
@@ -18,6 +18,7 @@
 
   environment.systemPackages = with pkgs; [
     headscale
+    inputs.agenix.packages.x86_64-linux.default
   ];
 
   # Allow proprietary software
