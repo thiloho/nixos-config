@@ -8,7 +8,13 @@
   # Enable experimental features nix-command and flakes
   nix.settings = {
     experimental-features = [ "nix-command" "flakes" ];
+    trusted-users = [
+      "root"
+      "@wheel"
+    ];
   };
+
+  security.sudo.wheelNeedsPassword = false;
 
   environment.systemPackages = with pkgs; [
     headscale
@@ -33,7 +39,6 @@
     settings = {
       PasswordAuthentication = false;
       KbdInteractiveAuthentication = false;
-      PermitRootLogin = "yes";
     };
   };
 
