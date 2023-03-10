@@ -1,7 +1,3 @@
-# Edit this configuration file to define what should be installed on
-# your system.  Help is available in the configuration.nix(5) man page
-# and in the NixOS manual (accessible by running ‘nixos-help’).
-
 { config, pkgs, inputs, ... }:
 
 {
@@ -48,20 +44,32 @@
         "thiloho.com" = {
           enableACME = true;
           forceSSL = true;
-          kTLS = true;
           root = inputs.website.packages.${pkgs.stdenv.hostPlatform.system}.default;
         };
         "tailscale.thiloho.com" = {
           enableACME = true;
           forceSSL = true;
-          kTLS = true;
           locations."/" = {
             proxyPass = "http://127.0.0.1:8080";
             proxyWebsockets = true;
           };
         };   
+        "gitea.thiloho.com" = {
+          enableACME = true;
+          forceSSL = true;          
+          locations."/" = {
+            proxyPass = "http://127.0.0.1:3000";
+          };
+        };
       };
     };
+
+    gitea = {
+      enable = true;
+      domain = "gitea.thiloho.com";
+      rootUrl = "https://gitea.thiloho.com";
+      settings.service.DISABLE_REGISTRATION = true;
+    };      
   };
   
   # Stateful version
