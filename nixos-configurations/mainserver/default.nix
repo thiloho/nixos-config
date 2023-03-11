@@ -7,20 +7,48 @@
       ../shared.nix
     ];
 
-  networking = {
-    hostName = "mainserver";
-    firewall.allowedTCPPorts = [ 80 443 ];
-  };  
-
   age.secrets = {
     mainserver-root-password.file = ../../secrets/mainserver-root-password.age;
     mainserver-thiloho-password.file = ../../secrets/mainserver-thiloho-password.age;
     mainserver-firefox-syncserver-secrets.file = ../../secrets/mainserver-firefox-syncserver-secrets.age;
+    mainserver-wireguard-private-key.file = ../../secrets/mainserver-wireguard-private-key.age;
   };
+
+
+  networking = {
+    hostName = "mainserver";
+    firewall = {
+      allowedTCPPorts = [ 80 443 ];
+      allowedUDPPorts = [ 51820 ];
+    };
+    nat = {
+      enable = true;
+      externalInterface = "eth0";
+      internalInterfaces = [ "wg0" ];
+    };
+    wireguard.interfaces = {
+      wg0 = {
+        ips = [ "10.100.0.1/24" ];
+        privateKeyFile = config.age.secrets.mainserver-wireguard-private-key.path;
+        listenPort = 51820;
+        postSetup = ''
+          ${pkgs.iptables}/bin/iptables -t nat -A POSTROUTING -s 10.100.0.0/24 -o eth0 -j MASQUERADE
+        '';
+        postShutdown = ''
+          ${pkgs.iptables}/bin/iptables -t nat -D POSTROUTING -s 10.100.0.0/24 -o eth0 -j MASQUERADE
+        '';
+        peers = [
+          {
+            publicKey = "Fy/VVmQ32Fq7LBJlXaQuogSsTmbG50231+PkorfU7Wk=";
+            allowedIPs = [ "10.100.0.2/32" ];
+          }
+        ];
+      };
+    };
+  };  
 
   users.users.root.passwordFile = config.age.secrets.mainserver-root-password.path;    
   users.users.thiloho.passwordFile = config.age.secrets.mainserver-thiloho-password.path;
-
 
   # Use ACME for SSL certificates
   security.acme = {
@@ -28,7 +56,6 @@
     acceptTerms = true;
   };
 
-  # Configure Headscale as a controller service for the tailscale VPN
   services = {
     nginx = {
       enable = true;
@@ -68,7 +95,7 @@
       };
     };
   };
-  
+
   # Stateful version
   system.stateVersion = "22.11";
 }

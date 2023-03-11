@@ -12,4 +12,5 @@ in
   "mainserver-root-password.age".publicKeys = [ thiloho mainserver ];
   "mainserver-thiloho-password.age".publicKeys = [ thiloho mainserver ];
   "mainserver-firefox-syncserver-secrets.age".publicKeys = [ thiloho mainserver ];
+  "mainserver-wireguard-private-key.age".publicKeys = [ thiloho mainserver ];
 }
