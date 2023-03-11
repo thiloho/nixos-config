@@ -29,7 +29,6 @@
     wireguard.interfaces = {
       wg0 = {
         ips = [ "10.100.0.1/24" ];
-        privateKeyFile = config.age.secrets.mainserver-wireguard-private-key.path;
         listenPort = 51820;
         postSetup = ''
           ${pkgs.iptables}/bin/iptables -t nat -A POSTROUTING -s 10.100.0.0/24 -o eth0 -j MASQUERADE
@@ -37,9 +36,10 @@
         postShutdown = ''
           ${pkgs.iptables}/bin/iptables -t nat -D POSTROUTING -s 10.100.0.0/24 -o eth0 -j MASQUERADE
         '';
+        privateKeyFile = config.age.secrets.mainserver-wireguard-private-key.path;
         peers = [
           {
-            publicKey = "Fy/VVmQ32Fq7LBJlXaQuogSsTmbG50231+PkorfU7Wk=";
+            publicKey = "LCxf7Ca6aEn20rxDn6FiaGw3sdbwnhbi7FdW3dtf7SM=";
             allowedIPs = [ "10.100.0.2/32" ];
           }
         ];
