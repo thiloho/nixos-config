@@ -21,34 +21,34 @@
       allowedTCPPorts = [ 80 443 ];
       allowedUDPPorts = [ 51820 ];
     };
-    nat = {
-      enable = true;
-      externalInterface = "eth0";
-      internalInterfaces = [ "wg0" ];
-    };
-    wireguard.interfaces = {
-      wg0 = {
-        ips = [ "10.100.0.1/24" ];
-        listenPort = 51820;
-        postSetup = ''
-          ${pkgs.iptables}/bin/iptables -t nat -A POSTROUTING -s 10.100.0.0/24 -o eth0 -j MASQUERADE
-        '';
-        postShutdown = ''
-          ${pkgs.iptables}/bin/iptables -t nat -D POSTROUTING -s 10.100.0.0/24 -o eth0 -j MASQUERADE
-        '';
-        privateKeyFile = config.age.secrets.mainserver-wireguard-private-key.path;
-        peers = [
-          {
-            publicKey = "LCxf7Ca6aEn20rxDn6FiaGw3sdbwnhbi7FdW3dtf7SM=";
-            allowedIPs = [ "10.100.0.2/32" ];
-          }
-        ];
-      };
-    };
+    # nat = {
+    #   enable = true;
+    #   externalInterface = "eth0";
+    #   internalInterfaces = [ "wg0" ];
+    # };
+    # wireguard.interfaces = {
+    #   wg0 = {
+    #     ips = [ "10.100.0.1/24" ];
+    #     listenPort = 51820;
+    #     postSetup = ''
+    #       ${pkgs.iptables}/bin/iptables -t nat -A POSTROUTING -s 10.100.0.0/24 -o eth0 -j MASQUERADE
+    #     '';
+    #     postShutdown = ''
+    #       ${pkgs.iptables}/bin/iptables -t nat -D POSTROUTING -s 10.100.0.0/24 -o eth0 -j MASQUERADE
+    #     '';
+    #     privateKeyFile = config.age.secrets.mainserver-wireguard-private-key.path;
+    #     peers = [
+    #       {
+    #         publicKey = "LCxf7Ca6aEn20rxDn6FiaGw3sdbwnhbi7FdW3dtf7SM=";
+    #         allowedIPs = [ "10.100.0.2/32" ];
+    #       }
+    #     ];
+    #   };
+    # };
   };  
 
-  users.users.root.passwordFile = config.age.secrets.mainserver-root-password.path;    
-  users.users.thiloho.passwordFile = config.age.secrets.mainserver-thiloho-password.path;
+  # users.users.root.passwordFile = config.age.secrets.mainserver-root-password.path;    
+  # users.users.thiloho.passwordFile = config.age.secrets.mainserver-thiloho-password.path;
 
   # Use ACME for SSL certificates
   security.acme = {
@@ -82,18 +82,18 @@
       settings.service.DISABLE_REGISTRATION = true;
     };
 
-    mysql.package = pkgs.mariadb; 
+    # mysql.package = pkgs.mariadb; 
 
-    firefox-syncserver = {
-      enable = true;
-      secrets = config.age.secrets.mainserver-firefox-syncserver-secrets.path;
-      singleNode = {
-        enable = true;
-        hostname = "firefox-syncserver.thiloho.com";
-        enableNginx = true;
-        enableTLS = true;
-      };
-    };
+    # firefox-syncserver = {
+    #   enable = true;
+    #   secrets = config.age.secrets.mainserver-firefox-syncserver-secrets.path;
+    #   singleNode = {
+    #     enable = true;
+    #     hostname = "firefox-syncserver.thiloho.com";
+    #     enableNginx = true;
+    #     enableTLS = true;
+    #   };
+    # };
   };
 
   # Stateful version
