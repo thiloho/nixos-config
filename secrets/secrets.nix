@@ -3,7 +3,7 @@ let
   users = [ thiloho ];
 
   mainpc = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFhpS60wuabohLu3RN/iWR+FU2Wr/EKneV7O4HfEwI5S root@mainpc";
-  mainserver = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICsIwEVW/NcahiKDOqcmivKFm1C4RBp+OJICD3Clbgmx root@mainserver";
+  mainserver = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOc4Sv0nkKXk5pwHbv/LhQECNA9VSUmloxOsb4fZEw56 root@mainserver";
   systems = [ mainpc mainserver ];
 in
 {

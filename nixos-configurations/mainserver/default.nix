@@ -7,12 +7,12 @@
       ../shared.nix
     ];
 
-  # age.secrets = {
-  #   mainserver-root-password.file = ../../secrets/mainserver-root-password.age;
-  #   mainserver-thiloho-password.file = ../../secrets/mainserver-thiloho-password.age;
+  age.secrets = {
+    mainserver-root-password.file = ../../secrets/mainserver-root-password.age;
+    mainserver-thiloho-password.file = ../../secrets/mainserver-thiloho-password.age;
   #   mainserver-firefox-syncserver-secrets.file = ../../secrets/mainserver-firefox-syncserver-secrets.age;
   #   mainserver-wireguard-private-key.file = ../../secrets/mainserver-wireguard-private-key.age;
-  # };
+  };
 
 
   networking = {
@@ -47,8 +47,8 @@
     # };
   };  
 
-  # users.users.root.passwordFile = config.age.secrets.mainserver-root-password.path;    
-  # users.users.thiloho.passwordFile = config.age.secrets.mainserver-thiloho-password.path;
+  users.users.root.passwordFile = config.age.secrets.mainserver-root-password.path;    
+  users.users.thiloho.passwordFile = config.age.secrets.mainserver-thiloho-password.path;
 
   # Use ACME for SSL certificates
   security.acme = {

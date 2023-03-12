@@ -21,7 +21,7 @@
     wireguard-tools
   ];
 
-  # users.mutableUsers = false;
+  users.mutableUsers = false;
 
   # Allow proprietary software
   nixpkgs.config.allowUnfree = true;
