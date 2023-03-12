@@ -7,12 +7,12 @@
       ../shared.nix
     ];
 
-  age.secrets = {
-    mainserver-root-password.file = ../../secrets/mainserver-root-password.age;
-    mainserver-thiloho-password.file = ../../secrets/mainserver-thiloho-password.age;
-    mainserver-firefox-syncserver-secrets.file = ../../secrets/mainserver-firefox-syncserver-secrets.age;
-    mainserver-wireguard-private-key.file = ../../secrets/mainserver-wireguard-private-key.age;
-  };
+  # age.secrets = {
+  #   mainserver-root-password.file = ../../secrets/mainserver-root-password.age;
+  #   mainserver-thiloho-password.file = ../../secrets/mainserver-thiloho-password.age;
+  #   mainserver-firefox-syncserver-secrets.file = ../../secrets/mainserver-firefox-syncserver-secrets.age;
+  #   mainserver-wireguard-private-key.file = ../../secrets/mainserver-wireguard-private-key.age;
+  # };
 
 
   networking = {
