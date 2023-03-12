@@ -33,7 +33,7 @@
   users.users.thiloho = {
     isNormalUser = true;
     extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
-    openssh.authorizedKeys.keys = [ "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJbBLdvGb1E4vEpfq8zVAPeZy9yv4S2bxu9lfmYQA8sY thiloho@mainpc" ];
+    openssh.authorizedKeys.keys = [ "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJvwRN8uxppJn6qw+p+2oMR3fgd9k5EqiFcE69Wh3K1T thiloho@mainpc" ];
   };
 
   # Enable OpenSSH for remote logins
