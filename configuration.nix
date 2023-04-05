@@ -73,15 +73,14 @@
   users.users.thiloho = {
     isNormalUser = true;
     extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
-    initialPassword = "password";
   };
 
   # Home manager configuration
   home-manager.users.thiloho = { pkgs, ... }: {
     programs = {
-      firefox.enable = true;
       helix.enable = true;
       alacritty.enable = true;
+      firefox.enable = true;
       git = {
         enable = true;
         userName = "thiloho";
