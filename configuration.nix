@@ -63,8 +63,16 @@
   # services.printing.enable = true;
 
   # Enable sound.
-  # sound.enable = true;
+  sound.enable = true;
   # hardware.pulseaudio.enable = true;
+  security.rtkit.enable = true;
+  services.pipewire = {
+    enable = true;
+    alsa.enable = true;
+    alsa.support32Bit = true;
+    pulse.enable = true;
+    jack.enable = true;
+  };
 
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
@@ -85,9 +93,17 @@
         enable = true;
         userName = "thiloho";
         userEmail = "123883702+thiloho@users.noreply.github.com";
+        signing = {
+          key = "~/.ssh/id_ed25519.pub";
+          signByDefault = true;
+        };
+        extraConfig.gpg.format = "ssh";
       };
     };
-    home.stateVersion = "22.11";
+    services.flameshot.enable = true;
+    home = {
+      stateVersion = "22.11";
+    };
   };
 
   # List packages installed in system profile. To search, run:
