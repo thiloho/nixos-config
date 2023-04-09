@@ -53,6 +53,13 @@
       helix.enable = true;
       alacritty.enable = true;
       firefox.enable = true;
+      vscode = {
+        enable = true;
+        extensions = with pkgs.vscode-extensions; [
+          astro-build.astro-vscode
+          bbenoist.nix
+        ];
+      };
       git = {
         enable = true;
         userName = "thiloho";
