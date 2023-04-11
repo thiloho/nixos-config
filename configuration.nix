@@ -50,16 +50,23 @@
   # Home manager configuration
   home-manager.users.thiloho = { pkgs, ... }: {
     programs = {
-      helix.enable = true;
+      helix = {
+        enable = true;
+        settings = {
+          theme = "dark_plus";
+          editor = {
+            line-number = "relative";
+            cursorline = true;
+            cursor-shape = {
+              normal = "block";
+              insert = "bar";
+              select = "underline";
+            };
+          };
+        };
+      };
       alacritty.enable = true;
       firefox.enable = true;
-      vscode = {
-        enable = true;
-        extensions = with pkgs.vscode-extensions; [
-          astro-build.astro-vscode
-          bbenoist.nix
-        ];
-      };
       git = {
         enable = true;
         userName = "thiloho";
