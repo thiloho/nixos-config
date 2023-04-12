@@ -65,6 +65,14 @@
           };
         };
       };
+      vscode = {
+        enable = true;
+        extensions = with pkgs.vscode-extensions; [
+          astro-build.astro-vscode
+          bbenoist.nix
+          ritwickdey.liveserver
+        ];
+      };
       alacritty.enable = true;
       firefox.enable = true;
       git = {
