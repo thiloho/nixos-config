@@ -42,6 +42,10 @@
     TERMINAL = "alacritty";
   };
 
+  fonts.fonts = with pkgs; [
+    noto-fonts-cjk-sans
+  ];
+
   users.users.thiloho = {
     isNormalUser = true;
     extraGroups = [ "wheel" ];
@@ -71,6 +75,7 @@
           astro-build.astro-vscode
           bbenoist.nix
           ritwickdey.liveserver
+          svelte.svelte-vscode
         ];
       };
       alacritty.enable = true;
