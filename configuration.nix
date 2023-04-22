@@ -76,6 +76,7 @@
           bbenoist.nix
           ritwickdey.liveserver
           svelte.svelte-vscode
+          prisma.prisma
         ];
       };
       alacritty.enable = true;
@@ -90,6 +91,7 @@
         };
         extraConfig.gpg.format = "ssh";
       };
+      gh.enable = true;
     };
     services.flameshot.enable = true;
     home = {
