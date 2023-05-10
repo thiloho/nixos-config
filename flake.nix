@@ -9,10 +9,23 @@
 
   outputs = inputs@{ nixpkgs, home-manager, ... }: {
     nixosConfigurations = {
-      itachi = nixpkgs.lib.nixosSystem {
+      pc = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
-          ./configuration.nix
+          ./nixos-configurations/pc
+          home-manager.nixosModules.home-manager
+          {
+            home-manager = {
+              useGlobalPkgs = true;
+              useUserPackages = true;
+            };
+          }
+        ];
+      };
+      laptop = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = [
+          ./nixos-configurations/laptop
           home-manager.nixosModules.home-manager
           {
             home-manager = {

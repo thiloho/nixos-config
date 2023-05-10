@@ -1,19 +1,12 @@
 { config, pkgs, ... }:
 
 {
-  imports =
-    [
-      ./hardware-configuration.nix
-    ];
-
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
   nixpkgs.config.allowUnfree = true;
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
-
-  networking.hostName = "itachi";
 
   time.timeZone = "Europe/Amsterdam";
 
@@ -23,7 +16,6 @@
       videoDrivers = [ "nvidia" ];
       windowManager.i3 = {
         enable = true;
-        extraSessionCommands = "xrandr --output DP-0 --left-of DP-4 --mode 1920x1080 --rate 144 --output DP-4 --mode 1920x1080 --rate 144";
       };
     };
     pipewire = {
@@ -86,6 +78,9 @@
     services.flameshot.enable = true;
     home = {
       stateVersion = "22.11";
+      packages = with pkgs; [
+        zoom-us
+      ];
     };
   };
 
