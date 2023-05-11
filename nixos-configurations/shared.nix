@@ -10,15 +10,7 @@
 
   time.timeZone = "Europe/Amsterdam";
 
-  hardware.enableRedistributableFirmware = true;
-
-  networking = {
-    networkmanager = {
-      enable = true;
-      wifi.backend = "iwd";
-    };
-    wireless.iwd.enable = true;
-  };
+  networking.networkmanager.enable = true;
 
   services = {
     xserver = {
@@ -50,7 +42,7 @@
 
   users.users.thiloho = {
     isNormalUser = true;
-    extraGroups = [ "wheel" ];
+    extraGroups = [ "wheel" "networkmanager" ];
   };
 
   # Home manager configuration
