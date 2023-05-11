@@ -10,6 +10,8 @@
 
   time.timeZone = "Europe/Amsterdam";
 
+  hardware.enableRedistributableFirmware = true;
+
   networking = {
     networkmanager = {
       enable = true;

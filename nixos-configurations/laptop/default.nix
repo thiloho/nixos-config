@@ -7,9 +7,7 @@
       ../shared.nix
     ];
 
-    networking = {
-      hostName = "laptop";
-    };
+    networking.hostName = "laptop";
 
     services.xserver.libinput.enable = true;
 }
