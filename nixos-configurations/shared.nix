@@ -42,7 +42,7 @@
 
   users.users.thiloho = {
     isNormalUser = true;
-    extraGroups = [ "wheel" ];
+    extraGroups = [ "wheel" "networkmanager" ];
   };
 
   # Home manager configuration
