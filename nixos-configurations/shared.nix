@@ -15,7 +15,7 @@
   services = {
     xserver = {
       enable = true;
-      videoDrivers = [ "nvidia" ];
+      videoDrivers = [ "modesetting" "nvidia" ];
       windowManager.i3 = {
         enable = true;
       };
