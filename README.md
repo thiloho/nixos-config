@@ -1,3 +1,3 @@
 # nixos-config
 
-Very minimal configuration files for my personal computer.
+Minimal multi-host flake configuration for my pc and laptop.
