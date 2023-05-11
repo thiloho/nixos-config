@@ -10,7 +10,13 @@
 
   time.timeZone = "Europe/Amsterdam";
 
-  networking.wireless.iwd.enable = true;
+  networking = {
+    networkmanager = {
+      enable = true;
+      wifi.backend = "iwd";
+    }
+    wireless.iwd.enable = true;
+  };
 
   services = {
     xserver = {
