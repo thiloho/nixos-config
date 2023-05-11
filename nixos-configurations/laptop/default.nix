@@ -8,4 +8,6 @@
     ];
 
     networking.hostName = "laptop";
+
+    services.xserver.libinput.enable = true;
 }
