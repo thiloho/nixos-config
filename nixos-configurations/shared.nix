@@ -8,9 +8,9 @@
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
-  networking.networkmanager.enable = true;
-
   time.timeZone = "Europe/Amsterdam";
+
+  networking.wireless.iwd.enable = true;
 
   services = {
     xserver = {
@@ -42,7 +42,7 @@
 
   users.users.thiloho = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "networkmanager" ];
+    extraGroups = [ "wheel" ];
   };
 
   # Home manager configuration
