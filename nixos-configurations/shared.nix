@@ -83,7 +83,6 @@
       packages = with pkgs; [
         zoom-us
         libreoffice
-        opentoonz
       ];
     };
   };
