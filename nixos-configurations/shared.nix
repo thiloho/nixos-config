@@ -45,6 +45,12 @@
     extraGroups = [ "wheel" "networkmanager" ];
   };
 
+  programs.gnupg.agent = {
+    enable = true;
+    enableSSHSupport = true;
+    pinentryFlavor = "gtk2";
+  };
+
   # Home manager configuration
   home-manager.users.thiloho = { pkgs, ... }: {
     programs = {
@@ -70,10 +76,9 @@
         userName = "thiloho";
         userEmail = "123883702+thiloho@users.noreply.github.com";
         signing = {
-          key = "/home/thiloho/.ssh/id_ed25519.pub";
+          key = "29791D54E85BEE9E";
           signByDefault = true;
         };
-        extraConfig.gpg.format = "ssh";
       };
       gh.enable = true;
     };
@@ -83,6 +88,7 @@
       packages = with pkgs; [
         zoom-us
         libreoffice
+        google-chrome
       ];
     };
   };
