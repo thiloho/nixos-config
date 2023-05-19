@@ -69,6 +69,13 @@
           };
         };
       };
+      vscode = {
+        enable = true;
+        extensions = with pkgs.vscode-extensions; [
+          svelte.svelte-vscode
+          astro-build.astro-vscode
+        ];
+      };
       alacritty.enable = true;
       firefox.enable = true;
       git = {
