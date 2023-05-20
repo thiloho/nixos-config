@@ -75,6 +75,9 @@
           svelte.svelte-vscode
           astro-build.astro-vscode
         ];
+        userSettings = {
+          editor.tabSize = 2;
+        };
       };
       alacritty.enable = true;
       firefox.enable = true;
