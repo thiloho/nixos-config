@@ -12,6 +12,14 @@
 
   networking.networkmanager.enable = true;
 
+  virtualisation.docker = {
+    enable = true;
+    rootless = {
+      enable = true;
+      setSocketVariable = true;
+    };
+  };
+
   services = {
     xserver = {
       enable = true;
@@ -42,7 +50,7 @@
 
   users.users.thiloho = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "networkmanager" ];
+    extraGroups = [ "wheel" "networkmanager" "docker" ];
   };
 
   programs.gnupg.agent = {
@@ -99,6 +107,7 @@
         zoom-us
         libreoffice
         google-chrome
+        rustdesk
       ];
     };
   };
