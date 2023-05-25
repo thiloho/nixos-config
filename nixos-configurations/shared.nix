@@ -12,6 +12,8 @@
 
   networking.networkmanager.enable = true;
 
+  hardware.enableRedistributableFirmware = true;
+
   virtualisation.docker = {
     enable = true;
   };

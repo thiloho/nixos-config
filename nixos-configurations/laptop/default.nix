@@ -9,7 +9,13 @@
 
     networking.hostName = "laptop";
 
-    services.xserver.libinput.enable = true;
+    hardware = {
+      bluetooth.enable = true;
+    };
+
+    services = {
+      xserver.libinput.enable = true;
+    };
 
     boot.extraModulePackages = [ config.boot.kernelPackages.broadcom_sta ];
 
