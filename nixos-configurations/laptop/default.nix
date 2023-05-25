@@ -11,6 +11,7 @@
 
     hardware = {
       bluetooth.enable = true;
+      firmware = [ pkgs.broadcom-bt-firmware ];
     };
 
     services = {
