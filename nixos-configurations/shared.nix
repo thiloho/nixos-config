@@ -90,7 +90,6 @@
         userName = "thiloho";
         userEmail = "123883702+thiloho@users.noreply.github.com";
         signing = {
-          key = "29791D54E85BEE9E";
           signByDefault = true;
         };
       };
