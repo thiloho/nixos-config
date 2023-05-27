@@ -26,8 +26,5 @@
           key = "86C465C22C8A4D56";
         };
       };
-      home.packages = with pkgs; [
-        airshipper
-      ];
     };
 }

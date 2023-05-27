@@ -105,6 +105,7 @@
         libreoffice
         google-chrome
         rustdesk
+        airshipper
       ];
     };
   };
