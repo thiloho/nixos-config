@@ -12,7 +12,10 @@
 
   networking.networkmanager.enable = true;
 
-  hardware.enableRedistributableFirmware = true;
+  hardware = {
+    pulseaudio.enable = false;
+    enableRedistributableFirmware = true;
+  };
 
   virtualisation.docker = {
     enable = true;
