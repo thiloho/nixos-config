@@ -19,12 +19,6 @@
   };
 
   services = {
-    xserver = {
-      enable = true;
-      windowManager.i3 = {
-        enable = true;
-      };
-    };
     pipewire = {
       enable = true;
       alsa.enable = true;
@@ -53,7 +47,7 @@
   programs.gnupg.agent = {
     enable = true;
     enableSSHSupport = true;
-    pinentryFlavor = "gtk2";
+    # pinentryFlavor = "gtk2";
   };
 
   # Home manager configuration
@@ -103,7 +97,6 @@
         zoom-us
         libreoffice
         google-chrome
-        rustdesk
         airshipper
       ];
     };
@@ -111,4 +104,3 @@
 
   system.stateVersion = "22.11";
 }
-

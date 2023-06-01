@@ -9,16 +9,18 @@
 
     networking.hostName = "laptop";
 
+    services.xserver = {
+      enable = true;
+      windowManager.i3 = {
+        enable = true;
+      };
+      libinput.enable = true;
+      videoDrivers = [ "modesetting" "nvidia" ];
+    };
+
     hardware = {
       bluetooth.enable = true;
       firmware = [ pkgs.broadcom-bt-firmware ];
-    };
-
-    services = {
-      xserver = {
-        libinput.enable = true;
-        videoDrivers = [ "modesetting" "nvidia" ];
-      };
     };
 
     boot.extraModulePackages = [ config.boot.kernelPackages.broadcom_sta ];
