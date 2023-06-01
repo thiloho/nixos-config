@@ -15,7 +15,10 @@
     };
 
     services = {
-      xserver.libinput.enable = true;
+      xserver = {
+        libinput.enable = true;
+        videoDrivers = [ "modesetting" "nvidia" ];
+      };
     };
 
     boot.extraModulePackages = [ config.boot.kernelPackages.broadcom_sta ];
