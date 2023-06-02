@@ -11,9 +11,10 @@
 
     services.xserver = {
       enable = true;
-      desktopManager.gnome.enable = true;
       displayManager.gdm.enable = true;
     };
+
+    programs.sway.enable = true;
 
     home-manager.users.thiloho = { pkgs, ... }: {
       programs.git = {
