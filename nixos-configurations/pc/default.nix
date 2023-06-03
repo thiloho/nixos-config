@@ -21,11 +21,15 @@
       config = {
         modifier = "Mod1";
         terminal = "alacritty";
+        output = {
+          DP-1 = {
+            mode = "1920x1080@144.000Hz";
+          };
+          DP-2 = {
+            mode = "1920x1080@144.000Hz";
+          };
+        };
       };
-      extraConfig = ''
-        output DP-1 mode 1920x1080@144.000Hz
-        output DP-2 mode 1920x1080@144.000Hz
-      '';
     };
     programs.git = {
       signing = {
