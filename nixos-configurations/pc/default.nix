@@ -17,6 +17,13 @@
     programs.sway.enable = true;
 
     home-manager.users.thiloho = { pkgs, ... }: {
+      wayland.windowManager.sway = {
+        enable = true;
+        config = {
+          modifier = "Mod1";
+          terminal = "alacritty";
+        };
+      };
       programs.git = {
         signing = {
           key = "29791D54E85BEE9E";
