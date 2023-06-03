@@ -34,9 +34,12 @@
   sound.enable = true;
   security.rtkit.enable = true;
 
-  fonts.fonts = with pkgs; [
-    noto-fonts-cjk-sans
-  ];
+  fonts = {
+    enableDefaultFonts = true;
+    fonts = with pkgs; [
+      jetbrains-mono
+    ];
+  };
 
   users.users.thiloho = {
     isNormalUser = true;
@@ -77,7 +80,30 @@
           editor.tabSize = 2;
         };
       };
-      alacritty.enable = true;
+      alacritty = {
+        enable = true;
+        settings = {
+          font = {
+            normal = {
+              family = "JetBrainsMono";
+              style = "regular";
+            };
+            bold = {
+              family = "JetBrainsMono";
+              style = "regular";
+            };
+            italic = {
+              family = "JetBrainsMono";
+              style = "regular";
+            };
+            bold_italic = {
+              family = "JetBrainsMono";
+              style = "regular";
+            };
+            size = 11.00;
+          };
+        };
+      };
       firefox.enable = true;
       git = {
         enable = true;
