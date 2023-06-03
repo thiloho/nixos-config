@@ -18,6 +18,7 @@
       config = {
         modifier = "Mod1";
         terminal = "alacritty";
+        menu = "bemenu-run";
         output = {
           DP-1 = {
             res = "1920x1080@144.000Hz";
@@ -29,11 +30,21 @@
       };
       xwayland = false;
     };
+    gtk = {
+      enable = true;
+      theme = {
+        package = pkgs.gnome.gnome-themes-extra;
+        name = "Adwaita-dark";
+      };
+    };
     programs.git = {
       signing = {
         key = "29791D54E85BEE9E";
       };
     };
+    home.packages = with pkgs; [
+      bemenu
+    ];
   };
 }
 
