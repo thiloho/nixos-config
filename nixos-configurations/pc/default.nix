@@ -46,13 +46,13 @@
       };
       xwayland = false;
     };
-    # gtk = {
-      # enable = true;
-      # theme = {
-        # package = pkgs.gnome.gnome-themes-extra;
-        # name = "Adwaita-dark";
-      # };
-    # };
+    gtk = {
+      enable = true;
+      theme = {
+        package = pkgs.gnome.gnome-themes-extra;
+        name = "Adwaita-dark";
+      };
+    };
     programs = {
       git = {
         signing = {
@@ -62,7 +62,7 @@
       swaylock.enable = true;
     };
     home.packages = with pkgs; [
-      # dconf
+      dconf
       bemenu
     ];
   };
