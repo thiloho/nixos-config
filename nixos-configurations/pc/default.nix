@@ -11,6 +11,13 @@
   hardware.opengl.enable = true;
 
   security.polkit.enable = true;
+  
+  # Make swaylock work
+  security.pam.services.swaylock = {
+    text = ''
+      auth include login
+    '';
+  };
 
   home-manager.users.thiloho = { pkgs, ... }: {
     wayland.windowManager.sway = {
