@@ -18,10 +18,19 @@
       auth include login
     '';
   };
+  
+  xdg.portal = {
+    enable = true;
+    extraPortals = with pkgs; [
+      xdg-desktop-portal-wlr
+      xdg-desktop-portal-gtk
+    ];
+  };
 
   home-manager.users.thiloho = { pkgs, ... }: {
     wayland.windowManager.sway = {
       enable = true;
+      wrapperFeatures.gtk = true;
       config = {
         modifier = "Mod1";
         terminal = "alacritty";
@@ -37,13 +46,13 @@
       };
       xwayland = false;
     };
-    gtk = {
-      enable = true;
-      theme = {
-        package = pkgs.gnome.gnome-themes-extra;
-        name = "Adwaita-dark";
-      };
-    };
+    # gtk = {
+      # enable = true;
+      # theme = {
+        # package = pkgs.gnome.gnome-themes-extra;
+        # name = "Adwaita-dark";
+      # };
+    # };
     programs = {
       git = {
         signing = {
@@ -53,7 +62,7 @@
       swaylock.enable = true;
     };
     home.packages = with pkgs; [
-      dconf
+      # dconf
       bemenu
     ];
   };
