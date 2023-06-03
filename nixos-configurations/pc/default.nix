@@ -23,10 +23,10 @@
         terminal = "alacritty";
         output = {
           DP-1 = {
-            mode = "1920x1080@144.000Hz";
+            res = "1920x1080@144.000Hz";
           };
           DP-2 = {
-            mode = "1920x1080@144.000Hz";
+            res = "1920x1080@144.000Hz";
           };
         };
       };
