@@ -37,10 +37,13 @@
         name = "Adwaita-dark";
       };
     };
-    programs.git = {
-      signing = {
-        key = "29791D54E85BEE9E";
+    programs = {
+      git = {
+        signing = {
+          key = "29791D54E85BEE9E";
+        };
       };
+      swaylock.enable = true;
     };
     home.packages = with pkgs; [
       dconf
