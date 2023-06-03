@@ -12,14 +12,9 @@
 
   networking.networkmanager.enable = true;
 
-  hardware = {
-    pulseaudio.enable = false;
-    enableRedistributableFirmware = true;
-  };
+  hardware.pulseaudio.enable = false;
 
-  virtualisation.docker = {
-    enable = true;
-  };
+  virtualisation.docker.enable = true;
 
   services = {
     pipewire = {

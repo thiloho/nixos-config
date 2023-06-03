@@ -10,6 +10,8 @@
     TERMINAL = "alacritty";
   };
 
+  hardware.enableRedistributableFirmware = true;
+
   networking.hostName = "laptop";
 
   services.xserver = {
