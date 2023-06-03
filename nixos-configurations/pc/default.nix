@@ -8,12 +8,7 @@
 
   networking.hostName = "pc";
 
-  services.xserver = {
-    enable = true;
-    displayManager.gdm.enable = true;
-  };
-
-  programs.sway.enable = true;
+  security.polkit.enable = true;
 
   home-manager.users.thiloho = { pkgs, ... }: {
     wayland.windowManager.sway = {
