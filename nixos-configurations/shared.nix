@@ -34,10 +34,6 @@
   sound.enable = true;
   security.rtkit.enable = true;
 
-  environment.variables = {
-    TERMINAL = "alacritty";
-  };
-
   fonts.fonts = with pkgs; [
     noto-fonts-cjk-sans
   ];
