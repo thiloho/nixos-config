@@ -43,6 +43,7 @@
       };
     };
     home.packages = with pkgs; [
+      dconf
       bemenu
     ];
   };
