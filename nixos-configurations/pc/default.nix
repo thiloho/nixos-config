@@ -65,6 +65,9 @@
       dconf
       bemenu
       wayshot
+      wl-clipboard
+      xdg-utils
+      slurp
     ];
   };
 }
