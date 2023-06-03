@@ -27,6 +27,7 @@
           };
         };
       };
+      xwayland = false;
     };
     programs.git = {
       signing = {
