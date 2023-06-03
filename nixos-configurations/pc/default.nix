@@ -56,7 +56,7 @@
     programs = {
       git = {
         signing = {
-          key = "29791D54E85BEE9E";
+          key = "C7F24D961CB819A5";
         };
       };
       swaylock.enable = true;
@@ -64,6 +64,7 @@
     home.packages = with pkgs; [
       dconf
       bemenu
+      wayshot
     ];
   };
 }

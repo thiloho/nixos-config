@@ -110,7 +110,6 @@
       };
       gh.enable = true;
     };
-    services.flameshot.enable = true;
     home = {
       stateVersion = "22.11";
       packages = with pkgs; [

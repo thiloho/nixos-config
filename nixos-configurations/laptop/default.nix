@@ -14,13 +14,16 @@
 
   networking.hostName = "laptop";
 
-  services.xserver = {
-    enable = true;
-    windowManager.i3 = {
+  services = {
+    xserver = {
       enable = true;
+      windowManager.i3 = {
+        enable = true;
+      };
+      libinput.enable = true;
+      videoDrivers = [ "modesetting" "nvidia" ];
     };
-    libinput.enable = true;
-    videoDrivers = [ "modesetting" "nvidia" ];
+    flameshot.enable = true;
   };
 
   hardware = {
