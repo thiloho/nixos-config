@@ -48,7 +48,7 @@
   };
 
   # Home manager configuration
-  home-manager.users.thiloho = { pkgs, ... }: {
+  home-manager.users.thiloho = { pkgs, lib, ... }: {
     programs = {
       helix = {
         enable = true;
@@ -111,15 +111,16 @@
       gh.enable = true;
     };
     home = {
-      stateVersion = "22.11";
-      packages = with pkgs; [
-        zoom-us
-        libreoffice
-        google-chrome
-        airshipper
-      ];
-    };
+    stateVersion = "22.11";
+    packages = with pkgs; [
+      zoom-us
+      libreoffice
+      google-chrome
+      airshipper
+      prismlauncher
+    ];
   };
+};
 
   system.stateVersion = "22.11";
 }
