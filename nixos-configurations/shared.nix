@@ -122,10 +122,8 @@
       rust-analyzer
       marksman
       nodePackages.typescript-language-server
-      nodePackages.vscode-json-languageserver
-      nodePackages.vscode-html-languageserver-bin
-      nodePackages.vscode-css-languageserver-bin
       nodePackages.svelte-language-server
+      nodePackages.vscode-langservers-extracted
     ];
   };
 };
