@@ -60,7 +60,11 @@
           {
             modules-left = [ "sway/workspaces" ];
             modules-center = [ "sway/window" ];
-            modules-right = [ "memory" "disk" "cpu" "clock" ];  
+            modules-right = [ "user" "memory" "disk" "cpu" "clock" ];  
+
+            user = {
+              format = "{user} - Uptime: {work_H}:{work_M}h";
+            };
 
             memory = {
               format = "Memory: {used}GiB";
@@ -76,7 +80,7 @@
 
             clock = {
               interval = 60;
-              format = "{:%Y-%m-%d %H:%M}";
+              format = "{:%Y-%m-%d - %H:%M}";
             };
           }
         ];
@@ -92,7 +96,7 @@
             color: #e6e6e6;
           }
 
-          #workspaces button, #memory, #disk, #cpu, #clock {
+          #workspaces button, #user, #memory, #disk, #cpu, #clock {
             padding-top: 0.125rem;
             padding-bottom: 0.125rem;
             padding-left: 0.5rem;

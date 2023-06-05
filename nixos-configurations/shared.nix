@@ -30,8 +30,12 @@
   security.rtkit.enable = true;
 
   fonts = {
-    enableDefaultFonts = true;
     fonts = with pkgs; [
+      noto-fonts
+      noto-fonts-emoji
+      noto-fonts-cjk-sans
+      nerdfonts
+      roboto
       jetbrains-mono
     ];
   };
@@ -50,6 +54,12 @@
   # Home manager configuration
   home-manager.users.thiloho = { pkgs, lib, ... }: {
     programs = {
+      bash = {
+        enable = true;
+        shellAliases = {
+          rbs = "sudo nixos-rebuild switch --flake .";
+        };
+      };
       helix = {
         enable = true;
         settings = {
