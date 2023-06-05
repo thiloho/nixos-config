@@ -53,7 +53,7 @@
       helix = {
         enable = true;
         settings = {
-          theme = "dark_plus";
+          theme = "gruvbox_transparent";
           editor = {
             line-number = "relative";
             cursorline = true;
@@ -62,6 +62,12 @@
               insert = "bar";
               select = "underline";
             };
+          };
+        };
+        themes = {
+          gruvbox_transparent = {
+            "inherits" = "gruvbox";
+            "ui.background" = "{}";
           };
         };
       };
@@ -78,6 +84,7 @@
       alacritty = {
         enable = true;
         settings = {
+          window.opacity = 0.9;
           font = {
             normal = {
               family = "JetBrainsMono";
