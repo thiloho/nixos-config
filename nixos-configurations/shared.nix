@@ -81,16 +81,6 @@
           };
         };
       };
-      vscode = {
-        enable = true;
-        extensions = with pkgs.vscode-extensions; [
-          svelte.svelte-vscode
-          astro-build.astro-vscode
-        ];
-        userSettings = {
-          editor.tabSize = 2;
-        };
-      };
       alacritty = {
         enable = true;
         settings = {
