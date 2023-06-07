@@ -8,8 +8,6 @@
 
   networking.hostName = "pc";
   
-  environment.sessionVariables.NIXOS_OZONE_WL = "1";
-  
   hardware.opengl.enable = true;
 
   security.polkit.enable = true;
@@ -122,14 +120,17 @@
         name = "Adwaita-dark";
       };
     };
-    home.packages = with pkgs; [
-      dconf
-      tofi
-      wayshot
-      wl-clipboard
-      xdg-utils
-      slurp
-    ];
+    home = {
+      sessionVariables.NIXOS_OZONE_WL = "1";
+      packages = with pkgs; [
+        dconf
+        tofi
+        wayshot
+        wl-clipboard
+        xdg-utils
+        slurp
+      ];
+    };
   };
 }
 
