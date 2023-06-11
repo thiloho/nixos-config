@@ -108,7 +108,7 @@
       };
       git = {
         signing = {
-          key = "C7F24D961CB819A5";
+          key = "8A14DB4580E6248C";
         };
       };
       swaylock.enable = true;

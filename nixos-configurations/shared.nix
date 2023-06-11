@@ -107,6 +107,14 @@
         };
       };
       firefox.enable = true;
+      chromium = {
+        enable = true;
+        extensions = [
+          { id = "cjpalhdlnbpafiamejdnhcphjbkeiagm"; }
+          { id = "dhdgffkkebhmkfjojejmpbldmpobfkfo"; }
+          { id = "mmbiohbmijkiimgcgijfomelgpmdiigb"; }
+        ];
+      };
       git = {
         enable = true;
         userName = "thiloho";
@@ -122,7 +130,6 @@
     packages = with pkgs; [
       zoom-us
       libreoffice
-      google-chrome
       airshipper
       prismlauncher
       nil
