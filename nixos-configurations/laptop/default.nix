@@ -23,7 +23,6 @@
       libinput.enable = true;
       videoDrivers = [ "modesetting" "nvidia" ];
     };
-    flameshot.enable = true;
   };
 
   hardware = {
@@ -39,6 +38,7 @@
         key = "86C465C22C8A4D56";
       };
     };
+    services.flameshot.enable = true;
     home.packages = with pkgs; [
       arduino
     ];
