@@ -73,6 +73,9 @@
               select = "underline";
             };
           };
+          editor.file-picker = {
+            hidden = false;
+          };
         };
         themes = {
           gruvbox_transparent = {
@@ -138,6 +141,7 @@
       nodePackages.typescript-language-server
       nodePackages.svelte-language-server
       nodePackages.vscode-langservers-extracted
+      postgresqlJitPackages.plpgsql_check
     ];
   };
 };
