@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ ... }:
 
 {
   imports = [
@@ -7,9 +7,6 @@
   ];
 
   networking.hostName = "laptop";
-
-  hardware.firmware = [ pkgs.broadcom-bt-firmware ];
-  boot.extraModulePackages = [ config.boot.kernelPackages.broadcom_sta ];
 
   home-manager.users.thiloho = { pkgs, ... }: {
     programs.git = {
