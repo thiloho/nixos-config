@@ -27,7 +27,28 @@
   };
 
   sound.enable = true;
-  security.rtkit.enable = true;
+
+  hardware.opengl.enable = true;
+
+  security = {
+    rtkit.enable = true;
+    polkit.enable = true;
+  };
+  
+  # Make swaylock work
+  security.pam.services.swaylock = {
+    text = ''
+      auth include login
+    '';
+  };
+  
+  xdg.portal = {
+    enable = true;
+    extraPortals = with pkgs; [
+      xdg-desktop-portal-wlr
+      xdg-desktop-portal-gtk
+    ];
+  };
 
   fonts = {
     fonts = with pkgs; [
@@ -53,7 +74,75 @@
 
   # Home manager configuration
   home-manager.users.thiloho = { pkgs, lib, ... }: {
+    wayland.windowManager.sway = {
+      enable = true;
+      wrapperFeatures.gtk = true;
+      config = {
+        modifier = "Mod1";
+        terminal = "alacritty";
+        menu = ''
+          tofi-run --width "100%" --height "100%" --border-width 0 --outline-width 0 --padding-left "35%" --padding-top "35%" --result-spacing 25 --num-results 5 --font "monospace" --background-color "#000A" | xargs swaymsg exec --
+        '';
+        bars = [
+          { command = "waybar"; }
+        ];
+      };
+      xwayland = false;
+    };
     programs = {
+      waybar = {
+        enable = true;
+        settings = [
+          {
+            modules-left = [ "sway/workspaces" ];
+            modules-center = [ "sway/window" ];
+            modules-right = [ "user" "memory" "disk" "cpu" "clock" ];  
+
+            user = {
+              format = "{user} - Uptime: {work_H}:{work_M}h";
+            };
+
+            memory = {
+              format = "Memory: {used}GiB";
+            };
+
+            disk = {
+              format = "Disk: {free}";
+            };
+
+            cpu = {
+              format = "CPU: {usage}%";
+            };
+
+            clock = {
+              interval = 60;
+              format = "{:%Y-%m-%d - %H:%M}";
+            };
+          }
+        ];
+        style = ''
+          * {
+            font-size: 0.875rem;
+            border: none;
+            border-radius: 0;
+          }
+        
+          window#waybar {
+            background-color: #1a1a1a;
+            color: #e6e6e6;
+          }
+
+          #workspaces button, #user, #memory, #disk, #cpu, #clock {
+            padding-top: 0.125rem;
+            padding-bottom: 0.125rem;
+            padding-left: 0.5rem;
+            padding-right: 0.5rem;
+            background-color: #262626;
+            border: 0.0625rem solid #404040;
+          }
+        '';
+      };
+      swaylock.enable = true;
       bash = {
         enable = true;
         shellAliases = {
@@ -126,23 +215,36 @@
           signByDefault = true;
         };
       };
-      gh.enable = true;
+    };
+    gtk = {
+      enable = true;
+      theme = {
+        package = pkgs.gnome.gnome-themes-extra;
+        name = "Adwaita-dark";
+      };
     };
     home = {
-    stateVersion = "22.11";
-    packages = with pkgs; [
-      zoom-us
-      libreoffice
-      airshipper
-      prismlauncher
-      nil
-      rust-analyzer
-      marksman
-      nodePackages.typescript-language-server
-      nodePackages.svelte-language-server
-      nodePackages.vscode-langservers-extracted
-      postgresqlJitPackages.plpgsql_check
-    ];
+      sessionVariables.NIXOS_OZONE_WL = "1";
+      stateVersion = "22.11";
+      packages = with pkgs; [
+        zoom-us
+        libreoffice
+        airshipper
+        prismlauncher
+        nil
+        rust-analyzer
+        marksman
+        nodePackages.typescript-language-server
+        nodePackages.svelte-language-server
+        nodePackages.vscode-langservers-extracted
+        postgresqlJitPackages.plpgsql_check
+        dconf
+        tofi
+        wayshot
+        wl-clipboard
+        xdg-utils
+        slurp
+      ];
   };
 };
 

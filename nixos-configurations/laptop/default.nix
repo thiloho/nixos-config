@@ -6,30 +6,9 @@
     ../shared.nix
   ];
 
-  environment.variables = {
-    TERMINAL = "alacritty";
-  };
-
-  hardware.enableRedistributableFirmware = true;
-
   networking.hostName = "laptop";
 
-  services = {
-    xserver = {
-      enable = true;
-      windowManager.i3 = {
-        enable = true;
-      };
-      libinput.enable = true;
-      videoDrivers = [ "modesetting" "nvidia" ];
-    };
-  };
-
-  hardware = {
-    bluetooth.enable = true;
-    firmware = [ pkgs.broadcom-bt-firmware ];
-  };
-
+  hardware.firmware = [ pkgs.broadcom-bt-firmware ];
   boot.extraModulePackages = [ config.boot.kernelPackages.broadcom_sta ];
 
   home-manager.users.thiloho = { pkgs, ... }: {
@@ -38,9 +17,5 @@
         key = "86C465C22C8A4D56";
       };
     };
-    services.flameshot.enable = true;
-    home.packages = with pkgs; [
-      arduino
-    ];
   };
 }
