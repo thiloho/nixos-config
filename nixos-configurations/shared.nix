@@ -4,8 +4,6 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  nixpkgs.config.allowUnfree = true;
-
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   time.timeZone = "Europe/Amsterdam";
@@ -181,7 +179,7 @@
       alacritty = {
         enable = true;
         settings = {
-          window.opacity = 0.9;
+          window.opacity = 0.75;
           font = {
             normal = {
               family = "JetBrainsMono";
@@ -232,7 +230,6 @@
       sessionVariables.NIXOS_OZONE_WL = "1";
       stateVersion = "22.11";
       packages = with pkgs; [
-        zoom-us
         libreoffice
         airshipper
         prismlauncher

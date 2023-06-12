@@ -8,14 +8,19 @@
 
   networking.hostName = "pc";
 
-  home-manager.users.thiloho = { ... }: {
-    wayland.windowManager.sway.config.output = {
+  home-manager.users.thiloho = { pkgs, lib, ... }: {
+    wayland.windowManager.sway.config.output = let
+      wallpaper = pkgs.fetchurl {
+        url = "https://imgur.com/aAWzGqj.jpg";
+        hash = "sha256-iTQS939Zrvjv4rBJ6Y41kdsBBN9lT5yAoJnNg/WiMoA=";
+      };
+    in {
       DP-1 = {
-        bg = "/home/thiloho/background.jpg fill";
+        bg = "${wallpaper} fill";
         res = "1920x1080@144.000Hz";
       };
       DP-2 = {
-        bg = "/home/thiloho/background.jpg fill";
+        bg = "${wallpaper} fill";
         res = "1920x1080@144.000Hz";
       };
     };
