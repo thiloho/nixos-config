@@ -10,10 +10,7 @@
 
   home-manager.users.thiloho = { pkgs, ... }: {
     wayland.windowManager.sway.config.output = let
-      wallpaper = pkgs.fetchurl {
-        url = "https://imgur.com/aAWzGqj.jpg";
-        hash = "sha256-iTQS939Zrvjv4rBJ6Y41kdsBBN9lT5yAoJnNg/WiMoA=";
-      };
+      wallpaper = pkgs.callPackage ../wallpaper.nix {};
     in {
       eDP-1 = {
         bg = "${wallpaper} fill";
