@@ -73,7 +73,7 @@
   };
 
   # Home manager configuration
-  home-manager.users.thiloho = { pkgs, lib, ... }: {
+  home-manager.users.thiloho = { pkgs, lib, config, ... }: {
     wayland.windowManager.sway = {
       enable = true;
       wrapperFeatures.gtk = true;
@@ -86,6 +86,11 @@
         bars = [
           { command = "waybar"; }
         ];
+        keybindings = let
+          modifier = config.wayland.windowManager.sway.config.modifier;
+        in lib.mkOptionDefault {
+          "${modifier}+Shift+S" = ''exec grim -g "$(slurp)" - | swappy -f -'';
+        };
       };
       xwayland = false;
     };
@@ -240,10 +245,11 @@
         postgresqlJitPackages.plpgsql_check
         dconf
         tofi
-        wayshot
         wl-clipboard
         xdg-utils
         slurp
+        grim
+        swappy
       ];
   };
 };
