@@ -145,7 +145,14 @@
           }
         '';
       };
-      swaylock.enable = true;
+      swaylock = {
+        enable = true;
+        settings = let
+          wallpaper = pkgs.callPackage ./wallpaper.nix {};
+        in {
+          image = "${wallpaper}";
+        };
+      };
       bash = {
         enable = true;
         shellAliases = {
