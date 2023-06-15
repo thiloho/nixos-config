@@ -150,6 +150,7 @@
         enable = true;
         shellAliases = {
           rbs = "sudo nixos-rebuild switch --flake .";
+          off = "sudo systemctl poweroff";
         };
       };
       helix = {
