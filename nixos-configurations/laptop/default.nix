@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, config, ... }:
 
 {
   imports = [
@@ -7,6 +7,8 @@
   ];
 
   networking.hostName = "laptop";
+
+  nixpkgs.config.allowUnfree = true;
   
   hardware.firmware = [ pkgs.broadcom-bt-firmware ];
   boot.extraModulePackages = [ config.boot.kernelPackages.broadcom_sta ];
@@ -21,7 +23,7 @@
     };
     programs.git = {
       signing = {
-        key = "86C465C22C8A4D56";
+        key = "11BA77C2BDCEBF6A";
       };
     };
   };
