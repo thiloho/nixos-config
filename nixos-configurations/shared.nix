@@ -235,7 +235,10 @@
       };
     };
     home = {
-      sessionVariables.NIXOS_OZONE_WL = "1";
+      sessionVariables = {
+        NIXOS_OZONE_WL = "1";
+        EDITOR = "hx";
+      };
       stateVersion = "22.11";
       packages = with pkgs; [
         libreoffice
