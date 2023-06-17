@@ -215,7 +215,6 @@
         extensions = [
           { id = "cjpalhdlnbpafiamejdnhcphjbkeiagm"; }
           { id = "dhdgffkkebhmkfjojejmpbldmpobfkfo"; }
-          { id = "mmbiohbmijkiimgcgijfomelgpmdiigb"; }
         ];
       };
       git = {
