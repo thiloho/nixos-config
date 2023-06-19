@@ -7,8 +7,6 @@
   ];
 
   networking.hostName = "laptop";
-
-  nixpkgs.config.allowUnfree = true;
   
   hardware.firmware = [ pkgs.broadcom-bt-firmware ];
   boot.extraModulePackages = [ config.boot.kernelPackages.broadcom_sta ];

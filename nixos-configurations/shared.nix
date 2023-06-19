@@ -8,6 +8,8 @@
 
   time.timeZone = "Europe/Amsterdam";
 
+  nixpkgs.config.allowUnfree = true;
+
   networking.networkmanager.enable = true;
 
   hardware.pulseaudio.enable = false;
@@ -128,6 +130,7 @@
             font-size: 0.875rem;
             border: none;
             border-radius: 0;
+            font-family: "JetBrains Mono";
           }
         
           window#waybar {
@@ -209,13 +212,9 @@
           };
         };
       };
-      firefox.enable = true;
-      chromium = {
+      firefox = {
         enable = true;
-        extensions = [
-          { id = "cjpalhdlnbpafiamejdnhcphjbkeiagm"; }
-          { id = "dhdgffkkebhmkfjojejmpbldmpobfkfo"; }
-        ];
+        package = pkgs.firefox-devedition;
       };
       git = {
         enable = true;
@@ -235,7 +234,6 @@
     };
     home = {
       sessionVariables = {
-        NIXOS_OZONE_WL = "1";
         EDITOR = "hx";
       };
       stateVersion = "22.11";
