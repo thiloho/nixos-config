@@ -1,5 +1,5 @@
 { pkgs }: pkgs.fetchurl {
-  url = "https://imgur.com/aAWzGqj.jpg";
-  hash = "sha256-iTQS939Zrvjv4rBJ6Y41kdsBBN9lT5yAoJnNg/WiMoA=";
+  url = "https://i.imgur.com/PDwmNTA.png";
+  hash = "sha256-bQM7RSjI/Lpn+7c9w0/Yr8JmD1ThfjGV9bMWpYFGceo=";
 }
 

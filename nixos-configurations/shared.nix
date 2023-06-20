@@ -58,6 +58,7 @@
       nerdfonts
       roboto
       jetbrains-mono
+      open-sans
     ];
   };
 
@@ -127,10 +128,11 @@
         ];
         style = ''
           * {
-            font-size: 0.875rem;
             border: none;
             border-radius: 0;
-            font-family: "JetBrains Mono";
+            font-family: "Open Sans";
+            font-weight: 600;
+            font-size: 0.875rem;
           }
         
           window#waybar {
