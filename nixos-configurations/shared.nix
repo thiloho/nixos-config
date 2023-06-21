@@ -163,6 +163,7 @@
         shellAliases = {
           rbs = "sudo nixos-rebuild switch --flake .";
           off = "sudo systemctl poweroff";
+          cleanup = "nix store optimise && nix-collect-garbage -d && sudo nix store optimise && sudo nix-collect-garbage -d";
         };
       };
       helix = {
@@ -218,6 +219,7 @@
         enable = true;
         package = pkgs.firefox-devedition;
       };
+      obs-studio.enable = true;
       git = {
         enable = true;
         userName = "thiloho";
@@ -236,6 +238,7 @@
     };
     home = {
       sessionVariables = {
+        NIXOS_OZONE_WL = "1";
         EDITOR = "hx";
       };
       stateVersion = "22.11";
