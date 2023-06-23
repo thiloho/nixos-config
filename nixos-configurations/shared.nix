@@ -219,7 +219,6 @@
         enable = true;
         package = pkgs.firefox-devedition;
       };
-      obs-studio.enable = true;
       git = {
         enable = true;
         userName = "thiloho";
@@ -260,6 +259,7 @@
         slurp
         grim
         swappy
+        kooha
       ];
   };
 };
