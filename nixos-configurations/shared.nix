@@ -131,8 +131,8 @@
             border: none;
             border-radius: 0;
             font-family: "Open Sans";
-            font-weight: 600;
             font-size: 0.875rem;
+            font-weight: 600;
           }
         
           window#waybar {
@@ -215,7 +215,10 @@
           };
         };
       };
-      firefox.enable = true;
+      firefox = {
+        enable = true;
+        package = pkgs.firefox-devedition;
+      };
       git = {
         enable = true;
         userName = "thiloho";
