@@ -94,6 +94,10 @@
         };
       };
       xwayland = false;
+      extraConfig = ''
+        default_border pixel 2
+        default_floating_border pixel 2
+      '';
     };
     programs = {
       waybar = {
