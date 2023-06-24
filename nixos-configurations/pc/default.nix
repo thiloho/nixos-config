@@ -26,8 +26,8 @@
         key = "74F3E176485BE7DA";
       };
     };
-    home.stateVersion = "22.11";
+    home.stateVersion = "23.05";
   };
-  system.stateVersion = "22.11";
+  system.stateVersion = "23.05";
 }
 
