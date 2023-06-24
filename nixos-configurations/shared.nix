@@ -215,10 +215,7 @@
           };
         };
       };
-      firefox = {
-        enable = true;
-        package = pkgs.firefox-devedition;
-      };
+      firefox.enable = true;
       git = {
         enable = true;
         userName = "thiloho";
@@ -240,7 +237,6 @@
         NIXOS_OZONE_WL = "1";
         EDITOR = "hx";
       };
-      stateVersion = "22.11";
       packages = with pkgs; [
         libreoffice
         airshipper
@@ -260,9 +256,8 @@
         grim
         swappy
         kooha
+        ventoy
       ];
+    };
   };
-};
-
-  system.stateVersion = "22.11";
 }
