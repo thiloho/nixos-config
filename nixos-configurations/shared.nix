@@ -215,10 +215,7 @@
           };
         };
       };
-      firefox = {
-        enable = true;
-        package = pkgs.firefox-devedition;
-      };
+      firefox.enable = true;
       git = {
         enable = true;
         userName = "thiloho";
