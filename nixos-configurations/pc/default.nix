@@ -23,7 +23,7 @@
     };
     programs.git = {
       signing = {
-        key = "74F3E176485BE7DA";
+        key = "A6C6D25B9687377B";
       };
     };
     home.stateVersion = "23.05";
