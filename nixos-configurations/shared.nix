@@ -207,6 +207,14 @@
         };
       };
       firefox.enable = true;
+      chromium = {
+        enable = true;
+        extensions = [
+          { id = "mmbiohbmijkiimgcgijfomelgpmdiigb"; }
+          { id = "dhdgffkkebhmkfjojejmpbldmpobfkfo"; }
+          { id = "cjpalhdlnbpafiamejdnhcphjbkeiagm"; }
+        ];
+      };
       git = {
         enable = true;
         userName = "thiloho";
