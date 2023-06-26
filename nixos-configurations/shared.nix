@@ -12,8 +12,6 @@
 
   networking.networkmanager.enable = true;
 
-  hardware.pulseaudio.enable = false;
-
   virtualisation.docker.enable = true;
 
   services = {
@@ -26,21 +24,10 @@
     };
   };
 
-  sound.enable = true;
-
   hardware.opengl.enable = true;
-
-  security = {
-    rtkit.enable = true;
-    polkit.enable = true;
-  };
   
   # Make swaylock work
-  security.pam.services.swaylock = {
-    text = ''
-      auth include login
-    '';
-  };
+  security.pam.services.swaylock = {};
   
   xdg.portal = {
     enable = true;
@@ -79,7 +66,7 @@
       enable = true;
       wrapperFeatures.gtk = true;
       config = {
-        modifier = "Mod1";
+        modifier = "Mod4";
         terminal = "alacritty";
         menu = ''
           tofi-run --width "100%" --height "100%" --border-width 0 --outline-width 0 --padding-left "35%" --padding-top "35%" --result-spacing 25 --num-results 5 --font "monospace" --background-color "#000A" | xargs swaymsg exec --
@@ -261,6 +248,7 @@
         swappy
         kooha
         ventoy
+        lapce
       ];
     };
   };
