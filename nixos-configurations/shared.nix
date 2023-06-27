@@ -37,17 +37,7 @@
     ];
   };
 
-  fonts = {
-    fonts = with pkgs; [
-      noto-fonts
-      noto-fonts-emoji
-      noto-fonts-cjk-sans
-      nerdfonts
-      roboto
-      jetbrains-mono
-      open-sans
-    ];
-  };
+  fonts.enableDefaultFonts = true;
 
   users.users.thiloho = {
     isNormalUser = true;
@@ -121,9 +111,7 @@
           * {
             border: none;
             border-radius: 0;
-            font-family: "Open Sans";
             font-size: 0.875rem;
-            font-weight: 600;
           }
         
           window#waybar {
@@ -186,25 +174,7 @@
         enable = true;
         settings = {
           window.opacity = 0.75;
-          font = {
-            normal = {
-              family = "JetBrainsMono";
-              style = "regular";
-            };
-            bold = {
-              family = "JetBrainsMono";
-              style = "regular";
-            };
-            italic = {
-              family = "JetBrainsMono";
-              style = "regular";
-            };
-            bold_italic = {
-              family = "JetBrainsMono";
-              style = "regular";
-            };
-            size = 11.00;
-          };
+          font.size = 11.00;
         };
       };
       firefox.enable = true;
