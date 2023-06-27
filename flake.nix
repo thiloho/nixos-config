@@ -8,11 +8,11 @@
   };
 
   outputs = { nixpkgs, home-manager, ... }: {
-    nixosConfigurations = {
-      pc = nixpkgs.lib.nixosSystem {
+    nixosConfigurations = let
+      mkSystem = entrypoint: nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
-          ./nixos-configurations/pc
+          entrypoint
           home-manager.nixosModules.home-manager
           {
             home-manager = {
@@ -22,19 +22,9 @@
           }
         ];
       };
-      laptop = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        modules = [
-          ./nixos-configurations/laptop
-          home-manager.nixosModules.home-manager
-          {
-            home-manager = {
-              useGlobalPkgs = true;
-              useUserPackages = true;
-            };
-          }
-        ];
-      };
+    in {
+      pc = mkSystem ./nixos-configurations/pc;
+      laptop = mkSystem ./nixos-configurations/laptop;
     };
   };
 }
