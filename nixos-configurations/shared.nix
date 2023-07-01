@@ -12,6 +12,8 @@
 
   networking.networkmanager.enable = true;
 
+  virtualisation.docker.enable = true;
+
   users.users.thiloho = {
     isNormalUser = true;
     extraGroups = [ "wheel" "networkmanager" "docker" ];
