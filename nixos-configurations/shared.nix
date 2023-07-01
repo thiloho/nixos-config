@@ -37,7 +37,13 @@
     ];
   };
 
-  fonts.enableDefaultFonts = true;
+  fonts = {
+    enableDefaultFonts = true;
+    fonts = with pkgs; [
+      noto-fonts-cjk-sans
+      nerdfonts
+    ];
+  };
 
   users.users.thiloho = {
     isNormalUser = true;
@@ -228,6 +234,7 @@
         kooha
         ventoy
         lapce
+        tldr
       ];
     };
   };
