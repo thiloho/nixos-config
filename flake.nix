@@ -25,6 +25,7 @@
     in {
       pc = mkSystem ./nixos-configurations/pc;
       laptop = mkSystem ./nixos-configurations/laptop;
+      server = mkSystem ./nixos-configurations/server;
     };
   };
 }

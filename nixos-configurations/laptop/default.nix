@@ -3,6 +3,7 @@
 {
   imports = [
     ./hardware-configuration.nix
+    ../shared-desktop.nix
     ../shared.nix
   ];
 
@@ -24,5 +25,7 @@
         key = "11BA77C2BDCEBF6A";
       };
     };
+    home.stateVersion = "23.05";
   };
+  system.stateVersion = "23.05";
 }
