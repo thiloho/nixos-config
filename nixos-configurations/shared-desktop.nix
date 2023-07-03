@@ -9,9 +9,9 @@
       pulse.enable = true;
       jack.enable = true;
     };
-    xserver.desktopManager = {
-      gnome.enable = true;
-      gdm.enable = true;
+    xserver = {
+      desktopManager.gnome.enable = true;
+      displayManager.gdm.enable = true;
     };
     gnome.core-utilities.enable = false;
   };
