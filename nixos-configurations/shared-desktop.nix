@@ -217,6 +217,7 @@
         ventoy
         lapce
         tldr
+        vulkan-validation-layers
       ];
     };
   };
