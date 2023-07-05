@@ -14,39 +14,12 @@
   services = {
     xserver = {
       enable = true;
-      displayManager.gdm.enable = true;
-      desktopManager.gnome.enable = true;
+      displayManager.sddm.enable = true;
+      desktopManager.plasma5.enable = true;
     };
-    gnome.core-utilities.enable = false;
   };
 
-  programs.dconf.enable = true;
-
   home-manager.users.thiloho = { pkgs, lib, config, ... }: {
-    dconf.settings = let
-      wallpaper = pkgs.callPackage ./wallpaper.nix {};
-    in {
-      "org/gnome/desktop/interface" = {
-        color-scheme = "prefer-dark";
-      };
-      "org/gnome/desktop/background" = {
-        picture-uri = "${wallpaper}";
-        picture-uri-dark = "${wallpaper}";
-      };
-    };
-    gtk = {
-      enable = true;
-      gtk3.extraConfig = {
-        Settings = ''
-          gtk-application-prefer-dark-theme=1
-        '';
-      };
-      gtk4.extraConfig = {
-        Settings = ''
-          gtk-application-prefer-dark-theme=1
-        '';
-      };
-    };
     programs = {
       bash = {
         enable = true;
