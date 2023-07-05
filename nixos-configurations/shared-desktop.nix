@@ -60,8 +60,11 @@
       };
       xwayland = false;
       extraConfig = ''
-        default_border pixel 2
-        default_floating_border pixel 2
+        default_border none
+        default_floating_border none
+        font pango:monospace 0
+        titlebar_padding 1
+        titlebar_border_thickness 0
       '';
     };
     programs = {
