@@ -23,6 +23,17 @@
   programs.dconf.enable = true;
 
   home-manager.users.thiloho = { pkgs, lib, config, ... }: {
+    dconf.settings = let
+      wallpaper = pkgs.callPackage ./wallpaper.nix {};
+    in {
+      "org/gnome/desktop/interface" = {
+        color-scheme = "prefer-dark";
+      };
+      "org/gnome/desktop/background" = {
+        picture-uri = "${wallpaper}";
+        picture-uri-dark = "${wallpaper}";
+      };
+    };
     programs = {
       gtk = {
         enable = true;
@@ -35,17 +46,6 @@
           Settings = ''
             gtk-application-prefer-dark-theme=1
           '';
-        };
-      };
-      dconf.settings = let
-        wallpaper = pkgs.callPackage ./wallpaper.nix {};
-      in {
-        "org/gnome/desktop/interface" = {
-          color-scheme = "prefer-dark";
-        };
-        "org/gnome/desktop/background" = {
-          picture-uri = "${wallpaper}";
-          picture-uri-dark = "${wallpaper}";
         };
       };
       bash = {
