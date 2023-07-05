@@ -17,6 +17,7 @@
   };
 
   programs.dconf.enable = true;
+  hardware.pulseaudio.enable = false;
 
   # Home manager configuration
   home-manager.users.thiloho = { pkgs, lib, config, ... }: {
