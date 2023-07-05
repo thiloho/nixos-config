@@ -11,7 +11,10 @@
     };
   };
 
-  hardware.opengl.enable = true;
+  hardware.opengl = {
+    enable = true;
+    driSupport32Bit = true;
+  };
   
   # Make swaylock work
   security.pam.services.swaylock = {};
@@ -33,11 +36,6 @@
   };
 
   programs = {
-    steam = {
-      enable = true;
-      remotePlay.openFirewall = true;
-      dedicatedServer.openFirewall = true;
-    };
     gnupg.agent = {
       enable = true;
       enableSSHSupport = true;
@@ -223,6 +221,7 @@
         lapce
         tldr
         vulkan-validation-layers
+        steam
       ];
     };
   };
