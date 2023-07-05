@@ -217,7 +217,6 @@
         lapce
         tldr
         vulkan-validation-layers
-        steam
       ];
     };
   };
