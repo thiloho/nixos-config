@@ -38,7 +38,7 @@
         };
       };
       dconf.settings = let
-        wallpaper = pkgs.callPackage ../wallpaper.nix {};
+        wallpaper = pkgs.callPackage ./wallpaper.nix {};
       in {
         "org/gnome/desktop/interface" = {
           color-scheme = "prefer-dark";
