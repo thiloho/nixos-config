@@ -58,13 +58,9 @@
           "${modifier}+Shift+S" = ''exec grim -g "$(slurp)" - | swappy -f -'';
         };
       };
-      xwayland = false;
       extraConfig = ''
-        default_border pixel 2
-        default_floating_border pixel 2
-        font pango:monospace 0
-        titlebar_padding 4
-        titlebar_border_thickness 0
+        default_border pixel 1
+        default_floating_border pixel 1
       '';
     };
     programs = {
