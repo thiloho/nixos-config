@@ -32,10 +32,16 @@
     ];
   };
 
-  programs.gnupg.agent = {
-    enable = true;
-    enableSSHSupport = true;
-    pinentryFlavor = "gtk2";
+  programs = {
+    steam = {
+      enable = true;
+      remotePlay.openFirewall = true;
+      dedicatedServer.openFirewall = true;
+    };
+    gnupg.agent = {
+      enable = true;
+      enableSSHSupport = true;
+    };
   };
 
   # Home manager configuration
