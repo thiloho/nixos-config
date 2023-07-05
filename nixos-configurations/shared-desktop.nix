@@ -20,8 +20,34 @@
     gnome.core-utilities.enable = false;
   };
 
+  programs.dconf.enable = true;
+
   home-manager.users.thiloho = { pkgs, lib, config, ... }: {
     programs = {
+      gtk = {
+        enable = true;
+        gtk3.extraConfig = {
+          Settings = ''
+            gtk-application-prefer-dark-theme=1
+          '';
+        };
+        gtk4.extraConfig = {
+          Settings = ''
+            gtk-application-prefer-dark-theme=1
+          '';
+        };
+      };
+      dconf.settings = let
+        wallpaper = pkgs.callPackage ../wallpaper.nix {};
+      in {
+        "org/gnome/desktop/interface" = {
+          color-scheme = "prefer-dark";
+        };
+        "org/gnome/desktop/background" = {
+          picture-uri = "${wallpaper}";
+          picture-uri-dark = "${wallpaper}";
+        };
+      };
       bash = {
         enable = true;
         shellAliases = {
