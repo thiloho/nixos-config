@@ -56,10 +56,6 @@
         };
       };
       firefox.enable = true;
-      chromium = {
-        enable = true;
-        package = pkgs.brave;
-      };
       vscode = {
         enable = true;
       };
