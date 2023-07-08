@@ -72,8 +72,8 @@
       packages = with pkgs; [
         libreoffice
         airshipper
-        minecraft
         tldr
+        prismlauncher
       ];
     };
   };
