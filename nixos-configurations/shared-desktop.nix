@@ -63,9 +63,9 @@
         enable = true;
         userName = "thiloho";
         userEmail = "123883702+thiloho@users.noreply.github.com";
-        signing = {
-          signByDefault = true;
-        };
+        # signing = {
+          # signByDefault = true;
+        # };
       };
     };
     home = {
@@ -74,6 +74,7 @@
         airshipper
         tldr
         prismlauncher
+        ventoy-full
       ];
     };
   };
