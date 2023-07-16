@@ -37,12 +37,20 @@
     dconf.settings = let
       wallpaper = pkgs.callPackage ./wallpaper.nix {};
     in {
-      "org/gnome/desktop/interface" = {
-        color-scheme = "prefer-dark";
-      };
       "org/gnome/desktop/background" = {
         picture-uri = "${wallpaper}";
         picture-uri-dark = "${wallpaper}";
+      };
+      "org/gnome/desktop/interface" = {
+        color-scheme = "prefer-dark";
+      };
+      "org/gnome/settings-daemon/plugins/color" = {
+        night-light-schedule-automatic = false;
+        night-light-schedule-from = 0.0;
+        night-light-schedule-to = 0.0;
+      };
+      "org/gnome/desktop/peripherals/touchpad" = {
+        tap-to-click = true;
       };
     };
     programs = {
@@ -56,8 +64,9 @@
         };
       };
       firefox.enable = true;
-      vscode = {
+      helix = {
         enable = true;
+        defaultEditor = true;
       };
       git = {
         enable = true;
