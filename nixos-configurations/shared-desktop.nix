@@ -16,7 +16,15 @@
     };
   };
 
-  programs.dconf.enable = true;
+  programs = {
+    steam = {
+      enable = true;
+      remotePlay.openFirewall = true;
+      dedicatedServer.openFirewall = true;
+    };
+    dconf.enable = true;
+  };
+
   hardware.pulseaudio.enable = false;
 
   # Home manager configuration
