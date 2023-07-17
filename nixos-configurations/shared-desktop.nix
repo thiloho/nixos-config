@@ -77,9 +77,21 @@
         };
       };
       firefox.enable = true;
+      vscode = {
+        enable = true;
+        extensions = with pkgs; [
+          vscode-extensions.svelte.svelte-vscode
+          vscode-extensions.jnoortheen.nix-ide
+          vscode-extensions.ritwickdey.liveserver
+        ];
+        userSettings = {
+          "editor.tabSize" = 2;
+        };
+      };
       helix = {
         enable = true;
         defaultEditor = true;
+        settings.theme = "ayu_dark";
       };
       git = {
         enable = true;
