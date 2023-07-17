@@ -14,6 +14,8 @@
       pulse.enable = true;
       jack.enable = true;
     };
+    printing.enable = true;
+    resolved.enable = true;
   };
 
   programs = {
@@ -25,7 +27,10 @@
     dconf.enable = true;
   };
 
-  hardware.pulseaudio.enable = false;
+  hardware = {
+    bluetooth.enable = true;  
+    pulseaudio.enable = false;
+  };
 
   # Home manager configuration
   home-manager.users.thiloho = { pkgs, lib, config, ... }: {

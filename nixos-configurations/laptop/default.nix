@@ -9,6 +9,8 @@
 
   networking.hostName = "laptop";
 
+  boot.extraModulePackages = [ config.boot.kernelPackages.broadcom_sta ];
+
   home-manager.users.thiloho = { pkgs, ... }: {
     # programs.git = {
       # signing = {
