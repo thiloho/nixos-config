@@ -18,6 +18,10 @@
     resolved.enable = true;
   };
 
+  environment.systemPackages = with pkgs; [
+    gnomeExtensions.vitals
+  ];
+
   programs = {
     steam = {
       enable = true;
