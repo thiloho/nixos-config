@@ -18,10 +18,6 @@
     resolved.enable = true;
   };
 
-  environment.systemPackages = with pkgs; [
-    gnomeExtensions.vitals
-  ];
-
   programs = {
     steam = {
       enable = true;
@@ -32,7 +28,6 @@
   };
 
   hardware = {
-    bluetooth.enable = true;  
     pulseaudio.enable = false;
   };
 
@@ -113,6 +108,7 @@
         tldr
         prismlauncher
         ventoy-full
+        psensor
       ];
     };
   };
