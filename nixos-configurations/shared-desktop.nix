@@ -109,6 +109,7 @@
         prismlauncher
         ventoy-full
         psensor
+        quickemu
       ];
     };
   };

@@ -30,5 +30,3 @@
     "/nix".options = [ "compress=zstd" "noatime" ];
   };
 }
-
-
