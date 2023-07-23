@@ -76,6 +76,14 @@
         };
       };
       firefox.enable = true;
+      chromium = {
+        enable = true;
+        extensions = [
+          { id = "mmbiohbmijkiimgcgijfomelgpmdiigb"; } # Hotkeys
+          { id = "dhdgffkkebhmkfjojejmpbldmpobfkfo"; } # Tampermonkey
+          { id = "cjpalhdlnbpafiamejdnhcphjbkeiagm"; } # uBlock Origin
+        ];
+      };
       vscode = {
         enable = true;
         extensions = with pkgs; [
