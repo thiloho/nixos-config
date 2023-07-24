@@ -22,6 +22,15 @@
     };
   };
 
+  services.openssh = {
+    enable = true;
+    settings.PasswordAuthentication = false;
+  };
+
+  users.users.thiloho.openssh.authorizedKeys.keys = [
+    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAy1KnXinQJNcGpWTe1jifNuUEfKZRmyshVX5fPEWR19 thiloho@pc"
+  ];
+
   home-manager.users.thiloho = { pkgs, lib, ... }: {
     home.stateVersion = "23.05";
   };
