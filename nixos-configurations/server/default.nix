@@ -6,17 +6,19 @@
     ../shared.nix
   ];
 
-  networking = {
-    hostName = "server";
-    interfaces = {
-      enp41s0.ipv6.addresses = [{
-        address = "2a01:4f8:a0:8246::1";
-        prefixLength = 64;
-      }];
+  services.minecraft-server = {
+    enable = true;
+    eula = true;
+    declarative = true;
+    openFirewall = true;
+    whitelist = {
+      thilo_ho = "4e4d744d-7748-46bc-add8-b3e8ca3b4cf5";
     };
-    defaultGateway6 = {
-      address = "fe80::1";
-      interface = "enp41s0";
+    serverProperties = {
+      difficulty = 3;
+      max-players = 10;
+      motd = "Minecraft server of Thilo.";
+      white-list = true;
     };
   };
 
