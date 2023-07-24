@@ -6,6 +6,8 @@
     ../shared.nix
   ];
 
+  networking.hostName = "server";
+
   services.minecraft-server = {
     enable = true;
     eula = true;
