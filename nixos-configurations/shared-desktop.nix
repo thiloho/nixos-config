@@ -49,9 +49,24 @@
     dconf.settings = let
       wallpaper = pkgs.callPackage ./wallpaper.nix {};
     in {
+      "org/gnome/shell" = {
+        favorite-apps = [
+          "org.gnome.Console.desktop"
+          "org.gnome.Nautilus.desktop"
+          "code.desktop"
+          "firefox.desktop"
+          "chromium-browser.desktop"
+          "psensor.desktop"
+          "steam.desktop"
+          "org.prismlauncher.PrismLauncher.desktop"
+        ];
+      };
       "org/gnome/desktop/background" = {
         picture-uri = "${wallpaper}";
         picture-uri-dark = "${wallpaper}";
+      };
+      "org/gnome/desktop/screensaver" = {
+        picture-uri = "${wallpaper}";
       };
       "org/gnome/desktop/interface" = {
         color-scheme = "prefer-dark";
