@@ -31,13 +31,20 @@
   };
 
   home-manager.users.thiloho = { ... }: {
-    programs.git = {
-      enable = true;
-      userName = "thiloho";
-      userEmail = "123883702+thiloho@users.noreply.github.com";
-      # signing = {
-        # signByDefault = true;
-      # };
+    programs = {
+      git = {
+        enable = true;
+        userName = "thiloho";
+        userEmail = "123883702+thiloho@users.noreply.github.com";
+        # signing = {
+          # signByDefault = true;
+        # };
+      };
+      helix = {
+        enable = true;
+        defaultEditor = true;
+        settings.theme = "ayu_dark";
+      };
     };
   };
 }
