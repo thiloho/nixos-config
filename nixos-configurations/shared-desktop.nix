@@ -115,14 +115,6 @@
         defaultEditor = true;
         settings.theme = "ayu_dark";
       };
-      git = {
-        enable = true;
-        userName = "thiloho";
-        userEmail = "123883702+thiloho@users.noreply.github.com";
-        # signing = {
-          # signByDefault = true;
-        # };
-      };
     };
     home = {
       packages = with pkgs; [
