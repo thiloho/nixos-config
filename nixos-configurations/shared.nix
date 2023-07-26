@@ -30,7 +30,7 @@
     "/nix".options = [ "compress=zstd" "noatime" ];
   };
 
-  home-manager.users.thiloho = { pkgs, lib, config, ... }: {
+  home-manager.users.thiloho = { ... }: {
     git = {
       enable = true;
       userName = "thiloho";
