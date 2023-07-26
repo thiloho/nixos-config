@@ -31,7 +31,7 @@
   };
 
   home-manager.users.thiloho = { ... }: {
-    git = {
+    programs.git = {
       enable = true;
       userName = "thiloho";
       userEmail = "123883702+thiloho@users.noreply.github.com";
