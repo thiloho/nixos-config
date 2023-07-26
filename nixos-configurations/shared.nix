@@ -29,4 +29,15 @@
     "/home".options = [ "compress=zstd" ];
     "/nix".options = [ "compress=zstd" "noatime" ];
   };
+
+  home-manager.users.thiloho = { pkgs, lib, config, ... }: {
+    git = {
+      enable = true;
+      userName = "thiloho";
+      userEmail = "123883702+thiloho@users.noreply.github.com";
+      # signing = {
+        # signByDefault = true;
+      # };
+    };
+  };
 }
