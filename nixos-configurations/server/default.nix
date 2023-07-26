@@ -29,19 +29,6 @@
     settings.PasswordAuthentication = false;
   };
 
-  networking = {
-    interfaces = {
-      ens3.ipv6.addresses = [{
-        address = "2a01:4f8:c2c:4bc::1";
-        prefixLength = 64;
-      }];
-    };
-    defaultGateway6 = {
-      address = "fe80::1";
-      interface = "ens3";
-    };
-  };
-
   users.users.thiloho.openssh.authorizedKeys.keys = [
     "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAy1KnXinQJNcGpWTe1jifNuUEfKZRmyshVX5fPEWR19 thiloho@pc"
   ];
