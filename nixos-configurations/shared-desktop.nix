@@ -110,11 +110,6 @@
           "editor.tabSize" = 2;
         };
       };
-      helix = {
-        enable = true;
-        defaultEditor = true;
-        settings.theme = "ayu_dark";
-      };
     };
     home = {
       packages = with pkgs; [
