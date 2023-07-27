@@ -79,6 +79,9 @@
       "org/gnome/desktop/peripherals/touchpad" = {
         tap-to-click = true;
       };
+      "org/gnome/settings-daemon/plugins/power" = {
+        sleep-inactive-ac-type = "nothing";
+      };
     };
     programs = {
       bash = {
