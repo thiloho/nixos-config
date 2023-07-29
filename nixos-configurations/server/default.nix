@@ -47,7 +47,7 @@
 
   security.acme = {
     acceptTerms = true;
-    email = "thilo.hohlt@tutanota.com";
+    defaults.email = "thilo.hohlt@tutanota.com";
   };
 
   users.users.thiloho.openssh.authorizedKeys.keys = [
