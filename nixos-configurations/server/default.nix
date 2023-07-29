@@ -1,4 +1,4 @@
-{ ... }:
+{ inputs, ... }:
 
 {
   imports = [
@@ -8,25 +8,36 @@
 
   networking.hostName = "server";
 
-  services.minecraft-server = {
-    enable = true;
-    eula = true;
-    declarative = true;
-    openFirewall = true;
-    whitelist = {
-      thilo_ho = "4e4d744d-7748-46bc-add8-b3e8ca3b4cf5";
+  services = {
+    minecraft-server = {
+      enable = true;
+      eula = true;
+      declarative = true;
+      openFirewall = true;
+      whitelist = {
+        thilo_ho = "4e4d744d-7748-46bc-add8-b3e8ca3b4cf5";
+      };
+      serverProperties = {
+        difficulty = 3;
+        max-players = 10;
+        motd = "Minecraft server of Thilo.";
+        white-list = true;
+      };
     };
-    serverProperties = {
-      difficulty = 3;
-      max-players = 10;
-      motd = "Minecraft server of Thilo.";
-      white-list = true;
+    openssh = {
+      enable = true;
     };
-  };
-
-  services.openssh = {
-    enable = true;
-    settings.PasswordAuthentication = false;
+    nginx = {
+      enable = true;
+      virtualHosts = {
+        "thilohohlt.com" = {
+          root = inputs.website;
+          locations."/" = {
+            proxyPass = "http://localhost:1000";
+          };
+        };
+      };
+    };
   };
 
   users.users.thiloho.openssh.authorizedKeys.keys = [

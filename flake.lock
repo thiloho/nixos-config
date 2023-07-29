@@ -1,5 +1,23 @@
 {
   "nodes": {
+    "aurora-blog-template": {
+      "inputs": {
+        "nixpkgs": "nixpkgs"
+      },
+      "locked": {
+        "lastModified": 1686592676,
+        "narHash": "sha256-rUU3nwKtuQVUopwQ4ZVzfFujMqA9elih6BVugtpKAPQ=",
+        "owner": "thiloho",
+        "repo": "aurora",
+        "rev": "0017fcdfa743a65a5fd4da8871f33425f7c84f28",
+        "type": "github"
+      },
+      "original": {
+        "owner": "thiloho",
+        "repo": "aurora",
+        "type": "github"
+      }
+    },
     "home-manager": {
       "inputs": {
         "nixpkgs": [
@@ -22,6 +40,21 @@
     },
     "nixpkgs": {
       "locked": {
+        "lastModified": 1684787197,
+        "narHash": "sha256-tvGDj3zgpW5NGoVKvoTQvkhfFPDgkbzfX+zFUW8NeHw=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "e2614d8ebcdf9a9eae0efe074f4d745d28595886",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs_2": {
+      "locked": {
         "lastModified": 1689282004,
         "narHash": "sha256-VNhuyb10c9SV+3hZOlxwJwzEGytZ31gN9w4nPCnNvdI=",
         "owner": "nixos",
@@ -38,8 +71,26 @@
     },
     "root": {
       "inputs": {
+        "aurora-blog-template": "aurora-blog-template",
         "home-manager": "home-manager",
-        "nixpkgs": "nixpkgs"
+        "nixpkgs": "nixpkgs_2",
+        "website": "website"
+      }
+    },
+    "website": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1690057185,
+        "narHash": "sha256-Tcpi9P+7pEDC8/mJLOAuFJJf/ddXFjwmksoxRehm9FE=",
+        "owner": "thiloho",
+        "repo": "website",
+        "rev": "993d7e0c7cf62477036b023bac766174e9f39970",
+        "type": "github"
+      },
+      "original": {
+        "owner": "thiloho",
+        "repo": "website",
+        "type": "github"
       }
     }
   },
