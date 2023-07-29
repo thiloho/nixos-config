@@ -37,10 +37,17 @@
       enable = true;
       virtualHosts = {
         "thilohohlt.com" = {
+          enableACME = true;
+          forceSSL = true;
           root = inputs.website;
         };
       };
     };
+  };
+
+  security.acme = {
+    acceptTerms = true;
+    email = "thilo.hohlt@tutanota.com";
   };
 
   users.users.thiloho.openssh.authorizedKeys.keys = [
