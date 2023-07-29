@@ -32,9 +32,6 @@
       virtualHosts = {
         "thilohohlt.com" = {
           root = inputs.website;
-          locations."/" = {
-            proxyPass = "http://localhost:1000";
-          };
         };
       };
     };
