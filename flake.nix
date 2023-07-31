@@ -3,22 +3,29 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    home-manager.url = "github:nix-community/home-manager";
-    home-manager.inputs.nixpkgs.follows = "nixpkgs";
+    home-manager = {
+      url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     website = {
       url = "github:thiloho/website";
       flake = false;
     };
     aurora-blog-template.url = "github:thiloho/aurora";
+    NixOS-WSL = {
+      url = "github:nix-community/NixOS-WSL";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = inputs@{ nixpkgs, home-manager, ... }: {
+  outputs = inputs@{ nixpkgs, home-manager, NixOS-WSL, ... }: {
     nixosConfigurations = let
       mkSystem = entrypoint: nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         specialArgs = { inherit inputs; };
         modules = [
           entrypoint
+          (if entrypoint == ./nixos-configurations/wsl then NixOS-WSL.nixosModules.wsl else "")
           home-manager.nixosModules.home-manager
           {
             home-manager = {
@@ -32,6 +39,7 @@
       pc = mkSystem ./nixos-configurations/pc;
       laptop = mkSystem ./nixos-configurations/laptop;
       server = mkSystem ./nixos-configurations/server;
+      wsl = mkSystem ./nixos-configurations/wsl;
     };
   };
 }
