@@ -25,7 +25,7 @@
         specialArgs = { inherit inputs; };
         modules = [
           entrypoint
-          (if entrypoint == ./nixos-configurations/wsl then NixOS-WSL.nixosModules.wsl else "")
+          NixOS-WSL.nixosModules.wsl
           home-manager.nixosModules.home-manager
           {
             home-manager = {

@@ -44,7 +44,7 @@
         "aurora.thilohohlt.com" = {
           enableACME = true;
           forceSSL = true;
-          root = inputs.aurora-blog-template.packages.default;
+          root = inputs.aurora-blog-template.packages.${pkgs.system}.default;
         };
       };
     };
