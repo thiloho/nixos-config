@@ -44,19 +44,7 @@
         "aurora.thilohohlt.com" = {
           enableACME = true;
           forceSSL = true;
-          root = pkgs.buildNpmPackage {
-            name = "build-aurora-blog";
-            buildInputs = with pkgs; [
-              nodejs_18
-            ];
-            src = builtins.path { path = ./.; name = "aurora-blog-example"; };
-            npmDepsHash = "";
-            npmBuild = "npm run build";
-            installPhase = ''
-              mkdir $out
-              cp -r dist/* $out
-            '';
-          };
+          root = inputs.aurora-blog-template.packages.default;
         };
       };
     };
