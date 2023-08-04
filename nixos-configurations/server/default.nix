@@ -6,6 +6,8 @@
     ../shared.nix
   ];
 
+  nix.settings.trusted-users = [ "thiloho" ];
+
   networking = {
     hostName = "server";
     firewall = {
@@ -29,7 +31,10 @@
         white-list = true;
       };
     };
-    openssh.enable = true;
+    openssh = {
+      enable = true;
+      settings.PasswordAuthentication = false;
+    };
     nginx = {
       enable = true;
       virtualHosts = {

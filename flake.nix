@@ -24,6 +24,10 @@
         system = "x86_64-linux";
         specialArgs = { inherit inputs; };
         modules = [
+          { nix = {
+              nixPath = [ "nixpkgs=${nixpkgs}" ];
+            };
+          }
           entrypoint
           NixOS-WSL.nixosModules.wsl
           home-manager.nixosModules.home-manager
