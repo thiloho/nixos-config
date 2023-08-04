@@ -57,7 +57,7 @@
       database.createLocally = true;
       config = {
         dbtype = "pgsql";
-        adminpassFile = "/root/nextcloud-database-password";
+        adminpassFile = "/var/run/nextcloud-adminpass.txt";
       };
     };
   };
