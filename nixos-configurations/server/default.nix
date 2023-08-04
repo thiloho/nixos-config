@@ -8,6 +8,10 @@
 
   nix.settings.trusted-users = [ "thiloho" ];
 
+  security.sudo.extraConfig = ''
+    %wheel ALL=(ALL) NOPASSWD: ALL, SETENV: ALL
+  '';
+
   networking = {
     hostName = "server";
     firewall = {
