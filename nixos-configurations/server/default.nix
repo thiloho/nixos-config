@@ -52,11 +52,12 @@
     };
     nextcloud = {
       enable = true;
+      package = pkgs.nextcloud27;
       hostName = "cloud.thilohohlt.com";
       database.createLocally = true;
       config = {
-        dbtype = "pgsql";
-        adminpassFile = "/root/nextcloud-database-password.txt";
+        dbType = "pgsql";
+        adminpassFile = "/root/nextcloud-database-password";
       };
     };
   };
