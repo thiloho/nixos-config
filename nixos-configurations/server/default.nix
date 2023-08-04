@@ -56,7 +56,7 @@
       hostName = "cloud.thilohohlt.com";
       database.createLocally = true;
       config = {
-        dbType = "pgsql";
+        dbtype = "pgsql";
         adminpassFile = "/root/nextcloud-database-password.txt";
       };
     };
