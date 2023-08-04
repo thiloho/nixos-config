@@ -29,9 +29,7 @@
         white-list = true;
       };
     };
-    openssh = {
-      enable = true;
-    };
+    openssh.enable = true;
     nginx = {
       enable = true;
       virtualHosts = {
@@ -55,7 +53,7 @@
   };
 
   users.users.thiloho.openssh.authorizedKeys.keys = [
-    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAy1KnXinQJNcGpWTe1jifNuUEfKZRmyshVX5fPEWR19 thiloho@pc"
+    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIH22p7+RCaEYZjxWzZ3SE9byCkqfT9SPq7Ht47XmCM9s thiloho@ThilosPC"
   ];
 
   home-manager.users.thiloho = { pkgs, lib, ... }: {
