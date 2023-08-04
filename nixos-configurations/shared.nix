@@ -24,6 +24,12 @@
     extraGroups = [ "wheel" "networkmanager" "docker" ];
   };
 
+  programs.gnupg.agent = {
+    enable = true;
+    enableSSHSupport = true;
+    pinentryFlavor = "gnome3";
+  };
+
   home-manager.users.thiloho = { ... }: {
     programs = {
       git = {

@@ -8,10 +8,6 @@
 
   nix.settings.trusted-users = [ "thiloho" ];
 
-  security.sudo.extraConfig = ''
-    %wheel ALL=(ALL) NOPASSWD: ALL, SETENV: ALL
-  '';
-
   networking = {
     hostName = "server";
     firewall = {
@@ -20,6 +16,10 @@
   };
 
   services = {
+    openssh = {
+      enable = true;
+      settings.PasswordAuthentication = false;
+    };
     minecraft-server = {
       enable = true;
       eula = true;
@@ -34,10 +34,6 @@
         motd = "Minecraft server of Thilo.";
         white-list = true;
       };
-    };
-    openssh = {
-      enable = true;
-      settings.PasswordAuthentication = false;
     };
     nginx = {
       enable = true;
@@ -54,15 +50,29 @@
         };
       };
     };
+    nextcloud = {
+      enable = true;
+      hostName = "cloud.thilohohlt.com";
+      database.createLocally = true;
+      config = {
+        dbtype = "pgsql";
+        adminpassFile = "/root/nextcloud-database-password.txt";
+      };
+    };
   };
 
-  security.acme = {
-    acceptTerms = true;
-    defaults.email = "thilo.hohlt@tutanota.com";
+  security = {
+    acme = {
+      acceptTerms = true;
+      defaults.email = "thilo.hohlt@tutanota.com";
+    };
+    sudo.extraConfig = ''
+      %wheel ALL=(ALL) NOPASSWD: ALL, SETENV: ALL
+    '';
   };
 
   users.users.thiloho.openssh.authorizedKeys.keys = [
-    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIH22p7+RCaEYZjxWzZ3SE9byCkqfT9SPq7Ht47XmCM9s thiloho@ThilosPC"
+    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIP8j7z4RBSjoBcB5btwGodYu5J/Yprng8oBhy47iXWq+ thiloho@pc"
   ];
 
   home-manager.users.thiloho = { pkgs, lib, ... }: {

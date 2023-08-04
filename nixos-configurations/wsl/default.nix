@@ -19,12 +19,6 @@
   networking.hostName = "ThilosPC";
 
   users.users.thiloho.isNormalUser = true;
-
-  programs.gnupg.agent = {
-    enable = true;
-    enableSSHSupport = true;
-    pinentryFlavor = "gnome3";
-  };
   
   home-manager.users.thiloho = { pkgs, lib, config, ... }: {
     programs = {

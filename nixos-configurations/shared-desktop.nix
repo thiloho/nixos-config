@@ -53,12 +53,6 @@
         favorite-apps = [
           "org.gnome.Console.desktop"
           "org.gnome.Nautilus.desktop"
-          "code.desktop"
-          "firefox.desktop"
-          "chromium-browser.desktop"
-          "psensor.desktop"
-          "steam.desktop"
-          "org.prismlauncher.PrismLauncher.desktop"
         ];
       };
       "org/gnome/desktop/background" = {
@@ -93,14 +87,9 @@
           listboots = "nix profile history --profile /nix/var/nix/profiles/system";
         };
       };
-      firefox.enable = true;
       chromium = {
         enable = true;
-        extensions = [
-          { id = "mmbiohbmijkiimgcgijfomelgpmdiigb"; } # Hotkeys
-          { id = "dhdgffkkebhmkfjojejmpbldmpobfkfo"; } # Tampermonkey
-          { id = "cjpalhdlnbpafiamejdnhcphjbkeiagm"; } # uBlock Origin
-        ];
+        package = pkgs.google-chrome;
       };
       vscode = {
         enable = true;
@@ -113,6 +102,10 @@
           "editor.tabSize" = 2;
         };
       };
+      obs-studio = {
+        enable = true;
+        # plugins = with pkgs; [];
+      };
     };
     home = {
       packages = with pkgs; [
@@ -123,6 +116,9 @@
         ventoy-full
         psensor
         quickemu
+        discord
+        element-desktop
+        spotify
       ];
     };
   };

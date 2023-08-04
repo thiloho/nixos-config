@@ -10,11 +10,7 @@
   networking.hostName = "pc";
 
   home-manager.users.thiloho = { pkgs, lib, ... }: {
-    # programs.git = {
-    #   signing = {
-    #     key = "A6C6D25B9687377B";
-    #   };
-    # };
+    programs.git.signing.key = "1617CEF3B3EE7083";
     home.stateVersion = "23.05";
   };
   system.stateVersion = "23.05";
