@@ -24,22 +24,8 @@
     extraGroups = [ "wheel" "networkmanager" "docker" ];
   };
 
-  programs.gnupg.agent = {
-    enable = true;
-    enableSSHSupport = true;
-    pinentryFlavor = "gnome3";
-  };
-
   home-manager.users.thiloho = { ... }: {
     programs = {
-      git = {
-        enable = true;
-        userName = "thiloho";
-        userEmail = "123883702+thiloho@users.noreply.github.com";
-        signing = {
-          signByDefault = true;
-        };
-      };
       helix = {
         enable = true;
         defaultEditor = true;

@@ -25,6 +25,19 @@
       dedicatedServer.openFirewall = true;
     };
     dconf.enable = true;
+    gnupg.agent = {
+      enable = true;
+      enableSSHSupport = true;
+      pinentryFlavor = "gnome3";
+    };
+    git = {
+      enable = true;
+      userName = "thiloho";
+      userEmail = "123883702+thiloho@users.noreply.github.com";
+      signing = {
+        signByDefault = true;
+      };
+    };
   };
 
   hardware = {
