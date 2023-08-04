@@ -18,7 +18,8 @@
     # };
   };
 
-  outputs = inputs@{ nixpkgs, home-manager, NixOS-WSL, ... }: {
+  # Add NixOS Wsl in case it is needed here
+  outputs = inputs@{ nixpkgs, home-manager, ... }: {
     nixosConfigurations = let
       mkSystem = entrypoint: nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
