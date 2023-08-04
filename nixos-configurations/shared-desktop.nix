@@ -87,9 +87,9 @@
           listboots = "nix profile history --profile /nix/var/nix/profiles/system";
         };
       };
-      chromium = {
+      firefox = {
         enable = true;
-        package = pkgs.google-chrome;
+        package = pkgs.firefox-devedition;
       };
       vscode = {
         enable = true;
@@ -115,9 +115,6 @@
         prismlauncher
         ventoy-full
         psensor
-        quickemu
-        discord
-        element-desktop
         spotify
       ];
     };
