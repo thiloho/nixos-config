@@ -19,12 +19,7 @@
   };
 
   programs = {
-    steam = {
-      enable = true;
-      remotePlay.openFirewall = true;
-      dedicatedServer.openFirewall = true;
-    };
-    dconf.enable = true;
+    steam.enable = true;
     gnupg.agent = {
       enable = true;
       enableSSHSupport = true;
@@ -40,56 +35,9 @@
     };
   };
 
-  hardware = {
-    pulseaudio.enable = false;
-  };
+  hardware.pulseaudio.enable = false;
 
-  # Home manager configuration
   home-manager.users.thiloho = { pkgs, lib, config, ... }: {
-    gtk = {
-      enable = true;
-      gtk3.extraConfig = {
-        Settings = ''
-          gtk-application-prefer-dark-theme=1
-        '';
-      };
-      gtk4.extraConfig = {
-        Settings = ''
-          gtk-application-prefer-dark-theme=1
-        '';
-      };
-    };
-    dconf.settings = let
-      wallpaper = pkgs.callPackage ./wallpaper.nix {};
-    in {
-      "org/gnome/shell" = {
-        favorite-apps = [
-          "org.gnome.Console.desktop"
-          "org.gnome.Nautilus.desktop"
-        ];
-      };
-      "org/gnome/desktop/background" = {
-        picture-uri = "${wallpaper}";
-        picture-uri-dark = "${wallpaper}";
-      };
-      "org/gnome/desktop/screensaver" = {
-        picture-uri = "${wallpaper}";
-      };
-      "org/gnome/desktop/interface" = {
-        color-scheme = "prefer-dark";
-      };
-      "org/gnome/settings-daemon/plugins/color" = {
-        night-light-schedule-automatic = false;
-        night-light-schedule-from = 0.0;
-        night-light-schedule-to = 0.0;
-      };
-      "org/gnome/desktop/peripherals/touchpad" = {
-        tap-to-click = true;
-      };
-      "org/gnome/settings-daemon/plugins/power" = {
-        sleep-inactive-ac-type = "nothing";
-      };
-    };
     programs = {
       bash = {
         enable = true;
@@ -115,10 +63,7 @@
           "editor.tabSize" = 2;
         };
       };
-      obs-studio = {
-        enable = true;
-        # plugins = with pkgs; [];
-      };
+      obs-studio.enable = true;
     };
     home = {
       packages = with pkgs; [
