@@ -25,14 +25,6 @@
       enableSSHSupport = true;
       pinentryFlavor = "gnome3";
     };
-    git = {
-      enable = true;
-      userName = "thiloho";
-      userEmail = "123883702+thiloho@users.noreply.github.com";
-      signing = {
-        signByDefault = true;
-      };
-    };
   };
 
   hardware.pulseaudio.enable = false;
@@ -61,6 +53,14 @@
         ];
         userSettings = {
           "editor.tabSize" = 2;
+        };
+      };
+      git = {
+        enable = true;
+        userName = "thiloho";
+        userEmail = "123883702+thiloho@users.noreply.github.com";
+        signing = {
+          signByDefault = true;
         };
       };
       obs-studio.enable = true;
