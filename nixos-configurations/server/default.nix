@@ -1,4 +1,4 @@
-{ inputs, pkgs, ... }:
+{ inputs, pkgs, config, ... }:
 
 {
   imports = [
@@ -48,6 +48,10 @@
           forceSSL = true;
           root = inputs.aurora-blog-template.packages.${pkgs.system}.default;
         };
+        "cloud.thilohohlt.com" = {
+          enableACME = true;
+          forceSSL = true;
+        };
       };
     };
     nextcloud = {
@@ -59,6 +63,7 @@
         dbtype = "pgsql";
         adminpassFile = "/var/run/nextcloud-pass.txt";
       };
+      https = true;
     };
   };
 
