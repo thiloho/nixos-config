@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ ... }:
 
 {
   services = {
@@ -31,15 +31,6 @@
 
   home-manager.users.thiloho = { pkgs, lib, config, ... }: {
     programs = {
-      bash = {
-        enable = true;
-        shellAliases = {
-          rbs = "sudo nixos-rebuild switch --flake .";
-          off = "sudo systemctl poweroff";
-          cleanup = "nix store optimise && nix-collect-garbage -d && sudo nix store optimise && sudo nix-collect-garbage -d";
-          listboots = "nix profile history --profile /nix/var/nix/profiles/system";
-        };
-      };
       firefox = {
         enable = true;
         package = pkgs.firefox-devedition;
@@ -53,6 +44,8 @@
         ];
         userSettings = {
           "editor.tabSize" = 2;
+          "nix.enableLanguageServer" = true;
+          "nix.serverPath" = "nil";
         };
       };
       git = {
@@ -74,6 +67,7 @@
         ventoy-full
         psensor
         spotify
+        nil
       ];
     };
   };
