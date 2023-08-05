@@ -54,16 +54,27 @@
         };
       };
     };
+    memcached.enable = true;
     nextcloud = {
       enable = true;
       package = pkgs.nextcloud27;
       hostName = "cloud.thilohohlt.com";
       database.createLocally = true;
+      https = true;
+      caching.memcached = true;
       config = {
         dbtype = "pgsql";
         adminpassFile = "/var/run/nextcloud-pass.txt";
+        defaultPhoneRegion = "DE";
       };
-      https = true;
+      phpOptions = {
+        upload_max_filesize = "16G";
+        post_max_size = "16G";
+      };
+      extraOptions = {
+        mail_smtpmode = "sendmail";
+        mail_sendmailmode = "pipe";
+      };
     };
   };
 
