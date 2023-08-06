@@ -1,4 +1,4 @@
-{ inputs, pkgs, ... }:
+{ inputs, pkgs, config, ... }:
 
 {
   imports = [
@@ -54,14 +54,13 @@
         };
       };
     };
-    memcached.enable = true;
     nextcloud = {
       enable = true;
       package = pkgs.nextcloud27;
       hostName = "cloud.thilohohlt.com";
       database.createLocally = true;
       https = true;
-      caching.memcached = true;
+      configureRedis = true;
       config = {
         dbtype = "pgsql";
         adminpassFile = "/var/run/nextcloud-pass.txt";
@@ -75,6 +74,10 @@
         mail_smtpmode = "sendmail";
         mail_sendmailmode = "pipe";
       };
+      extraApps = with pkgs.nextcloud27Packages.apps; {
+        inherit tasks forms spreed;
+      };
+      extraAppsEnable = true;
     };
   };
 
