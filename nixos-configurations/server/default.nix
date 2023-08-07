@@ -63,6 +63,7 @@
       configureRedis = true;
       config = {
         dbtype = "pgsql";
+        adminuser = "thiloho";
         adminpassFile = "/var/run/nextcloud-pass.txt";
         defaultPhoneRegion = "DE";
       };
