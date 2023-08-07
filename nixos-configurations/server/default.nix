@@ -67,10 +67,6 @@
         adminpassFile = "/var/run/nextcloud-pass.txt";
         defaultPhoneRegion = "DE";
       };
-      phpOptions = {
-        upload_max_filesize = "16G";
-        post_max_size = "16G";
-      };
       extraOptions = {
         mail_smtpmode = "sendmail";
         mail_sendmailmode = "pipe";
