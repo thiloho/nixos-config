@@ -12,13 +12,9 @@
       flake = false;
     };
     aurora-blog-template.url = "github:thiloho/aurora";
-    NixOS-WSL = {
-      url = "github:nix-community/NixOS-WSL";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
 
-  outputs = inputs@{ nixpkgs, home-manager, NixOS-WSL, ... }: {
+  outputs = inputs@{ nixpkgs, home-manager, ... }: {
     nixosConfigurations = let
       mkSystem = entrypoint: nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
@@ -29,7 +25,6 @@
             };
           }
           entrypoint
-          NixOS-WSL.nixosModules.wsl
           home-manager.nixosModules.home-manager
           {
             home-manager = {
@@ -43,7 +38,6 @@
       pc = mkSystem ./nixos-configurations/pc;
       laptop = mkSystem ./nixos-configurations/laptop;
       server = mkSystem ./nixos-configurations/server;
-      wsl = mkSystem ./nixos-configurations/wsl;
     };
   };
 }
