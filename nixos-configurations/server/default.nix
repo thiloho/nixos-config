@@ -71,10 +71,7 @@
         mail_smtpmode = "sendmail";
         mail_sendmailmode = "pipe";
       };
-      extraApps = with pkgs.nextcloud27Packages.apps; {
-        inherit tasks forms spreed;
-      };
-      extraAppsEnable = true;
+      autoUpdateApps = true;
     };
   };
 
