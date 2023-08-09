@@ -71,7 +71,7 @@
         mail_smtpmode = "sendmail";
         mail_sendmailmode = "pipe";
       };
-      autoUpdateApps = true;
+      autoUpdateApps.enable = true;
     };
   };
 
