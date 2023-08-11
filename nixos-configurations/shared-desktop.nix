@@ -68,6 +68,7 @@
         psensor
         spotify
         nil
+        zoom-us
       ];
     };
   };
