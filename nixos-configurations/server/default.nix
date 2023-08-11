@@ -86,7 +86,7 @@
   };
 
   users.users.thiloho.openssh.authorizedKeys.keys = [
-    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKYk3OUO/X8xRcLpUBQ3oq8BYlgnvsCIInhbfEYAYyBB thiloho@pc"
+    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMkvr+vT7Ik0fjquxb9xQBfVVWJPgrfC+vJZsyG2V+/G thiloho@pc"
   ];
 
   home-manager.users.thiloho = { pkgs, lib, ... }: {
