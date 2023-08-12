@@ -70,6 +70,7 @@
       extraOptions = {
         mail_smtpmode = "sendmail";
         mail_sendmailmode = "pipe";
+        twofactor_enforced = false;
       };
       autoUpdateApps.enable = true;
     };
