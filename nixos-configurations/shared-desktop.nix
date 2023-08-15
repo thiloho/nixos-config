@@ -69,6 +69,7 @@
         spotify
         nil
         zoom-us
+        ciscoPacketTracer8
       ];
     };
   };
