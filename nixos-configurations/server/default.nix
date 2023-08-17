@@ -74,6 +74,19 @@
       };
       autoUpdateApps.enable = true;
     };
+    # mysql.package = pkgs.mariadb;
+    # firefox-syncserver = {
+    #   enable = true;
+    #   database.createLocally = true;
+    #   secrets = "/var/run/firefox-syncserver-secrets.txt";
+    #   singleNode = {
+    #     enable = true;
+    #     enableNginx = true;
+    #     enableTLS = true;
+    #     hostname = "fsync.thilohohlt.com";
+    #     url = "https://ffsync.thilohohlt.com";
+    #   };
+    # };
   };
 
   security = {
