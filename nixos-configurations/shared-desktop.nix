@@ -35,12 +35,19 @@
         enable = true;
         package = pkgs.firefox-devedition;
       };
+      chromium = {
+        enable = true;
+        extensions = [
+          { id = "dhdgffkkebhmkfjojejmpbldmpobfkfo"; }
+        ];
+      };
       vscode = {
         enable = true;
-        extensions = with pkgs; [
-          vscode-extensions.svelte.svelte-vscode
-          vscode-extensions.jnoortheen.nix-ide
-          vscode-extensions.ritwickdey.liveserver
+        extensions = with pkgs.vscode-extensions; [
+          svelte.svelte-vscode
+          jnoortheen.nix-ide
+          ritwickdey.liveserver
+          astro-build.astro-vscode
         ];
         userSettings = {
           "editor.tabSize" = 2;
@@ -69,7 +76,7 @@
         spotify
         nil
         zoom-us
-        ciscoPacketTracer8
+        teamspeak5_client
       ];
     };
   };
