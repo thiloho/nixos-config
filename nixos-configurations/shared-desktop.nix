@@ -39,6 +39,8 @@
         enable = true;
         extensions = [
           { id = "dhdgffkkebhmkfjojejmpbldmpobfkfo"; }
+          { id = "mmbiohbmijkiimgcgijfomelgpmdiigb"; }
+          { id = "cjpalhdlnbpafiamejdnhcphjbkeiagm"; }
         ];
       };
       vscode = {
