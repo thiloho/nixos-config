@@ -50,9 +50,10 @@
           jnoortheen.nix-ide
           ritwickdey.liveserver
           astro-build.astro-vscode
+          dbaeumer.vscode-eslint
         ];
         userSettings = {
-          "editor.tabSize" = 2;
+          "editor.tabSize" = 4;
           "nix.enableLanguageServer" = true;
           "nix.serverPath" = "nil";
         };
