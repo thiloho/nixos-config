@@ -38,6 +38,7 @@
       pc = mkSystem ./nixos-configurations/pc;
       laptop = mkSystem ./nixos-configurations/laptop;
       server = mkSystem ./nixos-configurations/server;
+      tvpc = mkSystem ./nixos-configurations/tvpc;
     };
   };
 }
