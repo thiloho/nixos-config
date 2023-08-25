@@ -29,6 +29,7 @@
         thilo_ho = "4e4d744d-7748-46bc-add8-b3e8ca3b4cf5";
         PegasusIsHere = "24155f74-eb04-4f45-a743-f2b7eb71c6a2";
         BakaZaps = "1888532c-6df7-4514-b96a-99ed4e7684f2";
+        Liaxswan = "ccbf3468-a6b4-4d7b-9837-5a2451deca79";
       };
       serverProperties = {
         difficulty = 3;
