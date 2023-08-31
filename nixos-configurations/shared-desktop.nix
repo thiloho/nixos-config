@@ -84,6 +84,7 @@
         zoom-us
         teamspeak5_client
         discord
+        qbittorrent
       ];
     };
   };
