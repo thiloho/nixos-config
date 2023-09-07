@@ -12,6 +12,7 @@
       flake = false;
     };
     aurora-blog-template.url = "github:thiloho/aurora";
+    firefox.url = "github:colemickens/flake-firefox-nightly";
   };
 
   outputs = inputs@{ nixpkgs, home-manager, ... }: {
