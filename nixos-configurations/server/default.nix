@@ -8,6 +8,10 @@
 
   nix.settings.trusted-users = [ "thiloho" ];
 
+  environment.systemPackages = with pkgs; [
+    nodejs_20
+  ];
+
   networking = {
     hostName = "server";
     firewall = {
@@ -77,19 +81,6 @@
       };
       autoUpdateApps.enable = true;
     };
-    # mysql.package = pkgs.mariadb;
-    # firefox-syncserver = {
-    #   enable = true;
-    #   database.createLocally = true;
-    #   secrets = "/var/run/firefox-syncserver-secrets.txt";
-    #   singleNode = {
-    #     enable = true;
-    #     enableNginx = true;
-    #     enableTLS = true;
-    #     hostname = "fsync.thilohohlt.com";
-    #     url = "https://ffsync.thilohohlt.com";
-    #   };
-    # };
   };
 
   security = {
@@ -100,6 +91,28 @@
     sudo.extraConfig = ''
       %wheel ALL=(ALL) NOPASSWD: ALL, SETENV: ALL
     '';
+  };
+
+  services.postgresql = {
+    enable = true;
+    package = pkgs.postgresql_15;
+    ensureDatabases = [ "dcbot" ];
+    authentication = pkgs.lib.mkOverride 10 ''
+      #type database DBuser auth-method
+      local all      all    trust
+    '';
+  };
+
+  systemd.services.denbot = {
+    description = "Thilo's Den discord bot";
+    wantedBy = ["multi-user.target"];
+    after = ["network-online.target"];
+    serviceConfig = {
+      ExecStart = "${pkgs.nodejs_20}/bin/node index.js --token=$CREDENTIALS_DIRECTORY/bot.token";
+      LoadCredential = "bot.token:/var/run/bot-token.txt";
+      WorkingDirectory = inputs.denbot;
+      Restart = "always";
+    };
   };
 
   users.users.thiloho.openssh.authorizedKeys.keys = [

@@ -26,15 +26,12 @@
       pinentryFlavor = "gnome3";
     };
   };
-
+  
   hardware.pulseaudio.enable = false;
 
   home-manager.users.thiloho = { pkgs, lib, config, ... }: {
     programs = {
-      # firefox = {
-      #   enable = true;
-      #   package = pkgs.firefox-devedition;
-      # };
+      firefox.enable = true;
       chromium = {
         enable = true;
         extensions = [
@@ -85,7 +82,6 @@
         teamspeak5_client
         discord
         qbittorrent
-        inputs.firefox.packages.${pkgs.system}.firefox-nightly-bin
       ];
     };
   };
