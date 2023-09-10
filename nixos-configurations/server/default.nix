@@ -55,31 +55,7 @@
           forceSSL = true;
           root = inputs.aurora-blog-template.packages.${pkgs.system}.default;
         };
-        "cloud.thilohohlt.com" = {
-          enableACME = true;
-          forceSSL = true;
-        };
       };
-    };
-    nextcloud = {
-      enable = true;
-      package = pkgs.nextcloud27;
-      hostName = "cloud.thilohohlt.com";
-      database.createLocally = true;
-      https = true;
-      configureRedis = true;
-      config = {
-        dbtype = "pgsql";
-        adminuser = "thohlt";
-        adminpassFile = "/var/run/nextcloud-pass.txt";
-        defaultPhoneRegion = "DE";
-      };
-      extraOptions = {
-        mail_smtpmode = "sendmail";
-        mail_sendmailmode = "pipe";
-        twofactor_enforced = false;
-      };
-      autoUpdateApps.enable = true;
     };
   };
 
