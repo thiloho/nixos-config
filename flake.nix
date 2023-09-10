@@ -11,8 +11,14 @@
       url = "github:thiloho/website";
       flake = false;
     };
-    aurora-blog-template.url = "github:thiloho/aurora";
-    denbot.url = "github:thiloho/discord-bot";
+    aurora-blog-template = {
+      url = "github:thiloho/aurora";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    denbot = {
+      url = "github:thiloho/discord-bot";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = inputs@{ nixpkgs, home-manager, ... }: {
