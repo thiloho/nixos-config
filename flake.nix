@@ -12,6 +12,7 @@
       flake = false;
     };
     aurora-blog-template.url = "github:thiloho/aurora";
+    denbot.url = "github:thiloho/discord-bot";
   };
 
   outputs = inputs@{ nixpkgs, home-manager, ... }: {
