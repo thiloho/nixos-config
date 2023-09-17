@@ -31,14 +31,17 @@
 
   home-manager.users.thiloho = { pkgs, lib, config, ... }: {
     programs = {
-      firefox.enable = true;
+      firefox = {
+        enable = true;
+        package = pkgs.firefox.override {
+          cfg = {
+            speechSynthesisSupport = true;
+          };
+        };
+      };
       chromium = {
         enable = true;
-        extensions = [
-          { id = "dhdgffkkebhmkfjojejmpbldmpobfkfo"; }
-          { id = "mmbiohbmijkiimgcgijfomelgpmdiigb"; }
-          { id = "cjpalhdlnbpafiamejdnhcphjbkeiagm"; }
-        ];
+        package = pkgs.brave;
       };
       vscode = {
         enable = true;
