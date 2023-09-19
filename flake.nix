@@ -22,7 +22,7 @@
     };
   };
 
-  outputs = inputs@{ nixpkgs, home-manager, ... }: {
+  outputs = inputs@{ nixpkgs, home-manager, nixos-hardware, ... }: {
     nixosConfigurations = let
       mkSystem = entrypoint: nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
