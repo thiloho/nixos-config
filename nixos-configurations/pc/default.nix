@@ -1,7 +1,9 @@
-{ pkgs, ... }:
+{ pkgs, inputs, ... }:
 
 {
   imports = [
+    inputs.nixos-hardware.nixosModules.common-gpu-amd
+    inputs.nixos-hardware.nixosModules.common-cpu-amd
     ./hardware-configuration.nix
     ../shared-desktop.nix
     ../shared.nix
