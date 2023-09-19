@@ -34,7 +34,6 @@
           }
           entrypoint
           home-manager.nixosModules.home-manager
-          nixos-hardware.nixosModules.lenovo-thinkpad-t480
           {
             home-manager = {
               useGlobalPkgs = true;
