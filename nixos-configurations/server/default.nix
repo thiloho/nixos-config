@@ -84,7 +84,11 @@
     wantedBy = ["multi-user.target"];
     after = ["network-online.target"];
     serviceConfig = {
-      ExecStartPre = "${pkgs.nodejs_20}/bin/node dbInit.js";
+      Type = "simple";
+      ExecStartPre = [
+        "${pkgs.nodejs_20}/bin/node dbInit.js"
+        "${pkgs.nodejs_20}/bin/node deploy-commands.js --token=%d/bot.token --clientId=1142441791459704912"
+      ];
       ExecStart = "${pkgs.nodejs_20}/bin/node index.js --token=%d/bot.token";
       LoadCredential = "bot.token:/var/run/bot-token.txt";
       WorkingDirectory = inputs.denbot.packages.${pkgs.system}.default;

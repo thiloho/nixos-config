@@ -7,11 +7,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1693750073,
-        "narHash": "sha256-TSivhiEcVXVv8B5qr3ulNWLs9lBqV7Pg8Vb/5YgIgWQ=",
+        "lastModified": 1695474974,
+        "narHash": "sha256-qdHgNqx/IrRIwOvPq2hS5YRgkGsOitvJg5ApGpsAVC8=",
         "owner": "thiloho",
         "repo": "aurora",
-        "rev": "5ec13fc044e628c354f7d9aa7c5842f68666440f",
+        "rev": "94225228778bc25fe8ee9a65831cb4b7845b482c",
         "type": "github"
       },
       "original": {
@@ -27,11 +27,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1694376907,
-        "narHash": "sha256-z3FUE3Kb/WhYCHslyFBDyuQpnYt1gRz7g8s60ztWqiw=",
+        "lastModified": 1695497123,
+        "narHash": "sha256-i9pQ86ZFgLBVukuR76Nz5LyoVe2j4xOzjhv9B4B/3Ew=",
         "owner": "thiloho",
         "repo": "discord-bot",
-        "rev": "8278bbf024d5a6c20c92437bdf2b46b14c2ea856",
+        "rev": "f4f6e5c9180fff6cd41715cd6c2192f4228ea91d",
         "type": "github"
       },
       "original": {
