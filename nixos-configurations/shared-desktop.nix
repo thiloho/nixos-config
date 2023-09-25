@@ -85,6 +85,7 @@
         teamspeak5_client
         discord
         qbittorrent
+        chromium
       ];
     };
   };

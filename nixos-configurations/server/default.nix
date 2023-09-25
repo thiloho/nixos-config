@@ -57,6 +57,28 @@
         };
       };
     };
+    hedgedoc = {
+      enable = true;
+      settings = {
+        port = 3300;
+        domain = "collab.thilohohlt.com";
+        useSSL = true;
+        db = {
+          dialect = "postgres";
+          host = "/run/postgresql";
+          database = "hedgedoc";
+        };
+      };
+    };
+    postgresql = {
+      enable = true;
+      package = pkgs.postgresql_15;
+      ensureDatabases = [ "dcbot" "hedgedoc" ];
+      authentication = pkgs.lib.mkOverride 10 ''
+        #type database DBuser auth-method
+        local all      all    trust
+      '';
+    };
   };
 
   security = {
@@ -66,16 +88,6 @@
     };
     sudo.extraConfig = ''
       %wheel ALL=(ALL) NOPASSWD: ALL, SETENV: ALL
-    '';
-  };
-
-  services.postgresql = {
-    enable = true;
-    package = pkgs.postgresql_15;
-    ensureDatabases = [ "dcbot" ];
-    authentication = pkgs.lib.mkOverride 10 ''
-      #type database DBuser auth-method
-      local all      all    trust
     '';
   };
 
