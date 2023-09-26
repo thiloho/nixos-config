@@ -1,4 +1,4 @@
-{ inputs, pkgs, config, ... }:
+{ inputs, pkgs, ... }:
 
 {
   imports = [
@@ -44,6 +44,8 @@
     };
     nginx = {
       enable = true;
+      recommendedProxySettings = true;
+      recommendedTlsSettings = true;
       virtualHosts = {
         "thilohohlt.com" = {
           enableACME = true;
@@ -55,6 +57,16 @@
           forceSSL = true;
           root = inputs.aurora-blog-template.packages.${pkgs.system}.default;
         };
+        "collab.thilohohlt.com" = {
+          enableACME = true;
+          forceSSL = true;
+          locations."/".proxyPass = "http://localhost:3300";
+          locations."/socket.io/" = {
+            proxyPass = "http://localhost:3300";
+            proxyWebsockets = true;
+            extraConfig = "proxy_ssl_server_name on;";
+          };
+        };
       };
     };
     hedgedoc = {
@@ -62,18 +74,24 @@
       settings = {
         port = 3300;
         domain = "collab.thilohohlt.com";
-        useSSL = true;
         db = {
           dialect = "postgres";
           host = "/run/postgresql";
           database = "hedgedoc";
         };
+        protocolUseSSL = true;
       };
     };
     postgresql = {
       enable = true;
       package = pkgs.postgresql_15;
       ensureDatabases = [ "dcbot" "hedgedoc" ];
+      ensureUsers = [
+        {
+          name = "hedgedoc";
+          ensurePermissions."DATABASE hedgedoc" = "ALL PRIVILEGES";
+        }
+      ];
       authentication = pkgs.lib.mkOverride 10 ''
         #type database DBuser auth-method
         local all      all    trust
@@ -117,4 +135,3 @@
   };
   system.stateVersion = "23.05";
 }
-
