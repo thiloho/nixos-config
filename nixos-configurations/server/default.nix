@@ -80,7 +80,11 @@
           database = "hedgedoc";
         };
         protocolUseSSL = true;
+        allowAnonymous = false;
+        allowEmailRegister = false;
+        email = false;
       };
+      environmentFile = "/var/lib/hedgedoc/hedgedoc.env";
     };
     postgresql = {
       enable = true;
