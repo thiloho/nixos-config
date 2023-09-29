@@ -28,10 +28,6 @@
         system = "x86_64-linux";
         specialArgs = { inherit inputs; };
         modules = [
-          { nix = {
-              nixPath = [ "nixpkgs=${nixpkgs}" ];
-            };
-          }
           entrypoint
           home-manager.nixosModules.home-manager
           {
