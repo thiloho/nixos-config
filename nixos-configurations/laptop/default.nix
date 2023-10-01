@@ -10,8 +10,6 @@
 
   networking.hostName = "laptop";
 
-  boot.extraModulePackages = [ config.boot.kernelPackages.broadcom_sta ];
-
   services.postgresql = {
     enable = true;
     package = pkgs.postgresql_15;
