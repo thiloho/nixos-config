@@ -39,10 +39,6 @@
           };
         };
       };
-      chromium = {
-        enable = true;
-        package = pkgs.google-chrome;
-      };
       vscode = {
         enable = true;
         extensions = with pkgs.vscode-extensions; [
