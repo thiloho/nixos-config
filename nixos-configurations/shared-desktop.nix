@@ -82,6 +82,7 @@
         discord
         qbittorrent
         neofetch
+        google-chrome
       ];
     };
   };

@@ -16,6 +16,7 @@
     hostName = "server";
     firewall = {
       allowedTCPPorts = [ 80 443 25565 ];
+      allowedUDPPorts = [ 80 443 25565 ];
     };
   };
 
