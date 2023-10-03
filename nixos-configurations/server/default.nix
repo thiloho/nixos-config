@@ -42,6 +42,13 @@
         white-list = true;
       };
     };
+    terraria = {
+      enable = true;
+      maxPlayers = 10;
+      messageOfTheDay = "Terraria server of Thilo";
+      openFirewall = true;
+      secure = true;
+    };
     nginx = {
       enable = true;
       recommendedProxySettings = true;
