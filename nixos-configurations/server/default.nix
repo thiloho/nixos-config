@@ -140,6 +140,7 @@
 
   users.users.thiloho.openssh.authorizedKeys.keys = [
     "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMkvr+vT7Ik0fjquxb9xQBfVVWJPgrfC+vJZsyG2V+/G thiloho@pc"
+    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJ5jOELdhQ85uKV8l2QkbLhjdPr142p1AmPzpawaJ7ws thiloho@laptop"
   ];
 
   home-manager.users.thiloho = { pkgs, lib, ... }: {
