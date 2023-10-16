@@ -22,7 +22,12 @@
 
   home-manager.users.thiloho = { pkgs, ... }: {
     programs.git.signing.key = "1142F33FFA8ADAAC";
-    home.stateVersion = "23.05";
+    home = {
+      packages = with pkgs; [
+        # ciscoPacketTracer8
+      ];
+      stateVersion = "23.05";
+    };
   };
   system.stateVersion = "23.05";
 }

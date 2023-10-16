@@ -29,6 +29,7 @@
         specialArgs = { inherit inputs; };
         modules = [
           entrypoint
+          { nix.registry.nixpkgs.flake = nixpkgs; }
           home-manager.nixosModules.home-manager
           {
             home-manager = {
