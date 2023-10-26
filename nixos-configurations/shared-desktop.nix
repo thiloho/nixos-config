@@ -86,6 +86,7 @@
         discord
         qbittorrent
         neofetch
+        chromium
       ];
     };
   };

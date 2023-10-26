@@ -26,7 +26,6 @@
     home = {
       packages = with pkgs; [
         blender
-        chromium
       ];
       stateVersion = "23.05";
     };
