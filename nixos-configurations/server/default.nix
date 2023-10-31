@@ -2,6 +2,7 @@
 
 {
   imports = [
+    inputs.agenix.nixosModules.default
     ./hardware-configuration.nix
     ../shared.nix
   ];
@@ -144,7 +145,10 @@
   ];
 
   home-manager.users.thiloho = { pkgs, lib, ... }: {
-    home.stateVersion = "23.05";
+    home = {
+      stateVersion = "23.05";
+      packages = [ inputs.agenix.packages."x86_64-linux".default ];
+    };
   };
   system.stateVersion = "23.05";
 }
