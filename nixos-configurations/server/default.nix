@@ -10,6 +10,7 @@
   nix.settings.trusted-users = [ "thiloho" ];
 
   age.secrets.hedgedoc-environment-file.file = ../../secrets/hedgedoc-environment-file.age;
+  age.secrets.discord-bot-token.file = ../../secrets/discord-bot-token.age;
 
   environment.systemPackages = with pkgs; [
     nodejs_20
@@ -132,10 +133,9 @@
       Type = "simple";
       ExecStartPre = [
         "${pkgs.nodejs_20}/bin/node dbInit.js"
-        "${pkgs.nodejs_20}/bin/node deploy-commands.js --token=%d/bot.token --clientId=1142441791459704912"
+        "${pkgs.nodejs_20}/bin/node deploy-commands.js --token=${config.age.secrets.discord-bot-token.path} --clientId=1142441791459704912"
       ];
-      ExecStart = "${pkgs.nodejs_20}/bin/node index.js --token=%d/bot.token";
-      LoadCredential = "bot.token:/var/run/bot-token.txt";
+      ExecStart = "${pkgs.nodejs_20}/bin/node index.js --token=${config.age.secrets.discord-bot-token.path}";
       WorkingDirectory = inputs.denbot.packages.${pkgs.system}.default;
       Restart = "always";
     };
