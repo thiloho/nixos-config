@@ -1,7 +1,8 @@
 let
-  server = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHzBBw5pNpuCg1e9cJcQfcxKuTFZ0cleMkEiRZDxE+qQ thiloho@server";
+  server = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIN82ukcaWQZcihgh+n0h+ihwTafm64SO1wngibOA6Vro root@server";
+  pc = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMkvr+vT7Ik0fjquxb9xQBfVVWJPgrfC+vJZsyG2V+/G thiloho@pc";
 in
 {
-  "hedgedoc-environment-file.age".publicKeys = [ server ];
-  "discord-bot-token.age".publicKeys = [ server ];
+  "hedgedoc-environment-file.age".publicKeys = [ server pc ];
+  "discord-bot-token.age".publicKeys = [ server pc ];
 }

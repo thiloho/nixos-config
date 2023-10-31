@@ -1,4 +1,4 @@
-{ inputs, pkgs, ... }:
+{ inputs, pkgs, config, ... }:
 
 {
   imports = [
@@ -8,6 +8,8 @@
   ];
 
   nix.settings.trusted-users = [ "thiloho" ];
+
+  age.secrets.hedgedoc-environment-file.file = ../../secrets/hedgedoc-environment-file.age;
 
   environment.systemPackages = with pkgs; [
     nodejs_20
@@ -93,7 +95,7 @@
         allowEmailRegister = false;
         email = false;
       };
-      environmentFile = "/var/lib/hedgedoc/hedgedoc.env";
+      environmentFile = config.age.secrets.hedgedoc-environment-file.path;
     };
     postgresql = {
       enable = true;
@@ -147,7 +149,6 @@
   home-manager.users.thiloho = { pkgs, lib, ... }: {
     home = {
       stateVersion = "23.05";
-      packages = [ inputs.agenix.packages."x86_64-linux".default ];
     };
   };
   system.stateVersion = "23.05";

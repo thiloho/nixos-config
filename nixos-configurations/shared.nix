@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ inputs, pkgs, ... }:
 
 {
   boot = {
@@ -41,5 +41,6 @@
         settings.theme = "ayu_dark";
       };
     };
+    home.packages = [ inputs.agenix.packages."x86_64-linux".default ];
   };
 }
