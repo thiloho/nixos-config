@@ -1,4 +1,4 @@
-{ inputs, pkgs, config, ... }:
+{ inputs, pkgs, config, lib, ... }:
 
 {
   imports = [
@@ -108,7 +108,7 @@
           ensurePermissions."DATABASE hedgedoc" = "ALL PRIVILEGES";
         }
       ];
-      authentication = pkgs.lib.mkOverride 10 ''
+      authentication = lib.mkForce ''
         #type database DBuser auth-method
         local all      all    trust
       '';
