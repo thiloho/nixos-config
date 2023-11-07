@@ -51,9 +51,9 @@
           ritwickdey.liveserver
           astro-build.astro-vscode
           dbaeumer.vscode-eslint
+          bradlc.vscode-tailwindcss
         ];
         userSettings = {
-          "editor.tabSize" = 4;
           "nix.enableLanguageServer" = true;
           "nix.serverPath" = "nil";
         };
