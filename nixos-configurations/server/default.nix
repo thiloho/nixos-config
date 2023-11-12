@@ -11,6 +11,7 @@
 
   age.secrets.hedgedoc-environment-file.file = ../../secrets/hedgedoc-environment-file.age;
   age.secrets.discord-bot-token.file = ../../secrets/discord-bot-token.age;
+  age.secrets.todos-environment-file.file = ../../secrets/todos-environment-file.age;
 
   environment.systemPackages = with pkgs; [
     nodejs_20
@@ -79,6 +80,11 @@
             extraConfig = "proxy_ssl_server_name on;";
           };
         };
+        "todos.thilohohlt.com" = {
+          enableACME = true;
+          forceSSL = true;
+          locations."/".proxyPass = "http://localhost:5173";
+        };
       };
     };
     hedgedoc = {
@@ -101,7 +107,7 @@
     postgresql = {
       enable = true;
       package = pkgs.postgresql_15;
-      ensureDatabases = [ "dcbot" "hedgedoc" ];
+      ensureDatabases = [ "dcbot" "hedgedoc" "todos" ];
       ensureUsers = [
         {
           name = "hedgedoc";
@@ -125,19 +131,33 @@
     '';
   };
 
-  systemd.services.denbot = {
-    description = "Thilo's Den discord bot";
-    wantedBy = ["multi-user.target"];
-    after = ["network-online.target"];
-    serviceConfig = {
-      Type = "simple";
-      ExecStartPre = [
-        "${pkgs.nodejs_20}/bin/node dbInit.js"
-        "${pkgs.nodejs_20}/bin/node deploy-commands.js --token=${config.age.secrets.discord-bot-token.path} --clientId=1142441791459704912"
-      ];
-      ExecStart = "${pkgs.nodejs_20}/bin/node index.js --token=${config.age.secrets.discord-bot-token.path}";
-      WorkingDirectory = inputs.denbot.packages.${pkgs.system}.default;
-      Restart = "always";
+  systemd.services = {
+    todoapp = {
+      description = "Todo application to plan your daily tasks effectively";
+      wantedBy = ["multi-user.target"];
+      wants = ["network-online.target"];
+      serviceConfig = {
+        Type = "simple";
+        Environment = "PORT=5173 DOTENV_CONFIG_PATH=${config.age.secrets.todos-environment-file.path}";
+        ExecStart = "${pkgs.nodejs_20}/bin/node -r dotenv/config .";
+        WorkingDirectory = inputs.todos.packages.${pkgs.system}.default;
+        Restart = "always";
+      };
+    };
+    denbot = {
+      description = "Thilo's Den discord bot";
+      wantedBy = ["multi-user.target"];
+      wants = ["network-online.target"];
+      serviceConfig = {
+        Type = "simple";
+        ExecStartPre = [
+          "${pkgs.nodejs_20}/bin/node dbInit.js"
+          "${pkgs.nodejs_20}/bin/node deploy-commands.js --token=${config.age.secrets.discord-bot-token.path} --clientId=1142441791459704912"
+        ];
+        ExecStart = "${pkgs.nodejs_20}/bin/node index.js --token=${config.age.secrets.discord-bot-token.path}";
+        WorkingDirectory = inputs.denbot.packages.${pkgs.system}.default;
+        Restart = "always";
+      };
     };
   };
 

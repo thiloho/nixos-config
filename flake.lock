@@ -165,7 +165,28 @@
         "home-manager": "home-manager_2",
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs",
+        "todos": "todos",
         "website": "website"
+      }
+    },
+    "todos": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1699811932,
+        "narHash": "sha256-HfzWtq2qBcjCnhWzDXdmaK5yNk49HapzJ0c+ER8RirA=",
+        "owner": "thiloho",
+        "repo": "todos",
+        "rev": "3e411cb41681d4dc69df85178c6d6550c7f63da3",
+        "type": "github"
+      },
+      "original": {
+        "owner": "thiloho",
+        "repo": "todos",
+        "type": "github"
       }
     },
     "website": {

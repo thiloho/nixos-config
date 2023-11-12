@@ -20,6 +20,10 @@
       url = "github:thiloho/discord-bot";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    todos = {
+      url = "github:thiloho/todos";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     agenix = {
       url = "github:ryantm/agenix";
       inputs.nixpkgs.follows = "nixpkgs";

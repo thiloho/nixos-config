@@ -5,4 +5,5 @@ in
 {
   "hedgedoc-environment-file.age".publicKeys = [ server pc ];
   "discord-bot-token.age".publicKeys = [ server pc ];
+  "todos-environment-file.age".publicKeys = [ server pc ];
 }
