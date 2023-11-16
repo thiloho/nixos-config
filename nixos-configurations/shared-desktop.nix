@@ -41,7 +41,7 @@
       };
       chromium = {
         enable = true;
-        package = pkgs.google-chrome;
+        package = pkgs.brave;
       };
       vscode = {
         enable = true;
@@ -86,7 +86,6 @@
         discord
         qbittorrent
         neofetch
-        chromium
       ];
     };
   };
