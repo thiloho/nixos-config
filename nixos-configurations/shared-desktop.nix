@@ -84,7 +84,7 @@
         zoom-us
         teamspeak5_client
         discord
-        fragments
+        qbittorrent
         neofetch
         chromium
       ];
