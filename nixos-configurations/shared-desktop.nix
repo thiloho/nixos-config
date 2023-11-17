@@ -56,6 +56,7 @@
         userSettings = {
           "nix.enableLanguageServer" = true;
           "nix.serverPath" = "nil";
+          "window.titleBarStyle" = "custom";
         };
       };
       git = {
@@ -69,9 +70,9 @@
       obs-studio.enable = true;
     };
     home = {
-      sessionVariables = {
-        NIXOS_OZONE_WL=1;
-      };
+      # sessionVariables = {
+      #   NIXOS_OZONE_WL=1;
+      # };
       packages = with pkgs; [
         libreoffice
         airshipper

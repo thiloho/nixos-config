@@ -144,6 +144,21 @@
         Restart = "always";
       };
     };
+    todoapp-check-due-dates = {
+      description = "Set is_overdue for todo in database to true if todo is overdue";
+      path = [
+        pkgs.postgresql_15
+      ];
+      script = ''
+        psql -d todos -c "UPDATE user_todo SET is_overdue = true WHERE due_date::date < CURRENT_DATE AND is_completed = false AND is_overdue = false"
+      '';
+      serviceConfig = {
+        User = "postgres";
+      };
+      wantedBy = ["timers.target"];
+      partOf = [ "todoapp.service" ];
+      startAt = "daily";
+    };
     denbot = {
       description = "Thilo's Den discord bot";
       wantedBy = ["multi-user.target"];
