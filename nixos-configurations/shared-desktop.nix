@@ -87,6 +87,7 @@
         discord
         qbittorrent
         neofetch
+        godot_4
       ];
     };
   };
