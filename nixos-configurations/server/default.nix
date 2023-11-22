@@ -85,6 +85,11 @@
           forceSSL = true;
           locations."/".proxyPass = "http://localhost:5173";
         };
+        "git.thilohohlt.com" = {
+          enableACME = true;
+          forceSSL = true;
+          locations."/".proxyPass = "http://localhost:3001";
+        };
       };
     };
     hedgedoc = {
@@ -104,14 +109,32 @@
       };
       environmentFile = config.age.secrets.hedgedoc-environment-file.path;
     };
+    gitea = {
+      enable = true;
+      appName = "Gitea instance of Thilo";
+      database = {
+        type = "postgres";
+        host = "/run/postgresql";
+      };
+      settings.service.DISABLE_REGISTRATION = true;
+      settings.server = {
+        DOMAIN = "thilohohlt.com";
+        ROOT_URL = "https://git.thilohohlt.com";
+        HTTP_PORT = 3001;
+      };
+    };
     postgresql = {
       enable = true;
       package = pkgs.postgresql_15;
-      ensureDatabases = [ "dcbot" "hedgedoc" "todos" ];
+      ensureDatabases = [ "dcbot" "hedgedoc" "todos" "gitea" ];
       ensureUsers = [
         {
           name = "hedgedoc";
           ensurePermissions."DATABASE hedgedoc" = "ALL PRIVILEGES";
+        }
+        {
+          name = "gitea";
+          ensurePermissions."DATABASE gitea" = "ALL PRIVILEGES";
         }
       ];
       authentication = lib.mkForce ''
