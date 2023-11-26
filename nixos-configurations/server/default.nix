@@ -127,6 +127,8 @@
       enable = true;
       package = pkgs.postgresql_15;
       ensureDatabases = [ "dcbot" "hedgedoc" "todos" "gitea" ];
+      # ALTER DATABASE mydb OWNER TO admin;
+      # The user also needs to be the owner of the specific database, which cannot be declaratively set up from this module
       ensureUsers = [
         {
           name = "hedgedoc";
