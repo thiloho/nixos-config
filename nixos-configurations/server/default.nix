@@ -88,9 +88,9 @@
               };
             };
             "plugins/Essentials/config.yml".value = {
-              ops-name-color = "7";
+              ops-name-color = "none";
               chat = {
-                format = "{PREFIX}{USERNAME}&8: {SUFFIX}{MESSAGE}";
+                format = "{PREFIX}&f{USERNAME}&8: {SUFFIX}{MESSAGE}";
               };
             }; 
           };
