@@ -25,6 +25,7 @@
       enableSSHSupport = true;
       pinentryFlavor = "gnome3";
     };
+    java.enable = true;
   };
   
   hardware.pulseaudio.enable = false;
