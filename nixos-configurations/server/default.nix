@@ -42,7 +42,6 @@
           autoStart = true;
           package = pkgs.paperServers.paper;
           openFirewall = true;
-          enableReload = true;
           whitelist = {
             thilo_ho = "4e4d744d-7748-46bc-add8-b3e8ca3b4cf5";
             PegasusIsHere = "24155f74-eb04-4f45-a743-f2b7eb71c6a2";
@@ -51,8 +50,8 @@
           };
           serverProperties = {
             difficulty = 3;
-            max-players = 10;
-            motd = "Minecraft server of Thilo.";
+            max-players = 20;
+            motd = "§aThilo's survival server";
             white-list = true;
           };
           files = {
@@ -63,6 +62,14 @@
                 level = 4;
               }
             ];
+            "config/paper-world-defaults.yml".value = {
+              anticheat = {
+                anti-xray = {
+                  enabled = true;
+                  engine-mode = 2;
+                };
+              };
+            };
             "plugins/TAB/config.yml".value = {
               header-footer = {
                 enabled = true;
@@ -78,6 +85,14 @@
                   "<#FFFFFF>&mx                                     x"
                 ];
               };
+              scoreboard-teams = {
+                sorting-types = [
+                  "GROUPS:admin,mod,premium,default"
+                ];
+              };
+              yellow-number-in-tablist = {
+                enabled = false;
+              };
             }; 
             "plugins/TAB/groups.yml".value = {
               _DEFAULT_ = {
@@ -92,9 +107,174 @@
               chat = {
                 format = "{PREFIX}&f{USERNAME}&8: {SUFFIX}{MESSAGE}";
               };
-            }; 
+              teleport-cooldown = 90;
+              teleport-delay = 5;
+              teleport-invulnerability = 5;
+              sethome-multiple = {
+                "premium" = 2;
+              };
+            };
+            "plugins/LuckPerms/config.yml".value = {
+              storage-method = "yaml";
+            };
+            "plugins/LuckPerms/yaml-storage/users/4e4d744d-7748-46bc-add8-b3e8ca3b4cf5.yml".value = {
+              uuid = "4e4d744d-7748-46bc-add8-b3e8ca3b4cf5";
+              name = "thilo_ho";
+              primary-group = "admin";
+              parents = [
+                "admin"
+              ];
+            };
+            "plugins/LuckPerms/yaml-storage/groups/admin.yml".value = {
+              name = "admin";
+              permissions = [
+                "weight.100"
+                "essentials.*"
+                "luckperms.*"
+                "tab.admin"
+                "minecraft.command.*"
+                "bukkit.command.*"
+              ];
+              prefixes = [
+                {
+                  "&8[&cAdmin&8] &f" = {
+                    priority = 100;
+                  };
+                }
+              ];
+              suffixes = [
+                {
+                  "&c" = {
+                    priority = 100;
+                  };
+                }
+              ];
+            };
+            "plugins/LuckPerms/yaml-storage/groups/mod.yml".value = {
+              name = "mod";
+              parents = [ "default" "premium" ];
+              permissions = [
+                "weight.90"
+                "essentials.kick"
+                "essentials.kick.notify"
+                "essentials.ban"
+                "essentials.ban.notify"
+                "essentials.tempban"
+                "essentials.unban"
+                "essentials.mute"
+                "essentials.tempmute"
+                "essentials.unmute"
+                "essentials.fly"
+                "essentials.vanish"
+                "essentials.socialspy"
+                "essentials.seen"
+                "essentials.seen.alts"
+                "essentials.seen.banreason"
+                "essentials.invsee"
+                "essentials.tp"
+                "essentials.tpoffline"
+              ];
+              prefixes = [
+                {
+                  "&8[&dMod&8] &f" = {
+                    priority = 90;
+                  };
+                }
+              ];
+              suffixes = [
+                {
+                  "&d" = {
+                    priority = 90;
+                  };
+                }
+              ];
+            };
+            "plugins/LuckPerms/yaml-storage/groups/premium.yml".value = {
+              name = "premium";
+              parents = [ "default" ];
+              permissions = [
+                "weight.20"
+                "essentials.sethome.multiple.premium"
+              ];
+              prefixes = [
+                {
+                  "&8[&6Premium&8] &f" = {
+                    priority = 20;
+                  };
+                }
+              ];
+              suffixes = [
+                {
+                  "&f" = {
+                    priority = 20;
+                  };
+                }
+              ];
+            };
+            "plugins/LuckPerms/yaml-storage/groups/default.yml".value = {
+              name = "default";
+              permissions = [
+                {
+                  "bukkit.command.version" = {
+                    value = false;
+                  };
+                }
+                {
+                  "bukkit.command.plugins" = {
+                    value = false;
+                  };
+                }
+                {
+                  "bukkit.command.help" = {
+                    value = false;
+                  };
+                }
+                "weight.10"
+                "essentials.spawn"
+                "essentials.motd"
+                "essentials.help"
+                "essentials.balance"
+                "essentials.afk"
+                "essentials.list"
+                "essentials.mail"
+                "essentials.mail.send"
+                "essentials.msg"
+                "essentials.sethome"
+                "essentials.home"
+                "essentials.delhome"
+                "essentials.tpa"
+                "essentials.tpaccept"
+                "essentials.tpdeny"
+              ];
+              prefixes = [
+                {
+                  "&8[&aUser&8] &f" = {
+                    priority = 10;
+                  };
+                }
+              ];
+              suffixes = [
+                {
+                  "&7" = {
+                    priority = 10;
+                  };
+                }
+              ];
+            };
+            "plugins/GriefPreventionData/config.yml".value = {
+              GriefPrevention = {
+                Spam = {
+                  WarningMessage = "Please refrain from spamming.";
+                  BanOffenders = false;
+                };
+              };
+            };
           };
           symlinks = {
+            "server-icon.png" = pkgs.fetchurl {
+              url = "https://cdn.discordapp.com/attachments/1142193094729662627/1179544663884046468/server-icon-new.png?ex=657a2b92&is=6567b692&hm=e89f98dc64f027cead19a65d8de5baba14f062ca72d71879bf92eee3b23f0ffc&";
+              sha256 = "sha256-nhSGxBvsHbMFsej99RIIQUk5PfP1ErGvBHErhcQHcQ8=";
+            };
             "plugins/TAB.jar" = pkgs.fetchurl rec {
               pname = "TAB";
               version = "4.0.9";
@@ -110,7 +290,7 @@
             "plugins/Vault.jar" = pkgs.fetchurl {
               pname = "Vault";
               version = "1.7.3";
-              url = "https://dev.bukkit.org/projects/vault/files/latest";
+              url = "https://dev.bukkit.org/projects/vault/files/3007470/download";
               sha256 = "sha256-prXtl/Q6XPW7rwCnyM0jxa/JvQA/hJh1r4s25s930B0=";
             };
             "plugins/EssentialsX.jar" = pkgs.fetchurl rec {
@@ -124,6 +304,18 @@
               version = "2.20.1";
               url = "https://github.com/EssentialsX/Essentials/releases/download/${version}/EssentialsXChat-${version}.jar";
               sha256 = "sha256-QKpcICQc6zAH68tc+/Gb8sRnsMCQrlDnBlPuh6t3XKY=";
+            };
+            "plugins/EssentialsXSpawn.jar" = pkgs.fetchurl rec {
+              pname = "EssentialsXSpawn";
+              version = "2.20.1";
+              url = "https://github.com/EssentialsX/Essentials/releases/download/${version}/EssentialsXSpawn-${version}.jar";
+              sha256 = "sha256-ZQ18ajOGWgLF/6TrcQ3vKOc9lyya74WysfTnG5vSYaA=";
+            };
+            "plugins/GriefPrevention.jar" = pkgs.fetchurl {
+              pname = "GriefPrevention";
+              version = "16.18.1";
+              url = "https://dev.bukkit.org/projects/grief-prevention/files/4433061/download";
+              hash = "sha256-GwJLJAkrWt7UIMTPYMQ2pCu9/5rExx/a5r2BXuvndOs=";
             };
           };
         };
