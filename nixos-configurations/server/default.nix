@@ -230,6 +230,7 @@
                   };
                 }
                 "weight.10"
+                "essentials.tpr"
                 "essentials.spawn"
                 "essentials.motd"
                 "essentials.help"
@@ -296,19 +297,19 @@
             "plugins/EssentialsX.jar" = pkgs.fetchurl rec {
               pname = "EssentialsX";
               version = "2.20.1";
-              url = "https://github.com/EssentialsX/Essentials/releases/download/${version}/EssentialsX-${version}.jar";
+              url = "https://github.com/EssentialsX/Essentials/releases/download/${version}/${pname}-${version}.jar";
               sha256 = "sha256-gC6jC9pGDKRZfoGJJYFpM8EjsI2BJqgU+sKNA6Yb9UI=";
             };
             "plugins/EssentialsXChat.jar" = pkgs.fetchurl rec {
               pname = "EssentialsXChat";
               version = "2.20.1";
-              url = "https://github.com/EssentialsX/Essentials/releases/download/${version}/EssentialsXChat-${version}.jar";
+              url = "https://github.com/EssentialsX/Essentials/releases/download/${version}/${pname}-${version}.jar";
               sha256 = "sha256-QKpcICQc6zAH68tc+/Gb8sRnsMCQrlDnBlPuh6t3XKY=";
             };
             "plugins/EssentialsXSpawn.jar" = pkgs.fetchurl rec {
               pname = "EssentialsXSpawn";
               version = "2.20.1";
-              url = "https://github.com/EssentialsX/Essentials/releases/download/${version}/EssentialsXSpawn-${version}.jar";
+              url = "https://github.com/EssentialsX/Essentials/releases/download/${version}/${pname}-${version}.jar";
               sha256 = "sha256-ZQ18ajOGWgLF/6TrcQ3vKOc9lyya74WysfTnG5vSYaA=";
             };
             "plugins/GriefPrevention.jar" = pkgs.fetchurl {
@@ -316,6 +317,18 @@
               version = "16.18.1";
               url = "https://dev.bukkit.org/projects/grief-prevention/files/4433061/download";
               hash = "sha256-GwJLJAkrWt7UIMTPYMQ2pCu9/5rExx/a5r2BXuvndOs=";
+            };
+            "plugins/VoidGen.jar" = pkgs.fetchurl rec {
+              pname = "VoidGen";
+              version = "2.2.1";
+              url = "https://github.com/xtkq-is-not-available/${pname}/releases/download/v${version}/${pname}-${version}.jar";
+              hash = "sha256-nOEwEj3GcCXWAPdlvbL98c6nGTv4kg4+AhbF+PwILD4=";
+            };
+            "plugins/Multiverse-Core.jar" = pkgs.fetchurl rec {
+              pname = "Multiverse-Core";
+              version = "4.3.12";
+              url = "https://github.com/Multiverse/${pname}/releases/download/${version}/multiverse-core-${version}.jar";
+              hash = "sha256-mCN6rzXG7nv9lft/OZ73A7PnK/+Oq0iKkEqtnUUwzRA=";
             };
           };
         };
