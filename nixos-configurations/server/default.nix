@@ -40,19 +40,25 @@
         thilo = {
           enable = true;
           autoStart = true;
-          package = pkgs.paperServers.paper;
+          package = pkgs.paperServers.paper-1_20_1;
+          enableReload = true;
           openFirewall = true;
           whitelist = {
             thilo_ho = "4e4d744d-7748-46bc-add8-b3e8ca3b4cf5";
             PegasusIsHere = "24155f74-eb04-4f45-a743-f2b7eb71c6a2";
             BakaZaps = "1888532c-6df7-4514-b96a-99ed4e7684f2";
             Liaxswan = "ccbf3468-a6b4-4d7b-9837-5a2451deca79";
+            rayboo120 = "c65f9422-b972-4583-82b5-2e5a12e789fd";
+            AmValo = "a5f4a7d9-daf2-4ec9-b1c9-e39efdfb331e";
+            TubiCFW = "fbbd217b-cf9f-404a-a0b4-671155d43222";
+            TheRacccooon = "f3a639f2-b82c-49c2-80e5-ccd5cbdc9541";
+            _Zyronx = "865f911f-66ae-479f-a65a-8140da82b96e";
           };
           serverProperties = {
             difficulty = 3;
             max-players = 20;
             motd = "§aThilo's survival server";
-            white-list = true;
+            white-list = false;
           };
           files = {
             "ops.json".value = [
@@ -117,6 +123,7 @@
             "plugins/LuckPerms/config.yml".value = {
               storage-method = "yaml";
             };
+            /*
             "plugins/LuckPerms/yaml-storage/users/4e4d744d-7748-46bc-add8-b3e8ca3b4cf5.yml".value = {
               uuid = "4e4d744d-7748-46bc-add8-b3e8ca3b4cf5";
               name = "thilo_ho";
@@ -125,6 +132,7 @@
                 "admin"
               ];
             };
+            */
             "plugins/LuckPerms/yaml-storage/groups/admin.yml".value = {
               name = "admin";
               permissions = [
@@ -270,6 +278,15 @@
                 };
               };
             };
+            "plugins/Essentials/motd.txt" = pkgs.writeText "motd.txt" ''
+              &m                                                                  
+              &6Welcome, {PLAYER}&6!
+              &6Type &c/help&6 for a list of commands.
+              &6Type &c/list&6 to see who else is online.
+              &6Players online:&c {ONLINE} &6- World time:&c {WORLDTIME12}
+              &6Discord server: &chttps://discord.gg/SX7fXrDtth
+              &m                                                                  
+            '';
           };
           symlinks = {
             "server-icon.png" = pkgs.fetchurl {

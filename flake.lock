@@ -71,11 +71,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1695497123,
-        "narHash": "sha256-i9pQ86ZFgLBVukuR76Nz5LyoVe2j4xOzjhv9B4B/3Ew=",
+        "lastModified": 1701549107,
+        "narHash": "sha256-5BHE+lsX3KdjRzXoOj6hadZktZSolFSFHvd2Nh1+/o0=",
         "owner": "thiloho",
         "repo": "discord-bot",
-        "rev": "f4f6e5c9180fff6cd41715cd6c2192f4228ea91d",
+        "rev": "aa78e420757075cc1a8c3d2241d81913dadb0b5a",
         "type": "github"
       },
       "original": {
