@@ -46,14 +46,6 @@
       };
       vscode = {
         enable = true;
-        package = (pkgs.vscode.override { isInsiders = true; }).overrideAttrs (oldAttrs: rec {
-          src = (builtins.fetchTarball {
-            url = "https://code.visualstudio.com/sha/download?build=insider&os=linux-x64";
-            sha256 = "1pqdrkc29y9sxf0nkwrrvvw9va06s4b6s8vfdmfrawl8is3f9bfg";
-          });
-          version = "latest";
-          buildInputs = oldAttrs.buildInputs ++ [ pkgs.krb5 ];
-        });
         extensions = with pkgs.vscode-extensions; [
           svelte.svelte-vscode
           jnoortheen.nix-ide
@@ -65,7 +57,7 @@
         userSettings = {
           "nix.enableLanguageServer" = true;
           "nix.serverPath" = "nil";
-          "window.titleBarStyle" = "custom";
+          "window.titleBarStyle" = "native";
         };
       };
       git = {

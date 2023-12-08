@@ -476,7 +476,7 @@
         pkgs.postgresql_15
       ];
       script = ''
-        psql -d todos -c "UPDATE user_todo SET is_overdue = true WHERE due_date::date < CURRENT_DATE AND is_completed = false AND is_overdue = false"
+        psql -d todos -c "UPDATE user_todo SET is_overdue = true WHERE extract(epoch from CURRENT_DATE) > extract(epoch from due_date) AND is_completed = false AND is_overdue = false"
       '';
       serviceConfig = {
         User = "postgres";
