@@ -57,7 +57,7 @@
         userSettings = {
           "nix.enableLanguageServer" = true;
           "nix.serverPath" = "nil";
-          "window.titleBarStyle" = "native";
+          "window.titleBarStyle" = "custom";
         };
       };
       git = {
