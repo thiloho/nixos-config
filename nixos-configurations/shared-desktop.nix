@@ -81,7 +81,6 @@
         prismlauncher
         ventoy-full
         psensor
-        spotify
         nil
         zoom-us
         teamspeak5_client
@@ -89,6 +88,7 @@
         qbittorrent
         neofetch
         godot_4
+        backblaze-b2
       ];
     };
   };
