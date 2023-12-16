@@ -175,7 +175,6 @@
     todoapp = {
       description = "Todo application to plan your daily tasks effectively";
       wantedBy = ["multi-user.target"];
-      wants = ["network-online.target"];
       serviceConfig = {
         Type = "simple";
         Environment = "PORT=5173 DOTENV_CONFIG_PATH=${config.age.secrets.todos-environment-file.path}";
@@ -186,6 +185,7 @@
     };
     todoapp-check-due-dates = {
       description = "Set is_overdue for todo in database to true if todo is overdue";
+      wantedBy = ["timers.target"];
       path = [
         pkgs.postgresql_15
       ];
@@ -195,14 +195,12 @@
       serviceConfig = {
         User = "postgres";
       };
-      wantedBy = ["timers.target"];
       partOf = [ "todoapp.service" ];
       startAt = "daily";
     };
     denbot = {
       description = "Thilo's Den discord bot";
       wantedBy = ["multi-user.target"];
-      wants = ["network-online.target"];
       serviceConfig = {
         Type = "simple";
         ExecStartPre = [
