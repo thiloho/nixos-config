@@ -15,7 +15,16 @@
     todos-environment-file.file = ../../secrets/todos-environment-file.age;
     "restic/minecraft-environment-file".file = ../../secrets/restic/minecraft-environment-file.age;
     "restic/minecraft-repository".file = ../../secrets/restic/minecraft-repository.age;
-    "restic/password".file = ../../secrets/restic/password.age;
+    "restic/minecraft-password".file = ../../secrets/restic/minecraft-password.age;
+    "restic/hedgedoc-environment-file".file = ../../secrets/restic/hedgedoc-environment-file.age;
+    "restic/hedgedoc-repository".file = ../../secrets/restic/hedgedoc-repository.age;
+    "restic/hedgedoc-password".file = ../../secrets/restic/hedgedoc-password.age;
+    "restic/todos-environment-file".file = ../../secrets/restic/todos-environment-file.age;
+    "restic/todos-repository".file = ../../secrets/restic/todos-repository.age;
+    "restic/todos-password".file = ../../secrets/restic/todos-password.age;
+    "restic/discord-bot-environment-file".file = ../../secrets/restic/discord-bot-environment-file.age;
+    "restic/discord-bot-repository".file = ../../secrets/restic/discord-bot-repository.age;
+    "restic/discord-bot-password".file = ../../secrets/restic/discord-bot-password.age;
   };
 
   environment.systemPackages = with pkgs; [
@@ -146,11 +155,68 @@
 
         environmentFile = config.age.secrets."restic/minecraft-environment-file".path;
         repositoryFile = config.age.secrets."restic/minecraft-repository".path;
-        passwordFile = config.age.secrets."restic/password".path;
+        passwordFile = config.age.secrets."restic/minecraft-password".path;
 
         paths = [
           "/var/lib/minecraft/world"
         ];
+
+        pruneOpts = [
+          "--keep-daily 7"
+          "--keep-weekly 5"
+          "--keep-monthly 12"
+        ];
+      };
+      hedgedoc-database-backup = {
+        initialize = true;
+
+        environmentFile = config.age.secrets."restic/hedgedoc-environment-file".path;
+        repositoryFile = config.age.secrets."restic/hedgedoc-repository".path;
+        passwordFile = config.age.secrets."restic/hedgedoc-password".path;
+        
+        paths = [ "/var/lib/hedgedoc/uploads" "/var/lib/hedgedoc/hedgedoc.dump" ];
+
+        backupPrepareCommand = ''
+          ${config.services.postgresql.package}/bin/pg_dump -U postgres -Fc hedgedoc > /var/lib/hedgedoc/hedgedoc.dump 
+        '';
+
+        pruneOpts = [
+          "--keep-daily 7"
+          "--keep-weekly 5"
+          "--keep-monthly 12"
+        ];
+      };
+      todos-database-backup = {
+        initialize = true;
+
+        environmentFile = config.age.secrets."restic/todos-environment-file".path;
+        repositoryFile = config.age.secrets."restic/todos-repository".path;
+        passwordFile = config.age.secrets."restic/todos-password".path;
+
+        paths = [ "/var/lib/todos.dump" ];
+
+        backupPrepareCommand = ''
+          ${config.services.postgresql.package}/bin/pg_dump -U todos -Fc  > /var/lib/todos.dump
+        '';
+
+        pruneOpts = [
+          "--keep-daily 7"
+          "--keep-weekly 5"
+          "--keep-monthly 12"
+        ];
+      };
+      discord-bot-database-backup = {
+        initialize = true;
+
+        environmentFile = config.age.secrets."restic/discord-bot-environment-file".path;
+        repositoryFile = config.age.secrets."restic/discord-bot-repository".path;
+        passwordFile = config.age.secrets."restic/discord-bot-password".path;
+
+        paths = [ "/var/lib/dcbot.dump" ];
+
+        backupPrepareCommand = ''
+          ${config.services.postgresql.package}/bin/pg_dump -U dcbot -Fc  > /var/lib/dcbot.dump
+        '';
 
         pruneOpts = [
           "--keep-daily 7"

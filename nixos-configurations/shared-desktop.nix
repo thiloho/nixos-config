@@ -46,6 +46,7 @@
       };
       vscode = {
         enable = true;
+        package = pkgs.vscodium;
         extensions = with pkgs.vscode-extensions; [
           svelte.svelte-vscode
           jnoortheen.nix-ide
