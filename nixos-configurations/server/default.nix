@@ -196,7 +196,7 @@
         paths = [ "/var/lib/todos.dump" ];
 
         backupPrepareCommand = ''
-          ${config.services.postgresql.package}/bin/pg_dump -U todos -Fc  > /var/lib/todos.dump
+          ${config.services.postgresql.package}/bin/pg_dump -U postgres -Fc todos  > /var/lib/todos.dump
         '';
 
         pruneOpts = [
@@ -215,7 +215,7 @@
         paths = [ "/var/lib/dcbot.dump" ];
 
         backupPrepareCommand = ''
-          ${config.services.postgresql.package}/bin/pg_dump -U dcbot -Fc  > /var/lib/dcbot.dump
+          ${config.services.postgresql.package}/bin/pg_dump -U postgres -Fc dcbot  > /var/lib/dcbot.dump
         '';
 
         pruneOpts = [
