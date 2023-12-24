@@ -9,7 +9,13 @@
     ../shared.nix
   ];
 
-  networking.hostName = "pc";
+  networking = {
+    hostName = "pc";
+    firewall = {
+      allowedTCPPorts = [ 5173 ];
+      allowedUDPPorts = [ 5173 ];
+    };
+  };
 
   services.postgresql = {
     enable = true;
@@ -20,6 +26,9 @@
       local all      all    trust
     '';
   };
+
+  programs.adb.enable = true;
+  users.users.thiloho.extraGroups = [ "adbusers" ];
 
   home-manager.users.thiloho = { pkgs, lib, ... }: {
     programs.git.signing.key = "5ECD00BDC15A987E";
