@@ -35,6 +35,7 @@
     home = {
       packages = with pkgs; [
         blender
+        inkscape
       ];
       stateVersion = "23.05";
     };
