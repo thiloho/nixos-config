@@ -82,7 +82,6 @@
         prismlauncher
         ventoy-full
         psensor
-        nil
         zoom-us
         teamspeak5_client
         discord
