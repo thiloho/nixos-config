@@ -176,11 +176,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1704042710,
-        "narHash": "sha256-S24SZ45gwBr11+5MvAn17H9m511r2W6MBml8CM7esJE=",
+        "lastModified": 1704048100,
+        "narHash": "sha256-Knsq6DzEINrcCiFEC7fd+5M4Pmo39QY9R3bGI7SQ1Og=",
         "owner": "thiloho",
         "repo": "todos",
-        "rev": "fa9703553ce932fc3fcc53788d7d6954cb5373bd",
+        "rev": "84592dc2ae580f8d326807e5f16ce9b0bfd72078",
         "type": "github"
       },
       "original": {
@@ -192,11 +192,11 @@
     "website": {
       "flake": false,
       "locked": {
-        "lastModified": 1700407082,
-        "narHash": "sha256-B28qBl/MmVB2n0D9ka/wFBZQNq02yZfzdbchV3T0TTc=",
+        "lastModified": 1704069356,
+        "narHash": "sha256-lvnHJoixFOvrXsB4Xc3FWafU6FHcNudwAWugvuGIVE4=",
         "owner": "thiloho",
         "repo": "website",
-        "rev": "7523052a3f46db6708769eadb106ad32d7241423",
+        "rev": "14c8cea8f9dff8a3974f7d274c2bb7cb904824d2",
         "type": "github"
       },
       "original": {
