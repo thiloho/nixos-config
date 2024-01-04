@@ -18,6 +18,14 @@
   };
 
   services = {
+    syncthing = {
+      enable = true;
+      user = "thiloho";
+      overrideFolders = true;
+      configDir = "/home/thiloho/.config/syncthing";
+      dataDir = "/home/thiloho";
+      openDefaultPorts = true;
+    };
     postgresql = {
       enable = true;
       package = pkgs.postgresql_15;
