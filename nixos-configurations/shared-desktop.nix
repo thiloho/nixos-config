@@ -27,18 +27,15 @@
     };
     java.enable = true;
   };
-  
+
   hardware.pulseaudio.enable = false;
 
   home-manager.users.thiloho = { pkgs, lib, config, ... }: {
     programs = {
       firefox = {
         enable = true;
-        package = pkgs.firefox.override {
-          cfg = {
-            speechSynthesisSupport = true;
-          };
-        };
+        package =
+          pkgs.firefox.override { cfg = { speechSynthesisSupport = true; }; };
       };
       chromium = {
         enable = true;
@@ -65,16 +62,12 @@
         enable = true;
         userName = "thiloho";
         userEmail = "123883702+thiloho@users.noreply.github.com";
-        signing = {
-          signByDefault = true;
-        };
+        signing = { signByDefault = true; };
       };
       obs-studio.enable = true;
     };
     home = {
-      sessionVariables = {
-        NIXOS_OZONE_WL=1;
-      };
+      sessionVariables = { NIXOS_OZONE_WL = 1; };
       packages = with pkgs; [
         libreoffice
         airshipper
@@ -82,6 +75,7 @@
         prismlauncher
         ventoy-full
         psensor
+        nil
         zoom-us
         teamspeak5_client
         discord

@@ -12,19 +12,21 @@
   networking = {
     hostName = "pc";
     firewall = {
-      allowedTCPPorts = [ 5173 ];
-      allowedUDPPorts = [ 5173 ];
+      allowedTCPPorts = [ 5173 8081 ];
+      allowedUDPPorts = [ 5173 8081 ];
     };
   };
 
-  services.postgresql = {
-    enable = true;
-    package = pkgs.postgresql_15;
-    ensureDatabases = [ "dcbot" "todos" ];
-    authentication = pkgs.lib.mkOverride 10 ''
-      #type database DBuser auth-method
-      local all      all    trust
-    '';
+  services = {
+    postgresql = {
+      enable = true;
+      package = pkgs.postgresql_15;
+      ensureDatabases = [ "dcbot" "todos" ];
+      authentication = pkgs.lib.mkOverride 10 ''
+        #type database DBuser auth-method
+        local all      all    trust
+      '';
+    };
   };
 
   programs.adb.enable = true;
@@ -33,10 +35,7 @@
   home-manager.users.thiloho = { pkgs, lib, ... }: {
     programs.git.signing.key = "5ECD00BDC15A987E";
     home = {
-      packages = with pkgs; [
-        blender
-        inkscape
-      ];
+      packages = with pkgs; [ blender inkscape ];
       stateVersion = "23.05";
     };
   };

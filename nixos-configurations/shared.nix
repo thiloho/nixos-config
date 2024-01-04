@@ -31,8 +31,10 @@
         shellAliases = {
           rbs = "sudo nixos-rebuild switch --flake .";
           off = "sudo systemctl poweroff";
-          cleanup = "nix store optimise && nix-collect-garbage -d && sudo nix store optimise && sudo nix-collect-garbage -d";
-          listboots = "nix profile history --profile /nix/var/nix/profiles/system";
+          cleanup =
+            "nix store optimise && nix-collect-garbage -d && sudo nix store optimise && sudo nix-collect-garbage -d";
+          listboots =
+            "nix profile history --profile /nix/var/nix/profiles/system";
         };
       };
       helix = {

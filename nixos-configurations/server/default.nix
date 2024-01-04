@@ -10,26 +10,35 @@
   nix.settings.trusted-users = [ "thiloho" ];
 
   age.secrets = {
-    hedgedoc-environment-file.file = ../../secrets/hedgedoc-environment-file.age;
+    hedgedoc-environment-file.file =
+      ../../secrets/hedgedoc-environment-file.age;
     discord-bot-token.file = ../../secrets/discord-bot-token.age;
     todos-environment-file.file = ../../secrets/todos-environment-file.age;
-    "restic/minecraft-environment-file".file = ../../secrets/restic/minecraft-environment-file.age;
-    "restic/minecraft-repository".file = ../../secrets/restic/minecraft-repository.age;
-    "restic/minecraft-password".file = ../../secrets/restic/minecraft-password.age;
-    "restic/hedgedoc-environment-file".file = ../../secrets/restic/hedgedoc-environment-file.age;
-    "restic/hedgedoc-repository".file = ../../secrets/restic/hedgedoc-repository.age;
-    "restic/hedgedoc-password".file = ../../secrets/restic/hedgedoc-password.age;
-    "restic/todos-environment-file".file = ../../secrets/restic/todos-environment-file.age;
+    "restic/minecraft-environment-file".file =
+      ../../secrets/restic/minecraft-environment-file.age;
+    "restic/minecraft-repository".file =
+      ../../secrets/restic/minecraft-repository.age;
+    "restic/minecraft-password".file =
+      ../../secrets/restic/minecraft-password.age;
+    "restic/hedgedoc-environment-file".file =
+      ../../secrets/restic/hedgedoc-environment-file.age;
+    "restic/hedgedoc-repository".file =
+      ../../secrets/restic/hedgedoc-repository.age;
+    "restic/hedgedoc-password".file =
+      ../../secrets/restic/hedgedoc-password.age;
+    "restic/todos-environment-file".file =
+      ../../secrets/restic/todos-environment-file.age;
     "restic/todos-repository".file = ../../secrets/restic/todos-repository.age;
     "restic/todos-password".file = ../../secrets/restic/todos-password.age;
-    "restic/discord-bot-environment-file".file = ../../secrets/restic/discord-bot-environment-file.age;
-    "restic/discord-bot-repository".file = ../../secrets/restic/discord-bot-repository.age;
-    "restic/discord-bot-password".file = ../../secrets/restic/discord-bot-password.age;
+    "restic/discord-bot-environment-file".file =
+      ../../secrets/restic/discord-bot-environment-file.age;
+    "restic/discord-bot-repository".file =
+      ../../secrets/restic/discord-bot-repository.age;
+    "restic/discord-bot-password".file =
+      ../../secrets/restic/discord-bot-password.age;
   };
 
-  environment.systemPackages = with pkgs; [
-    nodejs_20
-  ];
+  environment.systemPackages = with pkgs; [ nodejs_20 ];
 
   networking = {
     hostName = "server";
@@ -153,43 +162,37 @@
       minecraft-backup = {
         initialize = true;
 
-        environmentFile = config.age.secrets."restic/minecraft-environment-file".path;
+        environmentFile =
+          config.age.secrets."restic/minecraft-environment-file".path;
         repositoryFile = config.age.secrets."restic/minecraft-repository".path;
         passwordFile = config.age.secrets."restic/minecraft-password".path;
 
-        paths = [
-          "/var/lib/minecraft/world"
-        ];
+        paths = [ "/var/lib/minecraft/world" ];
 
-        pruneOpts = [
-          "--keep-daily 7"
-          "--keep-weekly 5"
-          "--keep-monthly 12"
-        ];
+        pruneOpts = [ "--keep-daily 7" "--keep-weekly 5" "--keep-monthly 12" ];
       };
       hedgedoc-database-backup = {
         initialize = true;
 
-        environmentFile = config.age.secrets."restic/hedgedoc-environment-file".path;
+        environmentFile =
+          config.age.secrets."restic/hedgedoc-environment-file".path;
         repositoryFile = config.age.secrets."restic/hedgedoc-repository".path;
         passwordFile = config.age.secrets."restic/hedgedoc-password".path;
-        
-        paths = [ "/var/lib/hedgedoc/uploads" "/var/lib/hedgedoc/hedgedoc.dump" ];
+
+        paths =
+          [ "/var/lib/hedgedoc/uploads" "/var/lib/hedgedoc/hedgedoc.dump" ];
 
         backupPrepareCommand = ''
           ${config.services.postgresql.package}/bin/pg_dump -U postgres -Fc hedgedoc > /var/lib/hedgedoc/hedgedoc.dump 
         '';
 
-        pruneOpts = [
-          "--keep-daily 7"
-          "--keep-weekly 5"
-          "--keep-monthly 12"
-        ];
+        pruneOpts = [ "--keep-daily 7" "--keep-weekly 5" "--keep-monthly 12" ];
       };
       todos-database-backup = {
         initialize = true;
 
-        environmentFile = config.age.secrets."restic/todos-environment-file".path;
+        environmentFile =
+          config.age.secrets."restic/todos-environment-file".path;
         repositoryFile = config.age.secrets."restic/todos-repository".path;
         passwordFile = config.age.secrets."restic/todos-password".path;
 
@@ -199,17 +202,15 @@
           ${config.services.postgresql.package}/bin/pg_dump -U postgres -Fc todos  > /var/lib/todos.dump
         '';
 
-        pruneOpts = [
-          "--keep-daily 7"
-          "--keep-weekly 5"
-          "--keep-monthly 12"
-        ];
+        pruneOpts = [ "--keep-daily 7" "--keep-weekly 5" "--keep-monthly 12" ];
       };
       discord-bot-database-backup = {
         initialize = true;
 
-        environmentFile = config.age.secrets."restic/discord-bot-environment-file".path;
-        repositoryFile = config.age.secrets."restic/discord-bot-repository".path;
+        environmentFile =
+          config.age.secrets."restic/discord-bot-environment-file".path;
+        repositoryFile =
+          config.age.secrets."restic/discord-bot-repository".path;
         passwordFile = config.age.secrets."restic/discord-bot-password".path;
 
         paths = [ "/var/lib/dcbot.dump" ];
@@ -218,11 +219,7 @@
           ${config.services.postgresql.package}/bin/pg_dump -U postgres -Fc dcbot  > /var/lib/dcbot.dump
         '';
 
-        pruneOpts = [
-          "--keep-daily 7"
-          "--keep-weekly 5"
-          "--keep-monthly 12"
-        ];
+        pruneOpts = [ "--keep-daily 7" "--keep-weekly 5" "--keep-monthly 12" ];
       };
     };
   };
@@ -240,40 +237,39 @@
   systemd.services = {
     todoapp = {
       description = "Todo application to plan your daily tasks effectively";
-      wantedBy = ["multi-user.target"];
+      wantedBy = [ "multi-user.target" ];
       serviceConfig = {
         Type = "simple";
-        Environment = "PORT=5173 DOTENV_CONFIG_PATH=${config.age.secrets.todos-environment-file.path}";
+        Environment =
+          "PORT=5173 DOTENV_CONFIG_PATH=${config.age.secrets.todos-environment-file.path}";
         ExecStart = "${pkgs.nodejs_20}/bin/node -r dotenv/config .";
         WorkingDirectory = inputs.todos.packages.${pkgs.system}.default;
         Restart = "always";
       };
     };
     todoapp-check-due-dates = {
-      description = "Set is_overdue for todo in database to true if todo is overdue";
-      wantedBy = ["timers.target"];
-      path = [
-        pkgs.postgresql_15
-      ];
+      description =
+        "Set is_overdue for todo in database to true if todo is overdue";
+      wantedBy = [ "timers.target" ];
+      path = [ pkgs.postgresql_15 ];
       script = ''
         psql -d todos -c "UPDATE user_todo SET is_overdue = true WHERE NOW() AT TIME ZONE 'CET' >= due_date AND is_completed = false AND is_overdue = false"
       '';
-      serviceConfig = {
-        User = "postgres";
-      };
+      serviceConfig = { User = "postgres"; };
       partOf = [ "todoapp.service" ];
       startAt = "daily";
     };
     denbot = {
       description = "Thilo's Den discord bot";
-      wantedBy = ["multi-user.target"];
+      wantedBy = [ "multi-user.target" ];
       serviceConfig = {
         Type = "simple";
         ExecStartPre = [
           "${pkgs.nodejs_20}/bin/node dbInit.js"
           "${pkgs.nodejs_20}/bin/node deploy-commands.js --token=${config.age.secrets.discord-bot-token.path} --clientId=1142441791459704912"
         ];
-        ExecStart = "${pkgs.nodejs_20}/bin/node index.js --token=${config.age.secrets.discord-bot-token.path}";
+        ExecStart =
+          "${pkgs.nodejs_20}/bin/node index.js --token=${config.age.secrets.discord-bot-token.path}";
         WorkingDirectory = inputs.denbot.packages.${pkgs.system}.default;
         Restart = "always";
       };
@@ -286,9 +282,7 @@
   ];
 
   home-manager.users.thiloho = { pkgs, lib, ... }: {
-    home = {
-      stateVersion = "23.05";
-    };
+    home = { stateVersion = "23.05"; };
   };
   system.stateVersion = "23.05";
 }
