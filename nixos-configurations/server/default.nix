@@ -229,17 +229,6 @@
       acceptTerms = true;
       defaults.email = "thilo.hohlt@tutanota.com";
     };
-    sudo.extraRules = [
-      {
-        users = [ "thiloho" ];
-        commands = [
-          {
-            command = "${pkgs.nixos-rebuild}/bin/nixos-rebuild";
-            options = [ "NOPASSWD" ];
-          }
-        ];
-      }
-    ];
   };
 
   systemd.services = {
