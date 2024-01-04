@@ -253,7 +253,7 @@
       wantedBy = [ "timers.target" ];
       path = [ pkgs.postgresql_15 ];
       script = ''
-        psql -d todos -c "UPDATE user_todo SET is_overdue = true WHERE NOW() AT TIME ZONE 'CET' >= due_date AND is_completed = false AND is_overdue = false"
+        psql -d todos -c "UPDATE user_todo SET is_overdue = true WHERE DATE_TRUNC('day', NOW() AT TIME ZONE 'CET') > due_date AND is_completed = false AND is_overdue = false"
       '';
       serviceConfig = { User = "postgres"; };
       partOf = [ "todoapp.service" ];
