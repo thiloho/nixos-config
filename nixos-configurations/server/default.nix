@@ -229,9 +229,17 @@
       acceptTerms = true;
       defaults.email = "thilo.hohlt@tutanota.com";
     };
-    sudo.extraConfig = ''
-      %wheel ALL=(ALL) NOPASSWD: ALL, SETENV: ALL
-    '';
+    sudo.extraRules = [
+      {
+        users = [ "thiloho" ];
+        commands = [
+          {
+            command = "${pkgs.nixos-rebuild}/bin/nixos-rebuild";
+            options = [ "NOPASSWD" ];
+          }
+        ];
+      }
+    ];
   };
 
   systemd.services = {
