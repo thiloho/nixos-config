@@ -43,7 +43,7 @@
   home-manager.users.thiloho = { pkgs, lib, ... }: {
     programs.git.signing.key = "5ECD00BDC15A987E";
     home = {
-      packages = with pkgs; [ blender inkscape ];
+      packages = with pkgs; [ blender inkscape libcec ];
       stateVersion = "23.05";
     };
   };

@@ -83,6 +83,7 @@
         neofetch
         godot_4
         backblaze-b2
+        postgrest
       ];
     };
   };
