@@ -1,4 +1,4 @@
-{ ... }:
+{ pkgs, ... }:
 
 {
   services = {
@@ -16,6 +16,10 @@
     };
     printing.enable = true;
     resolved.enable = true;
+    mullvad-vpn = {
+      enable = true;
+      package = pkgs.mullvad-vpn;
+    };
   };
 
   programs = {
@@ -29,6 +33,9 @@
   };
 
   hardware.pulseaudio.enable = false;
+
+  hardware.bluetooth.enable = true;
+  hardware.bluetooth.powerOnBoot = true;
 
   home-manager.users.thiloho = { pkgs, lib, config, ... }: {
     programs = {
@@ -56,6 +63,8 @@
           "nix.enableLanguageServer" = true;
           "nix.serverPath" = "nil";
           "window.titleBarStyle" = "custom";
+          "editor.indentSize" = 2;
+          "editor.tabSize" = 2;
         };
       };
       git = {
@@ -83,7 +92,6 @@
         neofetch
         godot_4
         backblaze-b2
-        postgrest
       ];
     };
   };

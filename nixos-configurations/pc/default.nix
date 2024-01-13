@@ -1,4 +1,4 @@
-{ pkgs, inputs, ... }:
+{ pkgs, inputs, lib, ... }:
 
 {
   imports = [
@@ -30,9 +30,9 @@
       enable = true;
       package = pkgs.postgresql_15;
       ensureDatabases = [ "dcbot" "todos" ];
-      authentication = pkgs.lib.mkOverride 10 ''
-        #type database DBuser auth-method
-        local all      all    trust
+      authentication = lib.mkForce ''
+        local all all trust
+        host all all ::1/128 trust
       '';
     };
   };
