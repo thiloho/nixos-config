@@ -140,6 +140,7 @@
       port = 3232;
       domain = "invidious.thilohohlt.com";
       nginx.enable = true;
+      settings.db.user = "invidious";
     };
     postgresql = {
       enable = true;
