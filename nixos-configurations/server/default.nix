@@ -43,8 +43,8 @@
   networking = {
     hostName = "server";
     firewall = {
-      allowedTCPPorts = [ 80 443 25565 ];
-      allowedUDPPorts = [ 80 443 25565 ];
+      allowedTCPPorts = [ 80 443 25565 3232 ];
+      allowedUDPPorts = [ 80 443 25565 3232 ];
     };
   };
 
@@ -134,6 +134,12 @@
         ROOT_URL = "https://git.thilohohlt.com";
         HTTP_PORT = 3001;
       };
+    };
+    invidious = {
+      enable = true;
+      port = 3232;
+      domain = "invidious.thilohohlt.com";
+      nginx.enable = true;
     };
     postgresql = {
       enable = true;
