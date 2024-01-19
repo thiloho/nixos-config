@@ -60,6 +60,7 @@
       openFirewall = true;
       whitelist = {
         thilo_ho = "4e4d744d-7748-46bc-add8-b3e8ca3b4cf5";
+        Liaxswan = "ccbf3468-a6b4-4d7b-9837-5a2451deca79";
       };
       serverProperties = {
         difficulty = 3;
