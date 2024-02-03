@@ -12,10 +12,16 @@
   networking = {
     hostName = "pc";
     firewall = {
-      allowedTCPPorts = [ 5173 8081 ];
-      allowedUDPPorts = [ 5173 8081 ];
+      allowedTCPPorts = [ 5173 8081 53317 ];
+      allowedUDPPorts = [ 5173 8081 53317 ];
     };
   };
+
+  boot.kernelParams = [ "amd_iommu=on" ];
+
+  virtualisation.libvirtd.enable = true;
+  virtualisation.libvirtd.qemu.swtpm.enable = true;
+  programs.virt-manager.enable = true;
 
   services = {
     syncthing = {
@@ -43,7 +49,7 @@
   home-manager.users.thiloho = { pkgs, lib, ... }: {
     programs.git.signing.key = "5ECD00BDC15A987E";
     home = {
-      packages = with pkgs; [ blender inkscape libcec ];
+      packages = with pkgs; [ blender inkscape localsend ];
       stateVersion = "23.05";
     };
   };

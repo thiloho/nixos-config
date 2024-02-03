@@ -58,6 +58,7 @@
           astro-build.astro-vscode
           dbaeumer.vscode-eslint
           bradlc.vscode-tailwindcss
+          esbenp.prettier-vscode
         ];
         userSettings = {
           "nix.enableLanguageServer" = true;

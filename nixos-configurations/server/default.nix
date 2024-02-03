@@ -66,6 +66,7 @@
         difficulty = 3;
         max-players = 10;
         motd = "Thilo's SMP";
+        white-list = true;
       };
     };
     nginx = {
