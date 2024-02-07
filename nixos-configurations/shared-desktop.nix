@@ -22,6 +22,11 @@
     };
   };
 
+  networking.firewall = {
+    allowedTCPPorts = [ 53317 ];
+    allowedUDPPorts = [ 53317 ];
+  };
+
   programs = {
     steam.enable = true;
     gnupg.agent = {
@@ -93,6 +98,7 @@
         neofetch
         godot_4
         backblaze-b2
+        localsend
       ];
     };
   };

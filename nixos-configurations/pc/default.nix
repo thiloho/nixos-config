@@ -12,8 +12,8 @@
   networking = {
     hostName = "pc";
     firewall = {
-      allowedTCPPorts = [ 5173 8081 53317 ];
-      allowedUDPPorts = [ 5173 8081 53317 ];
+      allowedTCPPorts = [ 5173 8081 ];
+      allowedUDPPorts = [ 5173 8081 ];
     };
   };
 
@@ -49,7 +49,7 @@
   home-manager.users.thiloho = { pkgs, lib, ... }: {
     programs.git.signing.key = "5ECD00BDC15A987E";
     home = {
-      packages = with pkgs; [ blender inkscape localsend ];
+      packages = with pkgs; [ blender inkscape ];
       stateVersion = "23.05";
     };
   };
