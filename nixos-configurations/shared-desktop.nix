@@ -99,6 +99,7 @@
         godot_4
         backblaze-b2
         localsend
+        mullvad-browser
       ];
     };
   };
