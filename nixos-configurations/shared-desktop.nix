@@ -67,7 +67,6 @@
         userSettings = {
           "nix.enableLanguageServer" = true;
           "nix.serverPath" = "nil";
-          "window.titleBarStyle" = "custom";
           "editor.indentSize" = 2;
           "editor.tabSize" = 2;
         };

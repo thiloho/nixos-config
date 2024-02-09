@@ -208,11 +208,11 @@
     "website": {
       "flake": false,
       "locked": {
-        "lastModified": 1704069563,
-        "narHash": "sha256-kkMnxmPtU0F/SuhwiMsSrO0z0+p3PYicfrqPxMb1Mvc=",
+        "lastModified": 1707497768,
+        "narHash": "sha256-GzBC5I4FLEijh2Nsww3P4LZaJR8oXbEH04P6NovVwIk=",
         "owner": "thiloho",
         "repo": "website",
-        "rev": "c113ae99dd795f55acab76e352a0f1aa5b3ea158",
+        "rev": "8448dcc2269fe4fc698707d749fc7972c232101c",
         "type": "github"
       },
       "original": {
