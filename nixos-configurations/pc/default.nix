@@ -32,15 +32,6 @@
       dataDir = "/home/thiloho";
       openDefaultPorts = true;
     };
-    postgresql = {
-      enable = true;
-      package = pkgs.postgresql_15;
-      ensureDatabases = [ "dcbot" "todos" ];
-      authentication = lib.mkForce ''
-        local all all trust
-        host all all ::1/128 trust
-      '';
-    };
   };
 
   programs.adb.enable = true;

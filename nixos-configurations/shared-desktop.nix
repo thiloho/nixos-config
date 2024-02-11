@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 
 {
   services = {
@@ -19,6 +19,15 @@
     mullvad-vpn = {
       enable = true;
       package = pkgs.mullvad-vpn;
+    };
+    postgresql = {
+      enable = true;
+      package = pkgs.postgresql_15;
+      ensureDatabases = [ "dcbot" "todos" ];
+      authentication = lib.mkForce ''
+        local all all trust
+        host all all ::1/128 trust
+      '';
     };
   };
 

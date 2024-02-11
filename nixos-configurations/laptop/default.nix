@@ -10,16 +10,6 @@
 
   networking.hostName = "laptop";
 
-  services.postgresql = {
-    enable = true;
-    package = pkgs.postgresql_15;
-    ensureDatabases = [ "dcbot" "todos" ];
-    authentication = pkgs.lib.mkOverride 10 ''
-      #type database DBuser auth-method
-      local all      all    trust
-    '';
-  };
-
   home-manager.users.thiloho = { pkgs, ... }: {
     programs.git.signing.key = "1142F33FFA8ADAAC";
     home = {
