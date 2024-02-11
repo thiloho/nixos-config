@@ -107,6 +107,7 @@
         backblaze-b2
         localsend
         mullvad-browser
+        jetbrains.datagrip
       ];
     };
   };
