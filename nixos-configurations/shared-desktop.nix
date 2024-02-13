@@ -26,7 +26,7 @@
       ensureDatabases = [ "dcbot" "todos" ];
       authentication = lib.mkForce ''
         local all all trust
-        host all all ::1/128 trust
+        host all all 0.0.0.0/0 scram-sha-256
       '';
     };
   };
@@ -107,7 +107,7 @@
         backblaze-b2
         localsend
         mullvad-browser
-        jetbrains.datagrip
+        spotify
       ];
     };
   };
