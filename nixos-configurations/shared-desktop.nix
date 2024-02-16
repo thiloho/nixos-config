@@ -27,6 +27,7 @@
       authentication = lib.mkForce ''
         local all all trust
         host all all 0.0.0.0/0 scram-sha-256
+        host all all ::1/128 scram-sha-256
       '';
     };
   };
@@ -78,6 +79,7 @@
           "nix.serverPath" = "nil";
           "editor.indentSize" = 2;
           "editor.tabSize" = 2;
+          "typescript.preferences.importModuleSpecifier" = "relative";
         };
       };
       git = {
