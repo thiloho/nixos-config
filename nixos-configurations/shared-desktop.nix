@@ -74,6 +74,7 @@
           bradlc.vscode-tailwindcss
           esbenp.prettier-vscode
           github.copilot
+          github.copilot-chat
         ];
         userSettings = {
           "nix.enableLanguageServer" = true;
@@ -111,6 +112,7 @@
         localsend
         mullvad-browser
         spotify
+        insomnia
       ];
     };
   };
