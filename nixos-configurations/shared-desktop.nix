@@ -73,6 +73,7 @@
           dbaeumer.vscode-eslint
           bradlc.vscode-tailwindcss
           esbenp.prettier-vscode
+          github.copilot
         ];
         userSettings = {
           "nix.enableLanguageServer" = true;
