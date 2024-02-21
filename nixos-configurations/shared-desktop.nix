@@ -65,6 +65,7 @@
       };
       vscode = {
         enable = true;
+        mutableExtensionsDir = false;
         extensions = with pkgs.vscode-extensions; [
           svelte.svelte-vscode
           jnoortheen.nix-ide
