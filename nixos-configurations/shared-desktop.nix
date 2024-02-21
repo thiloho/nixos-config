@@ -75,6 +75,7 @@
           esbenp.prettier-vscode
           github.copilot
           github.copilot-chat
+          pkief.material-icon-theme
         ];
         userSettings = {
           "nix.enableLanguageServer" = true;
@@ -82,6 +83,7 @@
           "editor.indentSize" = 2;
           "editor.tabSize" = 2;
           "typescript.preferences.importModuleSpecifier" = "relative";
+          "workbench.iconTheme" = "material-icon-theme";
         };
       };
       git = {
