@@ -116,6 +116,7 @@
         mullvad-browser
         spotify
         insomnia
+        dbeaver
       ];
     };
   };
