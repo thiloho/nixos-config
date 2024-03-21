@@ -23,17 +23,6 @@
   virtualisation.libvirtd.qemu.swtpm.enable = true;
   programs.virt-manager.enable = true;
 
-  services = {
-    syncthing = {
-      enable = true;
-      user = "thiloho";
-      overrideFolders = true;
-      configDir = "/home/thiloho/.config/syncthing";
-      dataDir = "/home/thiloho";
-      openDefaultPorts = true;
-    };
-  };
-
   programs.adb.enable = true;
   users.users.thiloho.extraGroups = [ "adbusers" ];
 

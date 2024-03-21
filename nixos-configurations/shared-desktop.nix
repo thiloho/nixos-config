@@ -42,7 +42,6 @@
     gnupg.agent = {
       enable = true;
       enableSSHSupport = true;
-      pinentryFlavor = "gnome3";
     };
     java.enable = true;
   };
@@ -77,6 +76,7 @@
           github.copilot
           github.copilot-chat
           pkief.material-icon-theme
+          unifiedjs.vscode-mdx
         ];
         userSettings = {
           "nix.enableLanguageServer" = true;
