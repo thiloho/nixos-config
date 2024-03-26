@@ -4,26 +4,54 @@
 { config, lib, pkgs, modulesPath, ... }:
 
 {
-  imports = [ (modulesPath + "/installer/scan/not-detected.nix") ];
+  imports =
+    [ (modulesPath + "/installer/scan/not-detected.nix")
+    ];
 
-  boot.initrd.availableKernelModules =
-    [ "xhci_pci" "nvme" "usb_storage" "sd_mod" ];
+  boot.initrd.availableKernelModules = [ "xhci_pci" "nvme" "usb_storage" "sd_mod" ];
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-intel" ];
   boot.extraModulePackages = [ ];
 
-  fileSystems."/" = {
-    device = "/dev/disk/by-uuid/58cf62a5-3ab2-411d-86ef-c6c4d5877bb8";
-    fsType = "ext4";
-  };
+  fileSystems."/" =
+    { device = "tmpfs";
+      fsType = "tmpfs";
+    };
 
-  fileSystems."/boot" = {
-    device = "/dev/disk/by-uuid/C2DA-F1B0";
-    fsType = "vfat";
-  };
+  fileSystems."/iso" =
+    { device = "/dev/disk/by-uuid/1980-01-01-00-00-00-00";
+      fsType = "iso9660";
+    };
+
+  fileSystems."/nix/.ro-store" =
+    { device = "/iso/nix-store.squashfs";
+      fsType = "squashfs";
+      options = [ "loop" ];
+    };
+
+  fileSystems."/nix/.rw-store" =
+    { device = "tmpfs";
+      fsType = "tmpfs";
+    };
+
+  fileSystems."/nix/store" =
+    { device = "overlay";
+      fsType = "overlay";
+    };
+
+  fileSystems."/mnt" =
+    { device = "/dev/disk/by-uuid/7318a35a-1237-4bfd-8d2f-f631c4278d92";
+      fsType = "ext4";
+    };
+
+  fileSystems."/mnt/boot" =
+    { device = "/dev/disk/by-uuid/AE35-CCA8";
+      fsType = "vfat";
+    };
 
   swapDevices =
-    [{ device = "/dev/disk/by-uuid/4d298153-87ea-4a12-a244-a64b2075bd40"; }];
+    [ { device = "/dev/disk/by-uuid/cab65021-f52d-4571-8d9e-c90de6c32f8c"; }
+    ];
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
   # (the default) this is the recommended approach. When using systemd-networkd it's
@@ -34,7 +62,5 @@
   # networking.interfaces.wlp3s0.useDHCP = lib.mkDefault true;
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
-  powerManagement.cpuFreqGovernor = lib.mkDefault "powersave";
-  hardware.cpu.intel.updateMicrocode =
-    lib.mkDefault config.hardware.enableRedistributableFirmware;
+  hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 }
