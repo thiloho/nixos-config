@@ -77,6 +77,9 @@
           github.copilot-chat
           pkief.material-icon-theme
           unifiedjs.vscode-mdx
+          rust-lang.rust-analyzer
+          tamasfe.even-better-toml
+          mkhl.direnv
         ];
         userSettings = {
           "nix.enableLanguageServer" = true;
@@ -92,6 +95,11 @@
         userName = "thiloho";
         userEmail = "123883702+thiloho@users.noreply.github.com";
         signing = { signByDefault = true; };
+      };
+      direnv = {
+        enable = true;
+        enableBashIntegration = true;
+        nix-direnv.enable = true;
       };
       obs-studio.enable = true;
     };
