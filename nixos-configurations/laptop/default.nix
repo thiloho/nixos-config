@@ -11,7 +11,7 @@
   networking.hostName = "laptop";
 
   home-manager.users.thiloho = { pkgs, ... }: {
-    programs.git.signing.key = "1142F33FFA8ADAAC";
+    programs.git.signing.key = "BFD8F6A55B1E4F11";
     home = {
       packages = with pkgs;
         [

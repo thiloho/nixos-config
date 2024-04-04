@@ -56,7 +56,7 @@
       firefox = {
         enable = true;
         package =
-          pkgs.firefox.override { cfg = { speechSynthesisSupport = true; }; };
+          pkgs.firefox-devedition.override { cfg = { speechSynthesisSupport = true; }; };
       };
       chromium = {
         enable = true;
