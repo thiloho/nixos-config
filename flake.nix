@@ -8,26 +8,6 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    website = {
-      url = "github:thiloho/website";
-      flake = false;
-    };
-    aurora-blog-template = {
-      url = "github:thiloho/aurora";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    denbot = {
-      url = "github:thiloho/discord-bot";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    todos = {
-      url = "github:thiloho/todos";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    agenix = {
-      url = "github:ryantm/agenix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
 
   outputs = inputs@{ nixpkgs, home-manager, ... }: {
@@ -51,7 +31,6 @@
     in {
       pc = mkSystem ./nixos-configurations/pc;
       laptop = mkSystem ./nixos-configurations/laptop;
-      server = mkSystem ./nixos-configurations/server;
     };
   };
 }
