@@ -30,6 +30,15 @@
         host all all ::1/128 scram-sha-256
       '';
     };
+    flatpak.enable = true;
+  };
+
+  systemd.services.flatpak-repo = {
+    wantedBy = [ "multi-user.target" ];
+    path = [ pkgs.flatpak ];
+    script = ''
+      flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+    '';
   };
 
   networking.firewall = {
@@ -125,7 +134,6 @@
         mullvad-browser
         spotify
         insomnia
-        dbeaver
       ];
     };
   };
