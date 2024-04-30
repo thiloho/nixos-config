@@ -53,6 +53,13 @@
       enableSSHSupport = true;
     };
     java.enable = true;
+    nix-ld = {
+      enable = true;
+      libraries = with pkgs; [
+        nodejs
+        nodePackages.pnpm
+      ];
+    };
   };
 
   hardware.pulseaudio.enable = false;
@@ -90,6 +97,14 @@
           rust-lang.rust-analyzer
           tamasfe.even-better-toml
           mkhl.direnv
+        ]
+        ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
+          {
+            name = "biome";
+            publisher = "biomejs";
+            version = "2024.3.70509";
+            sha256 = "1v17wb0b789c08kb5idm32jbi404xr90x7xlbcy7zgy3q2z1xpdj";
+          }
         ];
         userSettings = {
           "nix.enableLanguageServer" = true;
@@ -98,6 +113,7 @@
           "editor.tabSize" = 2;
           "typescript.preferences.importModuleSpecifier" = "relative";
           "workbench.iconTheme" = "material-icon-theme";
+          "biome.lspBin" = "./node_modules/@biomejs/biome";
         };
       };
       git = {
