@@ -106,6 +106,7 @@
           "typescript.preferences.importModuleSpecifier" = "relative";
           "workbench.iconTheme" = "material-icon-theme";
           "biome.lspBin" = "./node_modules/@biomejs/biome";
+          "svelte.enable-ts-plugin" = true;
         };
       };
       git = {

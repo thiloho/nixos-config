@@ -2,7 +2,7 @@
 
 {
   imports = [
-    inputs.nixos-hardware.nixosModules.lenovo-thinkpad-t480
+    inputs.nixos-hardware.nixosModules.lenovo-thinkpad-t480s
     ./hardware-configuration.nix
     ../shared-desktop.nix
     ../shared.nix
