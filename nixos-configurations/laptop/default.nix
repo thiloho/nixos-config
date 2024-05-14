@@ -17,7 +17,7 @@
   };
 
   home-manager.users.thiloho = { pkgs, ... }: {
-    programs.git.signing.key = "BFD8F6A55B1E4F11";
+    programs.git.signing.key = "5CF074CA31DD6686";
     home = { stateVersion = "23.05"; };
   };
   system.stateVersion = "23.05";
