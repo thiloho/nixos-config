@@ -30,7 +30,6 @@
         host all all ::1/128 scram-sha-256
       '';
     };
-    flatpak.enable = true;
   };
 
   networking.firewall = {
@@ -143,6 +142,7 @@
         mullvad-browser
         spotify
         insomnia
+        dbeaver-bin
       ];
     };
   };
