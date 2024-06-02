@@ -88,6 +88,7 @@
           rust-lang.rust-analyzer
           tamasfe.even-better-toml
           mkhl.direnv
+          james-yu.latex-workshop
         ]
         ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
           {
@@ -143,6 +144,7 @@
         spotify
         insomnia
         dbeaver-bin
+        texliveFull
       ];
     };
   };
