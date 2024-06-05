@@ -145,6 +145,8 @@
         insomnia
         dbeaver-bin
         texliveFull
+        gnome.gnome-tweaks
+        gnome.gnome-themes-extra
       ];
     };
   };
