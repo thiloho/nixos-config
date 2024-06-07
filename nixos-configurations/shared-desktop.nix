@@ -72,6 +72,7 @@
       };
       vscode = {
         enable = true;
+        package = pkgs.vscodium;
         mutableExtensionsDir = false;
         extensions = with pkgs.vscode-extensions; [
           svelte.svelte-vscode
@@ -81,8 +82,6 @@
           dbaeumer.vscode-eslint
           bradlc.vscode-tailwindcss
           esbenp.prettier-vscode
-          github.copilot
-          github.copilot-chat
           pkief.material-icon-theme
           unifiedjs.vscode-mdx
           rust-lang.rust-analyzer
