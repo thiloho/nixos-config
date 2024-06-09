@@ -133,14 +133,12 @@
         nil
         zoom-us
         teamspeak5_client
-        discord
         qbittorrent
         neofetch
         godot_4
         backblaze-b2
         localsend
         mullvad-browser
-        spotify
         insomnia
         dbeaver-bin
         texliveFull
