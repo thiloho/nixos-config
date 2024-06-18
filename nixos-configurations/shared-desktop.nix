@@ -144,6 +144,7 @@
         texliveFull
         gnome.gnome-tweaks
         gnome.gnome-themes-extra
+        melonDS
       ];
     };
   };
