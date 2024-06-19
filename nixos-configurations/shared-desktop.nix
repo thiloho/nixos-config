@@ -5,7 +5,15 @@
     xserver = {
       enable = true;
       displayManager.gdm.enable = true;
-      desktopManager.gnome.enable = true;
+      desktopManager.gnome = {
+        enable = true;
+        extraGSettingsOverridePackages = [ pkgs.gnome.mutter ];
+        # fractional scaling support
+        extraGSettingsOverrides = ''
+          [org.gnome.mutter]
+          experimental-features=['scale-monitor-framebuffer']
+        '';
+      };
       excludePackages = [ pkgs.xterm ];
     };
     pipewire = {
