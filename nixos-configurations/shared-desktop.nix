@@ -96,14 +96,7 @@
           tamasfe.even-better-toml
           mkhl.direnv
           james-yu.latex-workshop
-        ]
-        ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
-          {
-            name = "biome";
-            publisher = "biomejs";
-            version = "2024.3.70509";
-            sha256 = "1v17wb0b789c08kb5idm32jbi404xr90x7xlbcy7zgy3q2z1xpdj";
-          }
+          biomejs.biome
         ];
         userSettings = {
           "nix.enableLanguageServer" = true;
