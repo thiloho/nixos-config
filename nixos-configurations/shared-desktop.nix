@@ -68,6 +68,9 @@
 
   home-manager.users.thiloho = { pkgs, lib, config, ... }: {
     programs = {
+      yt-dlp = {
+        enable = true;
+      };
       firefox = {
         enable = true;
         package = pkgs.firefox-devedition.override {
@@ -143,9 +146,10 @@
         insomnia
         dbeaver-bin
         texliveFull
-        gnome.gnome-tweaks
-        gnome.gnome-themes-extra
+        gnome-tweaks
+        gnome-themes-extra
         melonDS
+        amberol
       ];
     };
   };
