@@ -136,7 +136,6 @@
         psensor
         nil
         zoom-us
-        teamspeak5_client
         qbittorrent
         neofetch
         godot_4
