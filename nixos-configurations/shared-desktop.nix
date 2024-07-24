@@ -86,7 +86,7 @@
         package = pkgs.vscodium;
         mutableExtensionsDir = false;
         extensions = with pkgs.vscode-extensions; [
-          svelte.svelte-vscode
+          # svelte.svelte-vscode
           jnoortheen.nix-ide
           ritwickdey.liveserver
           astro-build.astro-vscode
@@ -100,6 +100,14 @@
           mkhl.direnv
           james-yu.latex-workshop
           biomejs.biome
+        ]
+        ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
+          {
+            name = "svelte-vscode";
+            publisher = "svelte";
+            version = "108.5.4";
+            sha256 = "0sjq5ifnz08pkxslzz2qnrc76gvl6lkygcr3042safbvfral4xm1";
+          }
         ];
         userSettings = {
           "nix.enableLanguageServer" = true;
@@ -142,7 +150,7 @@
         backblaze-b2
         localsend
         mullvad-browser
-        insomnia
+        postman
         dbeaver-bin
         texliveFull
         gnome-tweaks
