@@ -118,6 +118,9 @@
           "workbench.iconTheme" = "material-icon-theme";
           "biome.lspBin" = "./node_modules/@biomejs/biome";
           "svelte.enable-ts-plugin" = true;
+          "files.associations" = {
+            "*.css" = "tailwindcss";
+          };
         };
       };
       git = {
