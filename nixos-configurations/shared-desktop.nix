@@ -89,17 +89,7 @@
           # svelte.svelte-vscode
           jnoortheen.nix-ide
           ritwickdey.liveserver
-          astro-build.astro-vscode
-          dbaeumer.vscode-eslint
-          bradlc.vscode-tailwindcss
           esbenp.prettier-vscode
-          pkief.material-icon-theme
-          unifiedjs.vscode-mdx
-          rust-lang.rust-analyzer
-          tamasfe.even-better-toml
-          mkhl.direnv
-          james-yu.latex-workshop
-          biomejs.biome
         ]
         ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
           {
@@ -115,12 +105,12 @@
           "editor.indentSize" = 2;
           "editor.tabSize" = 2;
           "typescript.preferences.importModuleSpecifier" = "relative";
-          "workbench.iconTheme" = "material-icon-theme";
-          "biome.lspBin" = "./node_modules/@biomejs/biome";
-          "svelte.enable-ts-plugin" = true;
-          "files.associations" = {
-            "*.css" = "tailwindcss";
+          "[svelte]" = {
+            "editor.defaultFormatter" = "svelte.svelte-vscode";
           };
+          "svelte.enable-ts-plugin" = true;
+          "svelte.plugin.svelte.defaultScriptLanguage" = "ts";
+          "svelte.plugin.svelte.format.config.svelteStrictMode" = true;
         };
       };
       git = {
@@ -160,6 +150,7 @@
         gnome-themes-extra
         melonDS
         amberol
+        zed-editor
       ];
     };
   };
