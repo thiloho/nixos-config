@@ -19,11 +19,6 @@
 
   virtualisation.docker.enable = true;
 
-  users.users.thiloho = {
-    isNormalUser = true;
-    extraGroups = [ "wheel" "networkmanager" "docker" ];
-  };
-
   home-manager.users.thiloho = { ... }: {
     programs = {
       bash = {

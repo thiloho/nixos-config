@@ -7,12 +7,12 @@
       displayManager.gdm.enable = true;
       desktopManager.gnome = {
         enable = true;
-        extraGSettingsOverridePackages = [ pkgs.gnome.mutter ];
+        # extraGSettingsOverridePackages = [ pkgs.gnome.mutter ];
         # fractional scaling support
-        extraGSettingsOverrides = ''
-          [org.gnome.mutter]
-          experimental-features=['scale-monitor-framebuffer']
-        '';
+        # extraGSettingsOverrides = ''
+        #   [org.gnome.mutter]
+        #   experimental-features=['scale-monitor-framebuffer']
+        # '';
       };
       excludePackages = [ pkgs.xterm ];
     };
@@ -40,6 +40,19 @@
       '';
     };
   };
+
+  users = {
+    mutableUsers = false;
+    users = {
+      root.hashedPassword = "$y$j9T$BfX6ErL64B97Ug1ZrH1GN.$cK/3FlWSDJ99wpbbwu3hBAPX0jGew/zfJhQKf7/OQ12";
+      thiloho = {
+        isNormalUser = true;
+        extraGroups = [ "wheel" "networkmanager" "docker" ];
+        hashedPassword = "$y$j9T$PmPi.Ji1jDw5rBaKCRepp/$LJLuvnFXiG/8jomOPVwv31R/tKgUmp.W2mKdo08FUK3";
+      };
+    };
+  };
+
 
   networking.firewall = {
     allowedTCPPorts = [ 53317 ];
