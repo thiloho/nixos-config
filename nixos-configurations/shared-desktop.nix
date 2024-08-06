@@ -4,14 +4,18 @@
   services = {
     xserver = {
       enable = true;
-    };
-    displayManager = {
-      sddm = {
+      displayManager.gdm.enable = true;
+      desktopManager.gnome = {
         enable = true;
-        wayland.enable = true;
+        # extraGSettingsOverridePackages = [ pkgs.gnome.mutter ];
+        # fractional scaling support
+        # extraGSettingsOverrides = ''
+        #   [org.gnome.mutter]
+        #   experimental-features=['scale-monitor-framebuffer']
+        # '';
       };
+      excludePackages = [ pkgs.xterm ];
     };
-    desktopManager.plasma6.enable = true;
     pipewire = {
       enable = true;
       alsa.enable = true;
@@ -28,6 +32,7 @@
     postgresql = {
       enable = true;
       package = pkgs.postgresql_15;
+      ensureDatabases = [ "dcbot" "todos" ];
       authentication = lib.mkForce ''
         local all all trust
         host all all 0.0.0.0/0 scram-sha-256
@@ -35,11 +40,6 @@
       '';
     };
   };
-
-  environment.plasma6.excludePackages = with pkgs.kdePackages; [
-    plasma-browser-integration
-    kate
-  ];
 
   users = {
     mutableUsers = false;
@@ -76,6 +76,7 @@
   };
 
   hardware.pulseaudio.enable = false;
+
   hardware.bluetooth.enable = true;
 
   home-manager.users.thiloho = { pkgs, lib, config, ... }: {
@@ -112,7 +113,6 @@
           }
         ];
         userSettings = {
-          "window.titleBarStyle" = "custom";
           "nix.enableLanguageServer" = true;
           "nix.serverPath" = "nil";
           "editor.indentSize" = 2;
@@ -142,17 +142,28 @@
     home = {
       sessionVariables = { NIXOS_OZONE_WL = 1; };
       packages = with pkgs; [
+        libreoffice
+        airshipper
         tldr
         prismlauncher
         ventoy-full
+        psensor
         nil
         zoom-us
         qbittorrent
         neofetch
+        godot_4
         backblaze-b2
         localsend
+        mullvad-browser
         postman
+        dbeaver-bin
+        texliveFull
+        gnome-tweaks
+        gnome-themes-extra
         melonDS
+        amberol
+        zed-editor
       ];
     };
   };
