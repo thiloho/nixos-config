@@ -32,7 +32,6 @@
     postgresql = {
       enable = true;
       package = pkgs.postgresql_15;
-      ensureDatabases = [ "dcbot" "todos" ];
       authentication = lib.mkForce ''
         local all all trust
         host all all 0.0.0.0/0 scram-sha-256
@@ -142,8 +141,6 @@
     home = {
       sessionVariables = { NIXOS_OZONE_WL = 1; };
       packages = with pkgs; [
-        libreoffice
-        airshipper
         tldr
         prismlauncher
         ventoy-full
@@ -152,18 +149,12 @@
         zoom-us
         qbittorrent
         neofetch
-        godot_4
         backblaze-b2
         localsend
-        mullvad-browser
         postman
-        dbeaver-bin
-        texliveFull
         gnome-tweaks
         gnome-themes-extra
         melonDS
-        amberol
-        zed-editor
       ];
     };
   };
