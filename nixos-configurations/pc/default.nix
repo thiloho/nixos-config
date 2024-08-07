@@ -12,8 +12,14 @@
   networking = {
     hostName = "pc";
     firewall = {
-      allowedTCPPorts = [ 5173 8081 ];
-      allowedUDPPorts = [ 5173 8081 ];
+      allowedTCPPorts = [
+        5173
+        8081
+      ];
+      allowedUDPPorts = [
+        5173
+        8081
+      ];
     };
   };
 
@@ -55,13 +61,17 @@
     ''}"
   ];
 
-  home-manager.users.thiloho = { pkgs, lib, ... }: {
-    programs.git.signing.key = "5ECD00BDC15A987E";
-    home = {
-      packages = with pkgs; [ blender inkscape ];
-      stateVersion = "23.05";
+  home-manager.users.thiloho =
+    { pkgs, lib, ... }:
+    {
+      programs.git.signing.key = "5FED02C109365F87";
+      home = {
+        packages = with pkgs; [
+          blender
+          inkscape
+        ];
+        stateVersion = "23.05";
+      };
     };
-  };
   system.stateVersion = "23.05";
 }
-

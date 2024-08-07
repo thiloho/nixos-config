@@ -15,9 +15,13 @@
     package = pkgs.mariadb;
   };
 
-  home-manager.users.thiloho = { pkgs, ... }: {
-    programs.git.signing.key = "5CF074CA31DD6686";
-    home = { stateVersion = "23.05"; };
-  };
+  home-manager.users.thiloho =
+    { pkgs, ... }:
+    {
+      programs.git.signing.key = "5CF074CA31DD6686";
+      home = {
+        stateVersion = "23.05";
+      };
+    };
   system.stateVersion = "23.05";
 }

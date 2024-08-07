@@ -10,27 +10,34 @@
     };
   };
 
-  outputs = inputs@{ nixpkgs, home-manager, ... }: {
-    nixosConfigurations = let
-      mkSystem = entrypoint:
-        nixpkgs.lib.nixosSystem {
-          system = "x86_64-linux";
-          specialArgs = { inherit inputs; };
-          modules = [
-            entrypoint
-            { nix.registry.nixpkgs.flake = nixpkgs; }
-            home-manager.nixosModules.home-manager
-            {
-              home-manager = {
-                useGlobalPkgs = true;
-                useUserPackages = true;
+  outputs =
+    inputs@{ nixpkgs, home-manager, ... }:
+    {
+      nixosConfigurations =
+        let
+          mkSystem =
+            entrypoint:
+            nixpkgs.lib.nixosSystem {
+              system = "x86_64-linux";
+              specialArgs = {
+                inherit inputs;
               };
-            }
-          ];
+              modules = [
+                entrypoint
+                { nix.registry.nixpkgs.flake = nixpkgs; }
+                home-manager.nixosModules.home-manager
+                {
+                  home-manager = {
+                    useGlobalPkgs = true;
+                    useUserPackages = true;
+                  };
+                }
+              ];
+            };
+        in
+        {
+          pc = mkSystem ./nixos-configurations/pc;
+          laptop = mkSystem ./nixos-configurations/laptop;
         };
-    in {
-      pc = mkSystem ./nixos-configurations/pc;
-      laptop = mkSystem ./nixos-configurations/laptop;
     };
-  };
 }
