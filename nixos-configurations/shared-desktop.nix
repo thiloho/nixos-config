@@ -91,7 +91,7 @@
       };
       chromium = {
         enable = true;
-        package = pkgs.brave;
+        package = pkgs.ungoogled-chromium;
       };
       vscode = {
         enable = true;
