@@ -1,18 +1,24 @@
 { pkgs, lib, ... }:
 
 {
+  environment.sessionVariables.NIXOS_OZONE_WL = "1";
+
+  fonts.packages = with pkgs; [
+    jetbrains-mono
+  ];
+
   services = {
     xserver = {
       enable = true;
       displayManager.gdm.enable = true;
       desktopManager.gnome = {
         enable = true;
-        # extraGSettingsOverridePackages = [ pkgs.gnome.mutter ];
+        extraGSettingsOverridePackages = [ pkgs.gnome.mutter ];
         # fractional scaling support
-        # extraGSettingsOverrides = ''
-        #   [org.gnome.mutter]
-        #   experimental-features=['scale-monitor-framebuffer']
-        # '';
+        extraGSettingsOverrides = ''
+          [org.gnome.mutter]
+          experimental-features=['scale-monitor-framebuffer', 'variable-refresh-rate']
+        '';
       };
       excludePackages = [ pkgs.xterm ];
     };
@@ -41,7 +47,6 @@
   };
 
   environment.gnome.excludePackages = with pkgs; [
-    # for packages that are pkgs.*
     gnome-tour
     gnome-connections
     epiphany
@@ -143,6 +148,9 @@
               }
             ];
           userSettings = {
+            "editor.wordWrap" = "on";
+            "editor.fontFamily" = "JetBrains Mono";
+            "editor.fontLigatures" = true;
             "editor.indentSize" = 2;
             "editor.tabSize" = 2;
             "typescript.preferences.importModuleSpecifier" = "relative";
@@ -170,12 +178,8 @@
         obs-studio.enable = true;
       };
       home = {
-        sessionVariables = {
-          NIXOS_OZONE_WL = 1;
-        };
         packages = with pkgs; [
           tldr
-          prismlauncher
           ventoy-full
           psensor
           zoom-us
@@ -188,6 +192,7 @@
           gnome-themes-extra
           melonDS
           amberol
+          prismlauncher
         ];
       };
     };
