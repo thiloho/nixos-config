@@ -24,12 +24,6 @@
   };
 
   boot.kernelParams = [ "amd_iommu=on" ];
-  boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
-
-  programs.ssh.extraConfig = ''
-    Host 128.140.75.240
-      ForwardAgent yes
-  '';
 
   virtualisation.libvirtd.enable = true;
   virtualisation.libvirtd.qemu.swtpm.enable = true;
