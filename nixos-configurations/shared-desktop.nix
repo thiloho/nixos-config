@@ -146,6 +146,12 @@
                 version = "108.5.4";
                 sha256 = "0sjq5ifnz08pkxslzz2qnrc76gvl6lkygcr3042safbvfral4xm1";
               }
+              {
+                name = "playwright";
+                publisher = "ms-playwright";
+                version = "1.1.10";
+                sha256 = "0y0jlrxpjzd7drdmcr9kfy5g12zax9q4d8cblzzb6ia4c98ipfq0";
+              }
             ];
           userSettings = {
             "editor.wordWrap" = "on";
