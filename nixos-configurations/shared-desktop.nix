@@ -13,7 +13,7 @@
       displayManager.gdm.enable = true;
       desktopManager.gnome = {
         enable = true;
-        extraGSettingsOverridePackages = [ pkgs.gnome.mutter ];
+        extraGSettingsOverridePackages = [ pkgs.mutter ];
         # fractional scaling support
         extraGSettingsOverrides = ''
           [org.gnome.mutter]
@@ -53,11 +53,11 @@
     geary
     evince
     gnome-calendar
-    gnome.gnome-contacts
-    gnome.gnome-weather
-    gnome.gnome-maps
-    gnome.gnome-clocks
-    gnome.gnome-music
+    gnome-contacts
+    gnome-weather
+    gnome-maps
+    gnome-clocks
+    gnome-music
     snapshot
     simple-scan
   ];
