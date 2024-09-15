@@ -197,8 +197,10 @@
           gnome-tweaks
           gnome-themes-extra
           melonDS
-          amberol
           prismlauncher
+          papers
+          endeavour
+          gapless
         ];
       };
     };
