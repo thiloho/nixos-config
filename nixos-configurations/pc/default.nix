@@ -67,7 +67,6 @@
       programs.git.signing.key = "5FED02C109365F87";
       home = {
         packages = with pkgs; [
-          blender
           inkscape
         ];
         stateVersion = "23.05";

@@ -49,7 +49,6 @@
   environment.gnome.excludePackages = with pkgs; [
     gnome-tour
     gnome-connections
-    epiphany
     geary
     evince
     gnome-calendar
@@ -187,7 +186,6 @@
         packages = with pkgs; [
           tldr
           ventoy-full
-          psensor
           zoom-us
           qbittorrent
           neofetch
