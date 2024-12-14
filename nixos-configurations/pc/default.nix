@@ -23,6 +23,10 @@
     };
   };
 
+  environment.sessionVariables = {
+    MUTTER_DEBUG_DISABLE_HW_CURSORS = "1";
+  };
+
   boot.kernelParams = [ "amd_iommu=on" ];
 
   virtualisation.libvirtd.enable = true;

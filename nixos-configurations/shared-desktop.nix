@@ -186,7 +186,6 @@
         packages = with pkgs; [
           tldr
           ventoy-full
-          zoom-us
           qbittorrent
           neofetch
           backblaze-b2
