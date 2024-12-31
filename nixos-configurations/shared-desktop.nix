@@ -198,6 +198,7 @@
           papers
           endeavour
           gapless
+          mullvad-browser
         ];
       };
     };
