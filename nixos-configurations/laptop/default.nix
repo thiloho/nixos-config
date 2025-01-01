@@ -10,6 +10,14 @@
 
   networking.hostName = "laptop";
 
+  boot.initrd = {
+    luks.devices = {
+      cryptroot = {
+        device = "/dev/disk/by-uuid/82ba475d-faa1-488f-82c4-77c1b7bb48da";
+      };
+    };
+  };
+
   services.mysql = {
     enable = true;
     package = pkgs.mariadb;

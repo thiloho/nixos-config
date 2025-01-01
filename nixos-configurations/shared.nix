@@ -14,7 +14,7 @@
     "flakes"
   ];
 
-  time.timeZone = "Europe/Amsterdam";
+  time.timeZone = "Europe/Berlin";
 
   nixpkgs.config.allowUnfree = true;
 
