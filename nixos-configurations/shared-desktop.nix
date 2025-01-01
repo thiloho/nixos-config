@@ -199,6 +199,7 @@
           endeavour
           gapless
           mullvad-browser
+          picocrypt-cli
         ];
       };
     };
