@@ -23,6 +23,14 @@
     };
   };
 
+  boot.initrd = {
+    luks.devices = {
+      cryptroot = {
+        device = "/dev/disk/by-uuid/c5c34e4a-ae75-42a2-a13e-3b411300b25e";
+      };
+    };
+  };
+
   environment.sessionVariables = {
     MUTTER_DEBUG_DISABLE_HW_CURSORS = "1";
   };
