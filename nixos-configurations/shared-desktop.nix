@@ -64,7 +64,7 @@
   users = {
     mutableUsers = false;
     users = {
-      root.hashedPassword = "$y$j9T$BfX6ErL64B97Ug1ZrH1GN.$cK/3FlWSDJ99wpbbwu3hBAPX0jGew/zfJhQKf7/OQ12";
+      root.hashedPassword = "$y$j9T$gdQiD91dRc1rEURkntnkh1$9VvI8xhvCMqhSSOeOkiSnjHsQVUOOH/4Sbou.w6P5TC";
       thiloho = {
         isNormalUser = true;
         extraGroups = [
@@ -72,7 +72,7 @@
           "networkmanager"
           "docker"
         ];
-        hashedPassword = "$y$j9T$PmPi.Ji1jDw5rBaKCRepp/$LJLuvnFXiG/8jomOPVwv31R/tKgUmp.W2mKdo08FUK3";
+        hashedPassword = "$y$j9T$0wgXXBJMy5lzuwmdvx5Lb.$G5JmfDXeXzH7sq66R.clvmlovuh1ZsZMf1SfDsWpNcB";
       };
     };
   };

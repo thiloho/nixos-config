@@ -76,7 +76,7 @@
   home-manager.users.thiloho =
     { pkgs, lib, ... }:
     {
-      programs.git.signing.key = "5FED02C109365F87";
+      programs.git.signing.key = "70299F9ED1519D23";
       home = {
         packages = with pkgs; [
           inkscape
