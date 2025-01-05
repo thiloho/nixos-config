@@ -18,18 +18,13 @@
     };
   };
 
-  services.mysql = {
-    enable = true;
-    package = pkgs.mariadb;
-  };
-
   home-manager.users.thiloho =
     { pkgs, ... }:
     {
       programs.git.signing.key = "3B62137A89493F7D";
       home = {
-        stateVersion = "23.05";
+        stateVersion = "24.11";
       };
     };
-  system.stateVersion = "23.05";
+  system.stateVersion = "24.11";
 }

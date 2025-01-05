@@ -81,8 +81,8 @@
         packages = with pkgs; [
           inkscape
         ];
-        stateVersion = "23.05";
+        stateVersion = "24.11";
       };
     };
-  system.stateVersion = "23.05";
+  system.stateVersion = "24.11";
 }

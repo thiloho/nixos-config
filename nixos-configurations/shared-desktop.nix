@@ -13,12 +13,6 @@
       displayManager.gdm.enable = true;
       desktopManager.gnome = {
         enable = true;
-        extraGSettingsOverridePackages = [ pkgs.mutter ];
-        # fractional scaling support
-        extraGSettingsOverrides = ''
-          [org.gnome.mutter]
-          experimental-features=['scale-monitor-framebuffer', 'variable-refresh-rate']
-        '';
       };
       excludePackages = [ pkgs.xterm ];
     };
@@ -34,15 +28,6 @@
     mullvad-vpn = {
       enable = true;
       package = pkgs.mullvad-vpn;
-    };
-    postgresql = {
-      enable = true;
-      package = pkgs.postgresql_15;
-      authentication = lib.mkForce ''
-        local all all trust
-        host all all 0.0.0.0/0 scram-sha-256
-        host all all ::1/128 scram-sha-256
-      '';
     };
   };
 
@@ -83,6 +68,7 @@
   };
 
   programs = {
+    dconf.enable = true;
     steam.enable = true;
     gnupg.agent = {
       enable = true;
@@ -110,6 +96,15 @@
       ...
     }:
     {
+      dconf.settings = {
+        "org/gnome/mutter" = {
+          experimental-features = [
+            "scale-monitor-framebuffer"
+            "variable-refresh-rate"
+            "xwayland-native-scaling"
+          ];
+        };
+      };
       programs = {
         yt-dlp = {
           enable = true;
