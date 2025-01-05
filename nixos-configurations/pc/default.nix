@@ -26,7 +26,7 @@
   boot.initrd = {
     luks.devices = {
       cryptroot = {
-        device = "/dev/disk/by-uuid/c5c34e4a-ae75-42a2-a13e-3b411300b25e";
+        device = "/dev/disk/by-uuid/1202158c-cf4a-49f5-83f6-d54af16bca65";
       };
     };
   };
