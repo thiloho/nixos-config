@@ -36,11 +36,8 @@
     gnome-connections
     geary
     evince
-    gnome-calendar
     gnome-contacts
-    gnome-weather
     gnome-maps
-    gnome-clocks
     gnome-music
     snapshot
     simple-scan
@@ -84,7 +81,7 @@
     };
   };
 
-  hardware.pulseaudio.enable = false;
+  services.pulseaudio.enable = false;
 
   hardware.bluetooth.enable = true;
 
@@ -195,6 +192,7 @@
           gapless
           mullvad-browser
           picocrypt-cli
+          tutanota-desktop
         ];
       };
     };

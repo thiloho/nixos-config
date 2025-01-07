@@ -32,7 +32,7 @@
   };
 
   environment.sessionVariables = {
-    MUTTER_DEBUG_DISABLE_HW_CURSORS = "1";
+    MUTTER_DEBUG_FORCE_KMS_MODE = "simple";
   };
 
   boot.kernelParams = [ "amd_iommu=on" ];
@@ -76,7 +76,7 @@
   home-manager.users.thiloho =
     { pkgs, lib, ... }:
     {
-      programs.git.signing.key = "70299F9ED1519D23";
+      programs.git.signing.key = "273D6150B9741CCF";
       home = {
         packages = with pkgs; [
           inkscape
