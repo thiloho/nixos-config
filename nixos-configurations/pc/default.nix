@@ -1,12 +1,15 @@
 { inputs, pkgs, ... }:
-
 {
   imports = [
     inputs.nixos-hardware.nixosModules.common-gpu-amd
     inputs.nixos-hardware.nixosModules.common-cpu-amd
     ./hardware-configuration.nix
-    ../shared-desktop.nix
-    ../shared.nix
+
+    ../../modules/core.nix
+    ../../modules/desktop.nix
+    ../../modules/development.nix
+    ../../modules/home.nix
+    ../../modules/media.nix
   ];
 
   networking = {
@@ -23,28 +26,22 @@
     };
   };
 
-  boot.initrd = {
-    luks.devices = {
-      cryptroot = {
-        device = "/dev/disk/by-uuid/1202158c-cf4a-49f5-83f6-d54af16bca65";
-      };
+  boot = {
+    initrd.luks.devices.cryptroot = {
+      device = "/dev/disk/by-uuid/1202158c-cf4a-49f5-83f6-d54af16bca65";
     };
+    kernelParams = [ "amd_iommu=on" ];
+    kernelModules = [ "v4l2loopback" ];
+    extraModulePackages = [ pkgs.linuxPackages_latest.v4l2loopback ];
+    extraModprobeConfig = ''
+      options v4l2loopback exclusive_caps=1 card_label="Virtual Webcam"
+    '';
   };
 
   environment.sessionVariables = {
-    MUTTER_DEBUG_FORCE_KMS_MODE = "simple";
+    MUTTER_DEBUG_DISABLE_HW_CURSORS = "1";
   };
 
-  boot.kernelParams = [ "amd_iommu=on" ];
-
-  virtualisation.libvirtd.enable = true;
-  virtualisation.libvirtd.qemu.swtpm.enable = true;
-  programs.virt-manager.enable = true;
-
-  programs.adb.enable = true;
-  users.users.thiloho.extraGroups = [ "adbusers" ];
-
-  # Use same monitor settings for GDM as for GNOME user
   systemd.tmpfiles.rules = [
     "L+ /run/gdm/.config/monitors.xml - - - - ${pkgs.writeText "gdm-monitors.xml" ''
       <monitors version="2">
@@ -73,16 +70,17 @@
     ''}"
   ];
 
-  home-manager.users.thiloho =
-    { pkgs, lib, ... }:
-    {
-      programs.git.signing.key = "273D6150B9741CCF";
-      home = {
-        packages = with pkgs; [
-          inkscape
-        ];
-        stateVersion = "24.11";
-      };
+  home-manager.users.thiloho = {
+    programs.git.signing.key = "273D6150B9741CCF";
+    xdg.desktopEntries.andcam = {
+      name = "Android Virtual Camera";
+      exec = "${pkgs.writeScript "andcam" ''
+        ${pkgs.android-tools}/bin/adb start-server
+        ${pkgs.scrcpy}/bin/scrcpy --camera-id=0 --video-source=camera --no-audio --v4l2-sink=/dev/video0 -m1024
+      ''}";
     };
+    home.stateVersion = "24.11";
+  };
+
   system.stateVersion = "24.11";
 }
