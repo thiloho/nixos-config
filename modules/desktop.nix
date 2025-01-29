@@ -44,6 +44,7 @@
       dynamic-workspaces = true;
       workspaces-only-on-primary = false;
       edge-tiling = true;
+      center-new-windows = true;
     };
 
     "org/gnome/shell" = {
@@ -58,6 +59,7 @@
         "codium.desktop"
         "org.gnome.Nautilus.desktop"
       ];
+      disable-user-extensions = true;
     };
 
     "org/gnome/shell/app-switcher" = {
