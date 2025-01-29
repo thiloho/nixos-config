@@ -107,6 +107,7 @@
       picocrypt-cli
       tutanota-desktop
       inkscape
+      discord
     ];
   };
 }

@@ -50,6 +50,7 @@
     "org/gnome/shell" = {
       favorite-apps = [
         "com.github.neithern.g4music.desktop"
+        "discord.desktop"
         "firefox-devedition.desktop"
         "mullvad-browser.desktop"
         "mullvad-vpn.desktop"
