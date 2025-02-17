@@ -95,7 +95,6 @@
       ventoy-full
       qbittorrent
       neofetch
-      backblaze-b2
       localsend
       postman
       melonDS

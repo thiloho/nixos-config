@@ -59,19 +59,19 @@
         "org.gnome.Console.desktop"
         "codium.desktop"
         "org.gnome.Nautilus.desktop"
+        "org.prismlauncher.PrismLauncher.desktop"
       ];
       disable-user-extensions = true;
     };
 
     "org/gnome/shell/app-switcher" = {
-      current-workspace-only = false;
+      current-workspace-only = true;
     };
 
     "org/gnome/desktop/interface" = {
       color-scheme = "prefer-dark";
       accent-color = "purple";
       enable-hot-corners = true;
-      locate-pointer = true;
       gtk-theme = "Adwaita-dark";
     };
 
