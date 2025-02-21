@@ -74,11 +74,6 @@
         };
       };
 
-      chromium = {
-        enable = true;
-        package = pkgs.ungoogled-chromium;
-      };
-
       direnv = {
         enable = true;
         enableBashIntegration = true;
