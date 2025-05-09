@@ -29,20 +29,8 @@
             jnoortheen.nix-ide
             ritwickdey.liveserver
             esbenp.prettier-vscode
-          ]
-          ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
-            {
-              name = "svelte-vscode";
-              publisher = "svelte";
-              version = "108.5.4";
-              sha256 = "0sjq5ifnz08pkxslzz2qnrc76gvl6lkygcr3042safbvfral4xm1";
-            }
-            {
-              name = "playwright";
-              publisher = "ms-playwright";
-              version = "1.1.10";
-              sha256 = "0y0jlrxpjzd7drdmcr9kfy5g12zax9q4d8cblzzb6ia4c98ipfq0";
-            }
+            astro-build.astro-vscode
+            svelte.svelte-vscode
           ];
         userSettings = {
           "editor.wordWrap" = "on";
@@ -87,7 +75,6 @@
       neofetch
       localsend
       postman
-      melonDS
       prismlauncher
       papers
       endeavour
@@ -97,6 +84,7 @@
       tutanota-desktop
       inkscape
       discord
+      onlyoffice-desktopeditors
     ];
   };
 }
