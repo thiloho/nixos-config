@@ -39,6 +39,7 @@
           "editor.indentSize" = 2;
           "editor.tabSize" = 2;
           "typescript.preferences.importModuleSpecifier" = "relative";
+          "editor.defaultFormatter" = "esbenp.prettier-vscode";
           "[svelte]" = {
             "editor.defaultFormatter" = "svelte.svelte-vscode";
           };
